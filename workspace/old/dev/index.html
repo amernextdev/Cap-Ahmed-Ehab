@@ -1,0 +1,866 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<!-- ============================================================
+     أحمد إيهاب — Online Coaching Landing Page
+     الإصدار: 20260419
+     المطوّر: AmerDev (https://amerdev.pages.dev)
+     ============================================================ -->
+
+<head>
+
+  <!-- ─── المعلومات الأساسية ─────────────────────────────── -->
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+
+  <title>أحمد إيهاب | اونلاين كوتشينج — تخسيس وبناء عضل</title>
+
+  <!-- ─── وصف الصفحة لمحركات البحث ───────────────────────── -->
+  <meta name="description"
+    content="برنامج تحول جسماني أونلاين 100% مع كابتن أحمد إيهاب — خطة تغذية مخصصة، برنامج تمرين، ومتابعة يومية على واتساب. سواء هدفك تخسيس أو زيادة عضل، بنبدأ سوا.">
+  <meta name="keywords"
+    content="كوتش اونلاين, تحول جسماني, تخسيس, زيادة عضل, برنامج رجيم, كوتش مصر, تدريب اونلاين, احمد ايهاب, متابعة واتساب, خطة تغذية">
+  <meta name="author"  content="أحمد إيهاب">
+  <meta name="robots"  content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+  <meta name="theme-color" content="#2a6b4a">
+
+  <!-- ─── الرابط الأساسي (Canonical) ─────────────────────── -->
+  <link rel="canonical" href="https://online-coaching-45o.pages.dev/">
+
+  <!-- ─── Open Graph (Facebook / LinkedIn / WhatsApp) ──────── -->
+  <meta property="og:type"        content="website">
+  <meta property="og:locale"      content="ar_EG">
+  <meta property="og:site_name"   content="أحمد إيهاب — Online Coaching">
+  <meta property="og:url"         content="https://online-coaching-45o.pages.dev/">
+  <meta property="og:title"       content="أحمد إيهاب | اونلاين كوتشينج">
+  <meta property="og:description" content="خطة تغذية + تمرين مخصصة ومتابعة يومية على واتساب. ابدأ تحولك دلوقتي.">
+  <meta property="og:image"       content="https://online-coaching-45o.pages.dev/assets/images/branding/og-image.jpg">
+  <meta property="og:image:width"  content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt"   content="أحمد إيهاب — اونلاين كوتشينج">
+
+  <!-- ─── Twitter Card ────────────────────────────────────── -->
+  <meta name="twitter:card"        content="summary_large_image">
+  <meta name="twitter:title"       content="أحمد إيهاب | اونلاين كوتشينج">
+  <meta name="twitter:description" content="خطة تغذية + تمرين مخصصة ومتابعة يومية على واتساب. ابدأ تحولك دلوقتي.">
+  <meta name="twitter:image"       content="https://online-coaching-45o.pages.dev/assets/images/branding/og-image.jpg">
+
+  <!-- ─── إعدادات تطبيق الجوال (PWA / Apple) ──────────────── -->
+  <meta name="mobile-web-app-capable"            content="yes">
+  <meta name="apple-mobile-web-app-capable"      content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <meta name="apple-mobile-web-app-title"        content="أحمد إيهاب">
+  <link rel="apple-touch-icon" href="assets/images/branding/apple-touch-icon.png">
+
+  <!-- ─── Schema.org — بيانات منظَّمة للـ SEO ─────────────── -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "أحمد إيهاب",
+    "jobTitle": "Online Fitness & Nutrition Coach",
+    "description": "كوتش تحول جسماني أونلاين متخصص في التخسيس وبناء العضل مع متابعة يومية على واتساب",
+    "url": "https://online-coaching-45o.pages.dev/",
+    "telephone": "+201204596397",
+    "sameAs": [
+      "https://www.instagram.com/a.ehab_1",
+      "https://www.tiktok.com/@a.ehab_1",
+      "https://wa.me/201204596397"
+    ],
+    "knowsAbout": [
+      "Fitness Coaching",
+      "Nutrition Planning",
+      "Body Transformation",
+      "Weight Loss",
+      "Muscle Building"
+    ],
+    "offers": {
+      "@type": "Offer",
+      "name": "برنامج تحول جسماني أونلاين",
+      "priceCurrency": "EGP",
+      "price": "899",
+      "description": "خطة تغذية ومتابعة أونلاين مع كوتش أحمد إيهاب"
+    }
+  }
+  </script>
+
+  <!-- ─── Favicon ──────────────────────────────────────────── -->
+  <link rel="icon" type="image/x-icon" href="assets/images/branding/favicon.ico?v=20260407.8">
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/images/branding/favicon-32x32.png?v=20260407.8">
+  <link rel="icon" type="image/png" sizes="16x16" href="assets/images/branding/favicon-16x16.png?v=20260407.8">
+
+  <!-- ─── Stylesheets ──────────────────────────────────────── -->
+  <link rel="stylesheet" href="assets/libs/fontawesome/css/all.min.css">
+  <link rel="stylesheet" href="assets/css/fonts.css">
+  <link rel="stylesheet" href="assets/css/all.min.css?v=20260419.0750">
+
+</head>
+
+<body>
+
+  <!-- ════════════════════════════════════════════════════════
+       NAV — شريط التنقل الثابت في الأعلى
+       ════════════════════════════════════════════════════════ -->
+  <nav id="topNav" dir="ltr">
+    <div class="nav-logo">Ahmed <span>Ehab</span></div>
+    <a href="#contact" class="nav-cta">
+      ابدأ تحولك
+      <i class="fa-solid fa-arrow-left"></i>
+    </a>
+  </nav>
+
+
+  <!-- ════════════════════════════════════════════════════════
+       HERO — القسم الرئيسي (الشاشة الأولى)
+       ════════════════════════════════════════════════════════ -->
+  <section class="hero">
+
+    <!-- النص والـ CTA -->
+    <div class="hero-left">
+
+      <div class="hero-tag">Online Body Transformation Coaching</div>
+
+      <h1 class="hero-h1">
+        لو جربت قبل كده<br>
+        ومحصلتش نتيجة —<br>
+        <em>المشكلة مش فيك</em>
+      </h1>
+
+      <p class="hero-sub">
+        البرامج الجاهزة مش بتشتغل لأنها مش مخصصة ليك.
+        أنا بشتغل معاك <strong>شخصيًا</strong> — أفهم جسمك وظروفك الفعلية،
+        وأعملك خطة تقدر تلتزم بيها وتشوف فرق <strong>من الأسبوع الأول.</strong>
+      </p>
+
+      <!-- أزرار الـ Call-to-Action -->
+      <div class="hero-actions">
+        <a href="#pricing" class="btn-main">
+          <i class="fa-solid fa-arrow-down"></i>
+          اشترك الآن
+        </a>
+        <a href="#offer" class="btn-text details">
+          شوف التفاصيل
+          <i class="fa-solid fa-arrow-down"></i>
+        </a>
+      </div>
+
+      <!-- Social Proof — عدد المتدربين -->
+      <div class="proof-row">
+        <div class="proof-avatars">
+          <span>م</span><span>أ</span><span>س</span><span>ي</span>
+        </div>
+        <div class="proof-text">
+          <strong>+50 متدرب</strong> غيّروا أجسامهم<br>مع أحمد إيهاب
+        </div>
+      </div>
+
+    </div><!-- /hero-left -->
+
+    <!-- صورة المدرب -->
+    <div class="hero-right">
+      <img src="assets/images/other/trainer.jpg" alt="Ahmed Ehab Trainer">
+    </div>
+
+  </section><!-- /hero -->
+
+
+  <!-- ════════════════════════════════════════════════════════
+       TRUST STRIP — شريط الثقة السريع
+       ════════════════════════════════════════════════════════ -->
+  <div class="trust-strip">
+    <div class="trust-item">
+      <i class="fa-solid fa-circle-check"></i>
+      متابعة شخصية
+    </div>
+    <div class="trust-item">
+      <i class="fa-solid fa-circle-check"></i>
+      خطة غذائية مخصصة
+    </div>
+    <div class="trust-item">
+      <i class="fa-solid fa-circle-check"></i>
+      برنامج تمرين حسب جسمك
+    </div>
+    <div class="trust-item">
+      <i class="fa-solid fa-circle-check"></i>
+      تواصل مباشر على واتساب
+    </div>
+  </div><!-- /trust-strip -->
+
+
+  <!-- ════════════════════════════════════════════════════════
+       PROBLEM — قسم "ليه البرامج الجاهزة مش بتشتغل"
+       ════════════════════════════════════════════════════════ -->
+  <section class="problem">
+
+    <div class="s-label reveal">المشكلة</div>
+    <h2 class="s-title reveal">ليه البرامج الجاهزة<br>مش بتشتغل معاك؟</h2>
+    <p class="s-body reveal">لأنها مش عارفاك. جسمك مختلف، وقتك مختلف، ظروفك مختلفة. محتاج حد يشتغل معاك أنت — مش مع "المتوسط".</p>
+
+    <div class="problem-grid">
+
+      <div class="prob-card reveal">
+        <div class="prob-icon"><i class="fa-solid fa-copy"></i></div>
+        <h3>برامج copy-paste</h3>
+        <p>نفس البرنامج بيتباع لآلاف الناس من غير ما حد يعرف إيه ظروفك الفعلية.</p>
+      </div>
+
+      <div class="prob-card reveal">
+        <div class="prob-icon"><i class="fa-solid fa-person-circle-question"></i></div>
+        <h3>مفيش متابعة حقيقية</h3>
+        <p>بتبدأ، بعدين بتوقف، ومفيش حد يسألك ليه أو يعدل معاك الخطة.</p>
+      </div>
+
+      <div class="prob-card reveal">
+        <div class="prob-icon"><i class="fa-solid fa-circle-exclamation"></i></div>
+        <h3>معلومات كتير ومتضاربة</h3>
+        <p>كل حد بيقولك حاجة تانية ومحتاج خبير يشوف حالتك تحديدًا.</p>
+      </div>
+
+      <div class="prob-card reveal">
+        <div class="prob-icon"><i class="fa-solid fa-clock"></i></div>
+        <h3>إلتزام صعب</h3>
+        <p>الخطة مش متناسبة مع وقتك وحياتك فبتحس إنها مستحيلة من الأول.</p>
+      </div>
+
+    </div><!-- /problem-grid -->
+
+  </section><!-- /problem -->
+
+
+  <!-- ════════════════════════════════════════════════════════
+       VISUAL BANNER — بانر اقتباس مع خلفية Parallax
+       ════════════════════════════════════════════════════════ -->
+  <section class="visual-banner">
+    <div class="banner-content reveal">
+      <h2 class="banner-quote">
+        "الهدف مش بس تغيير شكلك، الهدف هو بناء نسخة أقوى من نفسك."
+      </h2>
+    </div>
+  </section><!-- /visual-banner -->
+
+
+  <!-- ════════════════════════════════════════════════════════
+       HOW — قسم "الطريقة" — ٤ خطوات للتحول
+       ════════════════════════════════════════════════════════ -->
+  <section class="how" id="how">
+
+    <div class="s-label reveal">الطريقة</div>
+    <h2 class="s-title reveal">٤ خطوات بسيطة<br>للتحول الحقيقي</h2>
+
+    <div class="how-steps">
+
+      <div class="step reveal">
+        <div class="step-num">١</div>
+        <h3>تقييم كامل</h3>
+        <p>أفهم جسمك، مستواك، هدفك، وظروف حياتك اليومية بالكامل.</p>
+      </div>
+
+      <div class="step reveal">
+        <div class="step-num">٢</div>
+        <h3>خطة مخصصة</h3>
+        <p>برنامج تمرين وتغذية مصمم خصيصًا ليك، ومش هيناسبش أي حد غيرك.</p>
+      </div>
+
+      <div class="step reveal">
+        <div class="step-num">٣</div>
+        <h3>متابعة أسبوعية</h3>
+        <p>بتابعك باستمرار وبعدّل الخطة حسب تقدمك وأي تغيير في ظروفك.</p>
+      </div>
+
+      <div class="step reveal">
+        <div class="step-num">٤</div>
+        <h3>نتايج واضحة</h3>
+        <p>تشوف فرق حقيقي ملموس في جسمك وأنت قادر تحافظ عليه.</p>
+      </div>
+
+    </div><!-- /how-steps -->
+
+  </section><!-- /how -->
+
+
+  <!-- ════════════════════════════════════════════════════════
+       OFFER — قسم "إيه اللي بتاخده"
+       ════════════════════════════════════════════════════════ -->
+  <section class="offer" id="offer">
+
+    <div class="s-label reveal">إيه اللي بتاخده</div>
+    <h2 class="s-title reveal">كل البرامج مصممة شخصيًا<br>بدون أي وسيط</h2>
+
+    <div class="offer-grid">
+
+      <div class="offer-item reveal">
+        <div class="offer-icon"><i class="fa-solid fa-bullseye"></i></div>
+        <div>
+          <h3>نظام مخصص لهدفك</h3>
+          <p>سواء هدفك تخسيس، زيادة عضل، أو خسارة دهون وزيادة كتلة — الخطة بتتبني على هدفك أنت.</p>
+        </div>
+      </div>
+
+      <div class="offer-item reveal">
+        <div class="offer-icon"><i class="fa-solid fa-utensils"></i></div>
+        <div>
+          <h3>نظام أكل مرن</h3>
+          <p>بتختار الأكل اللي بتحبه — مش diet قاسية. والخطة بتتحدث بانتظام عشان تفضل مستمر.</p>
+        </div>
+      </div>
+
+      <div class="offer-item reveal">
+        <div class="offer-icon"><i class="fa-solid fa-dumbbell"></i></div>
+        <div>
+          <h3>جدول تمرين بالفيديوهات</h3>
+          <p>برنامج تمرين كامل بالفيديوهات — سواء بتتمرن في الجيم أو في البيت.</p>
+        </div>
+      </div>
+
+      <div class="offer-item reveal">
+        <div class="offer-icon"><i class="fa-solid fa-heart-pulse"></i></div>
+        <div>
+          <h3>تعديل حسب حالتك الصحية</h3>
+          <p>لو عندك أي ظرف صحي خاص، الخطة بتتعدل معاه — مش هناخد خطر على صحتك.</p>
+        </div>
+      </div>
+
+      <div class="offer-item reveal">
+        <div class="offer-icon"><i class="fa-solid fa-chart-line"></i></div>
+        <div>
+          <h3>متابعة وتقييم للتطور</h3>
+          <p>بقيس تقدمك بانتظام وبعدل الخطة عشان تفضل مستمر في التقدم.</p>
+        </div>
+      </div>
+
+      <div class="offer-item reveal">
+        <div class="offer-icon"><i class="fa-brands fa-whatsapp"></i></div>
+        <div>
+          <h3>متابعة يومية على واتساب</h3>
+          <p>أي سؤال أي وقت — بترد عليك أنا شخصياً، مش bot مش assistant.</p>
+        </div>
+      </div>
+
+      <div class="offer-item reveal">
+        <div class="offer-icon"><i class="fa-solid fa-capsules"></i></div>
+        <div>
+          <h3>
+            ترشيحات مكملات
+            <span style="font-size:0.78rem; color:var(--muted); font-weight:400;">(اختياري)</span>
+          </h3>
+          <p>لو محتاج دعم إضافي، بقدر أرشحلك المكملات المناسبة لهدفك وميزانيتك.</p>
+        </div>
+      </div>
+
+    </div><!-- /offer-grid -->
+
+  </section><!-- /offer -->
+
+
+  <!-- ════════════════════════════════════════════════════════
+       TRANSFORMS — نتايج حقيقية + آراء المتدربين
+       ════════════════════════════════════════════════════════ -->
+  <section class="transforms-sec">
+
+    <div class="s-label reveal">نتايج حقيقية</div>
+    <h2 class="s-title reveal">التحولات بتتكلم عن نفسها</h2>
+
+    <!-- Carousel الصور قبل / بعد -->
+    <div class="transforms-wrapper">
+
+      <button class="tr-arrow tr-prev" aria-label="السابق">
+        <i class="fa-solid fa-chevron-right"></i>
+      </button>
+
+      <div class="transforms-track-outer">
+        <div class="transforms-track" id="transformsTrack">
+
+          <!-- كارت تحول ١ -->
+          <div class="tr-card">
+            <div class="tr-images">
+              <div class="tr-img-wrap w_one_before">
+                <picture>
+                  <source srcset="assets/images/transformers/one/1_before.avif?v=20260407.8" type="image/avif">
+                  <source srcset="assets/images/transformers/one/1_before.webp" type="image/webp">
+                  <img src="assets/images/transformers/one/1_before.jpg?v=20260407.8"
+                       class="one_before" alt="قبل - تحول 1" loading="lazy">
+                </picture>
+                <span class="tr-badge before">قبل</span>
+              </div>
+              <div class="tr-divider"><span>VS</span></div>
+              <div class="tr-img-wrap">
+                <picture>
+                  <source srcset="assets/images/transformers/one/1_after.avif?v=20260407.8" type="image/avif">
+                  <source srcset="assets/images/transformers/one/1_after.webp" type="image/webp">
+                  <img src="assets/images/transformers/one/1_after.jpg?v=20260407.8"
+                       alt="بعد - تحول 1" loading="lazy">
+                </picture>
+                <span class="tr-badge after">بعد</span>
+              </div>
+            </div>
+          </div><!-- /tr-card 1 -->
+
+          <!-- كارت تحول ٢ -->
+          <div class="tr-card">
+            <div class="tr-images two_before">
+              <div class="tr-img-wrap w_two_before">
+                <picture>
+                  <source srcset="assets/images/transformers/two/2_before.avif?v=20260407.8" type="image/avif">
+                  <source srcset="assets/images/transformers/two/2_before.webp" type="image/webp">
+                  <img src="assets/images/transformers/two/2_before.jpg?v=20260407.8"
+                       alt="قبل - تحول 2" loading="lazy">
+                </picture>
+                <span class="tr-badge before">قبل</span>
+              </div>
+              <div class="tr-divider"><span>VS</span></div>
+              <div class="tr-img-wrap">
+                <picture>
+                  <source srcset="assets/images/transformers/two/2_after.avif?v=20260407.8" type="image/avif">
+                  <source srcset="assets/images/transformers/two/2_after.webp" type="image/webp">
+                  <img src="assets/images/transformers/two/2_after.jpg?v=20260407.8"
+                       alt="بعد - تحول 2" loading="lazy">
+                </picture>
+                <span class="tr-badge after">بعد</span>
+              </div>
+            </div>
+          </div><!-- /tr-card 2 -->
+
+          <!-- كارت تحول ٣ -->
+          <div class="tr-card">
+            <div class="tr-images">
+              <div class="tr-img-wrap">
+                <picture>
+                  <source srcset="assets/images/transformers/three/3_before.avif?v=20260407.8" type="image/avif">
+                  <source srcset="assets/images/transformers/three/3_before.webp" type="image/webp">
+                  <img src="assets/images/transformers/three/3_before.jpg?v=20260407.8"
+                       alt="قبل - تحول 3" loading="lazy">
+                </picture>
+                <span class="tr-badge before">قبل</span>
+              </div>
+              <div class="tr-divider"><span>VS</span></div>
+              <div class="tr-img-wrap">
+                <picture>
+                  <source srcset="assets/images/transformers/three/3_after.avif?v=20260407.8" type="image/avif">
+                  <source srcset="assets/images/transformers/three/3_after.webp" type="image/webp">
+                  <img src="assets/images/transformers/three/3_after.jpg?v=20260407.8"
+                       alt="بعد - تحول 3" loading="lazy">
+                </picture>
+                <span class="tr-badge after">بعد</span>
+              </div>
+            </div>
+          </div><!-- /tr-card 3 -->
+
+        </div><!-- /transforms-track -->
+      </div><!-- /transforms-track-outer -->
+
+      <button class="tr-arrow tr-next" aria-label="التالي">
+        <i class="fa-solid fa-chevron-left"></i>
+      </button>
+
+    </div><!-- /transforms-wrapper -->
+
+    <!-- نقاط التنقل (Dots) -->
+    <div class="tr-dots">
+      <span class="tr-dot active"></span>
+      <span class="tr-dot"></span>
+      <span class="tr-dot"></span>
+    </div>
+
+    <div class="transforms-divider"></div>
+
+    <!-- ──────────────────────────────────────────────────────
+         آراء المتدربين (Feedback Cards)
+         ────────────────────────────────────────────────────── -->
+    <div class="s-label reveal">آراء المتدربين</div>
+    <h2 class="s-title reveal">ناس زيك، غيّروا أجسامهم</h2>
+
+    <div class="feedback-row">
+
+      <div class="fb-card">
+        <div class="fb-screen">
+          <picture>
+            <source srcset="assets/images/feedbacks/one/feedback_1.avif" type="image/avif">
+            <source srcset="assets/images/feedbacks/one/feedback_1.webp" type="image/webp">
+            <img src="assets/images/feedbacks/one/feedback_1.jpg" alt="فيدباك 1" loading="lazy">
+          </picture>
+        </div>
+        <div class="fb-name">مصطفى</div>
+      </div>
+
+      <div class="fb-card">
+        <div class="fb-screen">
+          <picture>
+            <source srcset="assets/images/feedbacks/two/feedback_2.avif" type="image/avif">
+            <source srcset="assets/images/feedbacks/two/feedback_2.webp" type="image/webp">
+            <img src="assets/images/feedbacks/two/feedback_2.jpg" alt="فيدباك 2" loading="lazy">
+          </picture>
+        </div>
+        <div class="fb-name">جومانه</div>
+      </div>
+
+      <div class="fb-card">
+        <div class="fb-screen">
+          <picture>
+            <source srcset="assets/images/feedbacks/three/feedback_3.avif" type="image/avif">
+            <source srcset="assets/images/feedbacks/three/feedback_3.webp" type="image/webp">
+            <img src="assets/images/feedbacks/three/feedback_3.jpg" alt="فيدباك 3" loading="lazy">
+          </picture>
+        </div>
+        <div class="fb-name">شهد</div>
+      </div>
+
+      <div class="fb-card">
+        <div class="fb-screen">
+          <picture>
+            <source srcset="assets/images/feedbacks/four/feedback_4.avif" type="image/avif">
+            <source srcset="assets/images/feedbacks/four/feedback_4.webp" type="image/webp">
+            <img src="assets/images/feedbacks/four/feedback_4.jpg" alt="فيدباك 4" loading="lazy">
+          </picture>
+        </div>
+        <div class="fb-name">مريم</div>
+      </div>
+
+    </div><!-- /feedback-row -->
+
+  </section><!-- /transforms-sec -->
+
+
+  <!-- ════════════════════════════════════════════════════════
+       PRICING — قسم الباقات والأسعار
+       ════════════════════════════════════════════════════════ -->
+  <section class="pricing-sec" id="pricing">
+
+    <div class="s-label reveal">باقات التدريب الاونلاين</div>
+    <h2 class="s-title reveal">استثمار في نفسك</h2>
+    <p class="s-body reveal">سعر منصف مقابل متابعة حقيقية ونتايج واضحة.</p>
+
+    <!-- كروت الأسعار — يتم ملؤها ديناميكيًا من data.json إن وُجد -->
+    <div class="pricing-cards active" id="tab-weekly">
+
+      <!-- باقة شهر -->
+      <div class="price-card reveal">
+        <div class="price-plan">شهر + أسبوعين هدية</div>
+        <div class="price-amount">
+          1,099 <span class="price-cur">جنيه</span>
+          <span class="price-usd">39 USD</span>
+        </div>
+        <!-- <div class="price-original">بدل 1,200 جنيه</div> -->
+        <ul class="price-feats">
+          <li><i class="fa-solid fa-check"></i> خطة تغذية مخصصة</li>
+          <li><i class="fa-solid fa-check"></i> برنامج تمرين بالفيديوهات</li>
+          <li><i class="fa-solid fa-check"></i> متابعة يومية على واتساب</li>
+          <li><i class="fa-solid fa-check"></i> تحديث الخطة كل 7 أيام</li>
+        </ul>
+        <a href="https://wa.me/201204596397?text=أهلاً أحمد، عايز أعرف أكتر عن باقة شهر الأسبوعية"
+           class="price-btn" target="_blank" rel="noopener noreferrer">ابدأ دلوقتي</a>
+      </div>
+
+      <!-- باقة شهرين — الأكثر طلبًا (Featured) -->
+      <div class="price-card featured reveal">
+        <div class="price-badge">
+          <i class="fa-solid fa-star"></i>
+          الأكثر طلبًا
+        </div>
+        <div class="price-plan">
+          شهرين + شهر هدية
+          <i class="fa-solid fa-gift"></i>
+        </div>
+        <div class="price-amount">
+          2,499 <span class="price-cur">جنيه</span>
+          <span class="price-usd">99 USD</span>
+        </div>
+        <!-- <div class="price-original">بدل 3,500 جنيه</div> -->
+        <ul class="price-feats">
+          <li><i class="fa-solid fa-check"></i> خطة تغذية مخصصة</li>
+          <li><i class="fa-solid fa-check"></i> برنامج تمرين بالفيديوهات</li>
+          <li><i class="fa-solid fa-check"></i> متابعة يومية على واتساب</li>
+          <li><i class="fa-solid fa-check"></i> تحديث الخطة كل 7 أيام</li>
+          <li><i class="fa-solid fa-check"></i> تقسيط متاح</li>
+        </ul>
+        <a href="https://wa.me/201204596397?text=أهلاً أحمد، عايز أعرف أكتر عن باقة شهرين الأسبوعية"
+           class="price-btn" target="_blank" rel="noopener noreferrer">ابدأ دلوقتي</a>
+      </div>
+
+      <!-- باقة 4 شهور -->
+      <div class="price-card reveal">
+        <div class="price-plan">
+          4 شهور + شهرين هدية
+          <i class="fa-solid fa-gift"></i>
+        </div>
+        <div class="price-amount">
+          4,499 <span class="price-cur">جنيه</span>
+          <span class="price-usd">199 USD</span>
+        </div>
+        <!-- <div class="price-original">بدل 4,500 جنيه</div> -->
+        <ul class="price-feats">
+          <li><i class="fa-solid fa-check"></i> خطة تغذية مخصصة</li>
+          <li><i class="fa-solid fa-check"></i> برنامج تمرين بالفيديوهات</li>
+          <li><i class="fa-solid fa-check"></i> متابعة يومية على واتساب</li>
+          <li><i class="fa-solid fa-check"></i> تحديث الخطة كل 7 أيام</li>
+          <li><i class="fa-solid fa-check"></i> تقسيط متاح</li>
+        </ul>
+        <a href="https://wa.me/201204596397?text=أهلاً أحمد، عايز أعرف أكتر عن باقة 4 شهور الأسبوعية"
+           class="price-btn" target="_blank" rel="noopener noreferrer">ابدأ دلوقتي</a>
+      </div>
+
+      <!--
+      ─── باقة 9 شهور — معطّلة حالياً ───────────────────────
+      <div class="price-card reveal">
+        <div class="price-badge">
+          <i class="fa-solid fa-crown"></i>
+          أعلى قيمة
+        </div>
+        <div class="price-plan">
+          9 شهور + 3 شهور هدية
+          <i class="fa-solid fa-gift"></i>
+        </div>
+        <div class="price-amount">6,999 <span class="price-cur">جنيه</span></div>
+        <div class="price-original">بدل 8,000 جنيه</div>
+        <ul class="price-feats">
+          <li><i class="fa-solid fa-check"></i> خطة تغذية مخصصة</li>
+          <li><i class="fa-solid fa-check"></i> برنامج تمرين بالفيديوهات</li>
+          <li><i class="fa-solid fa-check"></i> متابعة يومية على واتساب</li>
+          <li><i class="fa-solid fa-check"></i> تحديث الخطة كل 7 أيام</li>
+          <li><i class="fa-solid fa-check"></i> تقسيط متاح</li>
+        </ul>
+        <a href="https://wa.me/201204596397?text=أهلاً أحمد، عايز أعرف أكتر عن باقة 9 شهور الأسبوعية"
+           class="price-btn" target="_blank" rel="noopener noreferrer">ابدأ دلوقتي</a>
+      </div>
+      -->
+
+    </div><!-- /pricing-cards -->
+
+    <p class="pricing-note reveal">
+      <i class="fa-solid fa-thumbtack"></i>
+      الأماكن محدودة لضمان جودة المتابعة
+    </p>
+
+  </section><!-- /pricing -->
+
+
+  <!-- ════════════════════════════════════════════════════════
+       START — قسم "خطوات البداية" + طرق الدفع
+       ════════════════════════════════════════════════════════ -->
+  <section class="start-sec" id="start">
+
+    <div class="s-label reveal">ابدأ دلوقتي</div>
+    <h2 class="s-title reveal">خطوات البداية</h2>
+    <p class="s-body reveal" style="text-align:center; max-width:500px; margin:0 auto 3rem;">
+      ٣ خطوات بسيطة وبنبدأ سوا
+    </p>
+
+    <!-- الخطوات الثلاث -->
+    <div class="start-steps reveal">
+
+      <div class="start-step">
+        <div class="step-num">١</div>
+        <div class="step-body">
+          <h3>اختار باقتك</h3>
+          <p>شوف الباقات اللي فوق واختار اللي يناسب هدفك وميزانيتك</p>
+        </div>
+      </div>
+
+      <div class="step-connector"></div>
+
+      <div class="start-step">
+        <div class="step-num">٢</div>
+        <div class="step-body">
+          <h3>حوّل المبلغ</h3>
+          <p>حوّل قيمة الباقة على أي طريقة دفع من اللي تحت</p>
+        </div>
+      </div>
+
+      <div class="step-connector"></div>
+
+      <div class="start-step">
+        <div class="step-num">٣</div>
+        <div class="step-body">
+          <h3>ابعت الإيصال على واتساب</h3>
+          <p>بعد التحويل ابعتلي صورة الإيصال على واتساب وبنبدأ فورًا</p>
+        </div>
+      </div>
+
+    </div><!-- /start-steps -->
+
+    <!-- ──────────────────────────────────────────────────────
+         طرق الدفع — يتم ملؤها ديناميكيًا من data.json إن وُجد
+         ────────────────────────────────────────────────────── -->
+    <div class="payment-title reveal">طرق الدفع المتاحة</div>
+
+    <div class="payment-cards reveal">
+
+      <!-- InstaPay -->
+      <div class="payment-card">
+        <div class="payment-icon instapay">
+          <i class="fa-solid fa-bolt"></i>
+        </div>
+        <div class="payment-info">
+          <h4>فوري / InstaPay</h4>
+          <p>أحمد إيهاب</p>
+          <span class="payment-num">01204596397</span>
+        </div>
+      </div>
+
+      <!-- أورنج كاش -->
+      <div class="payment-card">
+        <div class="payment-icon orange">
+          <i class="fa-solid fa-mobile-screen"></i>
+        </div>
+        <div class="payment-info">
+          <h4>أورنج كاش</h4>
+          <p>أحمد إيهاب · مقبول من كل المحافظ</p>
+          <span class="payment-num">01204596397</span>
+        </div>
+      </div>
+
+      <!-- بنك الأهلي -->
+      <div class="payment-card">
+        <div class="payment-icon bank">
+          <i class="fa-solid fa-building-columns"></i>
+        </div>
+        <div class="payment-info">
+          <h4>بنك الأهلي — NBE</h4>
+          <p>أحمد إيهاب محمد · فرع ويست سوميد</p>
+          <span class="payment-num">01768673700019</span>
+        </div>
+      </div>
+
+    </div><!-- /payment-cards -->
+
+    <div class="payment-note reveal">
+      <i class="fa-solid fa-circle-info"></i>
+      بعد التحويل ابعت صورة الإيصال على واتساب وهيتم تفعيل اشتراكك خلال ساعات
+    </div>
+
+  </section><!-- /start -->
+
+
+  <!-- ════════════════════════════════════════════════════════
+       FAQ — الأسئلة الشائعة
+       ════════════════════════════════════════════════════════ -->
+  <section class="faq-sec">
+
+    <div class="s-label reveal">أسئلة شائعة</div>
+    <h2 class="s-title reveal">عندك سؤال؟</h2>
+
+    <!-- يتم ملء القائمة ديناميكيًا من data.json إن وُجد -->
+    <div class="faq-list reveal">
+
+      <div class="faq-item">
+        <button class="faq-btn" onclick="tog(this)">
+          البرنامج أونلاين ولا في مكان معين؟
+          <span class="ico"><i class="fa-solid fa-chevron-down"></i></span>
+        </button>
+        <div class="faq-ans">البرنامج 100% أونلاين — مش محتاج تيجي أي مكان. كل حاجة بتتم على واتساب من أي مكان في مصر أو برة.</div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-btn" onclick="tog(this)">
+          لازم يكون عندي جيم؟
+          <span class="ico"><i class="fa-solid fa-chevron-down"></i></span>
+        </button>
+        <div class="faq-ans">لأ خالص. البرنامج بيتكيف مع الظروف — جيم أو بيت أو أي حاجة. اللي بيفرق هو الالتزام مش المكان.</div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-btn" onclick="tog(this)">
+          هل نظام الأكل مكلف؟
+          <span class="ico"><i class="fa-solid fa-chevron-down"></i></span>
+        </button>
+        <div class="faq-ans">أبدًا، النظام يعتمد على أكل البيت العادي المتاح عندك وبنوفر لك بدائل مرنة تناسب ميزانيتك عشان توصل لهدفك بدون تكاليف زيادة.</div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-btn" onclick="tog(this)">
+          إمتى هشوف نتايج؟
+          <span class="ico"><i class="fa-solid fa-chevron-down"></i></span>
+        </button>
+        <div class="faq-ans">في الأسبوعين الأوليين بتحس بفرق في الطاقة والأداء. نتايج الجسم الواضحة بتيجي من الأسبوع الرابع لأن الجسم بيحتاج وقت يستجيب.</div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-btn" onclick="tog(this)">
+          هل البرنامج مناسب لو وقتي ضيّق؟
+          <span class="ico"><i class="fa-solid fa-chevron-down"></i></span>
+        </button>
+        <div class="faq-ans">ده بالظبط اللي الـ personalized coaching بيحله — بصمم الخطة على أساس وقتك الفعلي، مش على أساس وقت "شخص مثالي" مش موجود.</div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-btn" onclick="tog(this)">
+          إيه الفرق بينك وبين أي كوتش تاني؟
+          <span class="ico"><i class="fa-solid fa-chevron-down"></i></span>
+        </button>
+        <div class="faq-ans">بتكلم أحمد مباشرة — مش assistant مش bot. وبشتغل بعدد محدود من المتدربين عشان أقدر أديك الوقت والاهتمام اللي تستاهله فعلًا.</div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-btn" onclick="tog(this)">
+          ينفع أبدأ من غير تجربة؟
+          <span class="ico"><i class="fa-solid fa-chevron-down"></i></span>
+        </button>
+        <div class="faq-ans">أيوه. الباقة الأساسية مصممة للمبتدئين تمامًا. الأهم إنك تيجي بنية الالتزام والباقي بيتعلم.</div>
+      </div>
+
+    </div><!-- /faq-list -->
+
+  </section><!-- /faq-sec -->
+
+
+  <!-- ════════════════════════════════════════════════════════
+       FINAL CTA — قسم الختام ورابط واتساب
+       ════════════════════════════════════════════════════════ -->
+  <section class="final" id="contact">
+
+    <div class="s-label reveal">الخطوة الجاية</div>
+    <h2 class="s-title reveal">ابدأ تحولك —<br>الكوتش جاهز</h2>
+    <p class="s-body reveal">كل ما تأخرت، الجسم اللي عايزه بيبعد أكتر. رسالة واحدة على واتساب وبنبدأ نشتغل سوا.</p>
+
+    <div class="final-cta-wrap">
+      <a href="https://wa.me/201204596397?text=أهلاً أحمد، عايز أعرف أكتر عن برنامج التحول"
+         class="wa-btn reveal" target="_blank" rel="noopener noreferrer">
+        <i class="fa-brands fa-whatsapp"></i>
+        راسل أحمد على واتساب
+      </a>
+      <p class="wa-note reveal">رد خلال ساعات · بدون أي التزام مسبق</p>
+    </div>
+
+  </section><!-- /final -->
+
+
+  <!-- ════════════════════════════════════════════════════════
+       FOOTER
+       ════════════════════════════════════════════════════════ -->
+  <footer>
+    <p>© 2025 أحمد إيهاب — Online Body Transformation Coaching · جميع الحقوق محفوظة</p>
+    <p style="margin-top:6px">
+      تصميم وتطوير:
+      <a href="https://amerdev.pages.dev" target="_blank" rel="noopener noreferrer"
+         style="color:#2a6b4a">AmerDev</a>
+    </p>
+  </footer>
+
+
+  <!-- ════════════════════════════════════════════════════════
+       زر واتساب العائم (Fixed Float Button)
+       ════════════════════════════════════════════════════════ -->
+  <a href="https://wa.me/201204596397?text=أهلاً أحمد، عايز أعرف أكتر عن برنامج التحول"
+     class="wa-float" target="_blank" rel="noopener noreferrer" aria-label="راسل أحمد على واتساب">
+    <i class="fa-brands fa-whatsapp"></i>
+  </a>
+
+
+  <!-- ════════════════════════════════════════════════════════
+       SCRIPTS
+       ════════════════════════════════════════════════════════ -->
+
+  <!-- الملف الرئيسي للـ JavaScript -->
+  <script src="assets/js/all.min.js?v=20260412.8"></script>
+
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-0GEE0LKCMY"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+    gtag('config', 'G-0GEE0LKCMY');
+  </script>
+
+</body>
+</html>

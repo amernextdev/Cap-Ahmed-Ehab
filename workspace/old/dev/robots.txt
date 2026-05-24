@@ -1,0 +1,11 @@
+# robots.txt — Ahmed Ehab Coaching
+# https://ahmedehab-coach.pages.dev/
+
+User-agent: *
+Allow: /
+
+# Block access to assets that don't need indexing
+Disallow: /assets/libs/
+Disallow: /assets/fonts/
+
+Sitemap: https://ahmedehab-coach.pages.dev/sitemap.xml
