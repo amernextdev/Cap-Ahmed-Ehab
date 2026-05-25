@@ -131,12 +131,15 @@
   "i18n-html": {
     "logo": " أحمد <span class=\"site-header__logo-accent\">إيهاب</span>",
     "hero.title":        "لو جربت قبل كده<br>ومحصلتش نتيجة —<br><em>المشكلة مش فيك</em>",
-    "hero.subtitle":     "البرامج الجاهزة مش بتشتغل لأنها مش مخصصة ليك.\nأنا بشتغل معاك <strong>شخصيًا</strong> — أفهم جسمك وظروفك الفعلية،\nوأعملك خطة تقدر تلتزم بيها وتشوف فرق <strong>من الأسبوع الأول.</strong>",
+    "hero.subtitle":     "البرامج الجاهزة مش بتشتغل لأنها مش مخصصة ليك.\nأنا بشتغل معاك <strong>شخصيًا</strong> — أفهم جسمك وظروفك الفعلية，\nوأعملك خطة تقدر تلتزم بيها وتشوف فرق <strong>من الأسبوع الأول.</strong>",
     "hero.proof":        "<strong>+50 متدرب</strong> غيّروا أجسامهم<br>مع أحمد إيهاب",
     "problem.title":     "ليه البرامج الجاهزة<br>مش بتشتغل معاك؟",
     "how.title":         "٤ خطوات بسيطة<br>للتحول الحقيقي",
     "offer.title":       "كل البرامج مصممة شخصيًا<br>بدون أي وسيط",
     "offer.item7.title": "ترشيحات مكملات <span style=\"font-size:0.78rem; color:var(--muted); font-weight:400;\">(اختياري)</span>",
+    "pricing.plan1.price": " 1,099 <span class=\"pricing__price-unit\" data-i18n-text=\"pricing.currency.egp\">جنيه</span>",
+    "pricing.plan2.price": " 2,499 <span class=\"pricing__price-unit\" data-i18n-text=\"pricing.currency.egp\">جنيه</span>",
+    "pricing.plan3.price": " 4,499 <span class=\"pricing__price-unit\" data-i18n-text=\"pricing.currency.egp\">جنيه</span>",
     "cta.title":         "ابدأ تحولك —<br>الكوتش جاهز",
     "footer.copyright":  "© 2025 أحمد إيهاب — Online Body Transformation Coaching · جميع الحقوق محفوظة",
     "footer.credit":     "تصميم وتطوير:\n<a href=\"https://amerdev.pages.dev\" target=\"_blank\" rel=\"noopener noreferrer\" style=\"color:#2a6b4a\">AmerDev</a>"

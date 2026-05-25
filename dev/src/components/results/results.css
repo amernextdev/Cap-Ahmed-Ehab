@@ -1,0 +1,395 @@
+/* ============================================================
+   RESULTS SECTION — كود قسم التحولات (قبل وبعد + الفيدباكس)
+   متوافق مع هيكل HTML المطلوب
+   ============================================================
+   
+   TABLE OF CONTENTS:
+   01. Section Wrapper          (#results, .results)
+   02. Slider Wrapper & Track   (.transforms-wrapper, .transforms__track-outer, .transforms__track)
+   03. Navigation Arrows        (.transforms__arrow, .transforms__arrow--prev, .transforms__arrow--next)
+   04. Card                     (.tr-card, .active-card)
+   05. Card Images (قبل/بعد)    (.tr-card__images, .tr-card__img-wrap, .tr-card__badge)
+   06. Card Divider             (.tr-card__divider)
+   07. Dots Pagination          (.transforms__dots, .transforms__dot)
+   08. Section Divider          (.transforms__divider)
+   09. Feedback Row             (.feedback-row)
+   10. Feedback Card            (.feedback__card, .feedback__screenshot, .feedback__name)
+   11. Responsive — Desktop     (@media min-width: 900px)
+   12. Responsive — Mobile      (@media max-width: 899px)
+   
+   Dependencies:
+   > CSS Variables used from :root:
+     --off, --white, --line, --accent, --mid, --muted, --text
+   ============================================================ */
+
+
+/* ============================================================
+   01. SECTION WRAPPER
+   ============================================================ */
+
+#results,
+.results {
+  padding: 6rem 7vw;
+  background: var(--off);
+  text-align: right;
+  overflow: hidden;
+}
+
+
+/* ============================================================
+   02. SLIDER WRAPPER & TRACK
+   ============================================================ */
+
+.transforms-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-top: 3rem;
+}
+
+.transforms__track-outer {
+  width: 100%;
+  overflow: hidden;
+}
+
+.transforms__track {
+  display: flex;
+  gap: 1.5rem;
+  transition: transform 0.45s cubic-bezier(0.4, 0, 0.2, 1);
+  will-change: transform;
+  padding: 1rem 0 1.5rem;
+}
+
+
+/* ============================================================
+   03. NAVIGATION ARROWS
+   ============================================================ */
+
+.transforms__arrow {
+  flex-shrink: 0;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: 1.5px solid var(--line);
+  background: var(--white);
+  color: var(--accent);
+  font-size: 1rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+  transition: background 0.2s, color 0.2s, transform 0.2s;
+  position: static;
+  z-index: 2;
+}
+
+.transforms__arrow:hover {
+  background: var(--accent);
+  color: #fff;
+  transform: scale(1.08);
+}
+
+/* Default order (mobile) */
+.transforms__arrow--prev { order: -1; }
+.transforms__arrow--next { order: 1; }
+
+/* Desktop positioning (absolute) */
+.transforms__arrow--prev {
+  position: absolute;
+  right: -22px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.transforms__arrow--next {
+  position: absolute;
+  left: -22px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+
+/* ============================================================
+   04. CARD
+   ============================================================ */
+
+.tr-card {
+  flex: 0 0 calc(100% - 80px);
+  max-width: 700px;
+  margin: 0 auto;
+  background: var(--white);
+  border-radius: 20px;
+  border: 1px solid var(--line);
+  overflow: hidden;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.07);
+  transition: box-shadow 0.3s, transform 0.3s, opacity 0.3s;
+}
+
+.tr-card:not(.active-card) {
+  opacity: 0.55;
+  transform: scale(0.95);
+}
+
+.tr-card.active-card {
+  opacity: 1;
+  transform: scale(1);
+  box-shadow: 0 8px 40px rgba(42, 107, 74, 0.13);
+}
+
+
+/* ============================================================
+   05. CARD IMAGES — قبل / بعد
+   ============================================================ */
+
+.tr-card__images {
+  display: flex;
+  align-items: stretch;
+  height: 380px;
+}
+
+.tr-card__img-wrap {
+  flex: 1;
+  position: relative;
+  overflow: hidden;
+}
+
+.tr-card__img-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+  display: block;
+  transition: transform 0.4s ease;
+}
+
+.tr-card:hover .tr-card__img-wrap img {
+  transform: scale(1.03);
+}
+
+/* Special fit overrides */
+.tr-card__img-wrap.w_one_before img,
+.tr-card__img-wrap.w_two_before img {
+  object-fit: contain;
+  object-position: center;
+}
+
+/* Badges (قبل / بعد) */
+.tr-card__badge {
+  position: absolute;
+  bottom: 12px;
+  right: 12px;
+  font-family: 'Tajawal', sans-serif;
+  font-weight: 700;
+  font-size: 0.75rem;
+  letter-spacing: 0.08em;
+  padding: 0.3rem 0.75rem;
+  border-radius: 100px;
+}
+
+.tr-card__badge--before {
+  background: rgba(0, 0, 0, 0.55);
+  color: #fff;
+}
+
+.tr-card__badge--after {
+  background: var(--accent);
+  color: #fff;
+}
+
+
+/* ============================================================
+   06. CARD DIVIDER (الفاصل الرأسي بين قبل وبعد)
+   ============================================================ */
+
+.tr-card__divider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  flex-shrink: 0;
+  background: var(--white);
+  position: relative;
+  z-index: 2;
+}
+
+.tr-card__divider span {
+  font-family: 'Playfair Display', serif;
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--muted);
+  writing-mode: vertical-rl;
+  letter-spacing: 0.15em;
+}
+
+
+/* ============================================================
+   07. DOTS PAGINATION
+   ============================================================ */
+
+.transforms__dots {
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-top: 1.5rem;
+}
+
+.transforms__dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--line);
+  transition: background 0.3s, transform 0.3s;
+}
+
+.transforms__dot--active {
+  background: var(--accent);
+  transform: scale(1.3);
+}
+
+
+/* ============================================================
+   08. SECTION DIVIDER (الفاصل بين التحولات والفيدباكس)
+   ============================================================ */
+
+.transforms__divider {
+  height: 1px;
+  background: var(--line);
+  margin: 4rem 0;
+}
+
+
+/* ============================================================
+   09. FEEDBACK ROW
+   ============================================================ */
+
+.feedback-row {
+  display: flex;
+  gap: 1.2rem;
+  margin-top: 3rem;
+  overflow-x: auto;
+  padding-bottom: 1rem;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+}
+
+.feedback-row::-webkit-scrollbar {
+  display: none;
+}
+
+
+/* ============================================================
+   10. FEEDBACK CARD
+   ============================================================ */
+
+.feedback__card {
+  flex: 0 0 220px;
+  scroll-snap-align: start;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.feedback__screenshot {
+  width: 100%;
+  border-radius: 22px;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.10);
+  transition: transform 0.25s, box-shadow 0.25s;
+  background: var(--white);
+}
+
+.feedback__screenshot:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 16px 48px rgba(42, 107, 74, 0.13);
+}
+
+.feedback__screenshot img {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+}
+
+.feedback__name {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--mid);
+  text-align: center;
+  letter-spacing: 0.04em;
+}
+
+
+/* ============================================================
+   11. RESPONSIVE — DESKTOP (min-width: 900px)
+   ============================================================ */
+
+@media (min-width: 900px) {
+
+  /* Track */
+  .transforms__track {
+    gap: 1.2rem;
+    padding: 1rem 4vw 1.5rem;
+  }
+
+  /* Cards: 3 per row */
+  .tr-card {
+    flex: 0 0 calc(33.333% - 0.8rem);
+    max-width: none;
+  }
+
+  .tr-card:not(.active-card) {
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  .tr-card__images { height: 340px; }
+
+  /* Hide mobile-only controls on desktop */
+  .transforms__dots  { display: none; }
+  .transforms__arrow { display: none; }
+
+  /* Feedback: wrap grid */
+  .feedback-row {
+    overflow-x: visible;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .feedback__card {
+    flex: 0 0 calc(25% - 0.9rem);
+    max-width: 240px;
+  }
+}
+
+
+/* ============================================================
+   12. RESPONSIVE — MOBILE (max-width: 899px)
+   ============================================================ */
+
+@media (max-width: 899px) {
+
+  /* Track */
+  .transforms__track {
+    padding: 1rem 0 1.5rem;
+    gap: 12px;
+  }
+
+  /* Cards: full width scroll */
+  .tr-card {
+    flex: 0 0 82vw;
+    max-width: 82vw;
+  }
+
+  .tr-card__images { height: 260px; }
+
+  /* Feedback: horizontal scroll */
+  .feedback__card {
+    flex: 0 0 72vw;
+    max-width: 300px;
+  }
+}

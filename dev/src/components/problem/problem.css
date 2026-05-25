@@ -1,0 +1,140 @@
+/* ================================================================
+   2. PROBLEM SECTION
+   ================================================================ */
+
+.problem {
+  background: var(--off);
+  padding: var(--section-y) var(--page-x);
+  position: relative;
+}
+
+.problem__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: var(--gap-lg);
+  margin-top: var(--gap-3xl);
+}
+
+.problem__card {
+  background: var(--white);
+  border: var(--border-width) solid var(--line);
+  border-radius: var(--radius-lg);
+  padding: 1.8rem;
+  transition: box-shadow var(--duration-mid), transform var(--duration-base);
+}
+
+.problem__card:hover {
+  box-shadow: var(--shadow-xl);
+  transform: translateY(-3px);
+}
+
+.problem__card-icon {
+  width: var(--icon-size-md);
+  height: var(--icon-size-md);
+  border-radius: var(--radius-md);
+  background: rgba(200, 136, 60, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.3rem;
+  margin-bottom: var(--gap-base);
+}
+
+.problem__card-icon .icon {
+  width: 1.3rem;
+  height: 1.3rem;
+  color: var(--accent2);
+}
+
+.problem__card h3 {
+  font-size: var(--text-base);
+  font-weight: var(--fw-extrabold);
+  margin-bottom: 0.5rem;
+  color: var(--ink);
+}
+
+.problem__card p {
+  font-size: 0.88rem;
+  color: var(--mid);
+  line-height: var(--leading-relaxed);
+}
+
+/* ================================================================
+   3. VISUAL BANNER — البانر بالصورة الخلفية
+   ================================================================ */
+
+.visual-banner {
+  position: relative;
+  height: var(--banner-height-desktop);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  background: var(--ink);
+  margin-top: 100px;
+  margin-bottom: 100px;
+  -webkit-clip-path: inset(0 0 0 0);
+}
+
+/* صورة الخلفية بتأثير Parallax */
+.visual-banner::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('/src/assets/images/other/banner.jpg');
+  background-size: cover;
+  background-position: center;
+  z-index: 1;
+  filter: brightness(0.5);
+  -webkit-transform: translateZ(0);
+  transform: translateZ(0);
+}
+
+/* تدرجات الأطراف */
+.visual-banner::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    var(--white) 0%,
+    transparent 20%,
+    transparent 80%,
+    var(--off) 100%
+  );
+  z-index: 2;
+}
+
+.visual-banner__content {
+  position: relative;
+  z-index: 3;
+  text-align: center;
+  padding: 0 10vw;
+}
+
+.visual-banner__quote {
+  color: var(--white);
+  font-size: var(--text-banner);
+  font-weight: var(--fw-extrabold);
+  line-height: var(--leading-snug);
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+}
+
+/* Visual Banner — Responsive */
+@media (max-width: 768px) {
+  .visual-banner {
+    height: var(--banner-height-mobile);
+  }
+
+  .visual-banner::before {
+    background-attachment: scroll;
+    background-position: center;
+  }
+
+  .visual-banner__quote {
+    font-size: 1.4rem;
+  }
+}

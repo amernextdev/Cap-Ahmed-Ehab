@@ -1,0 +1,159 @@
+/* ============================================================
+   FAQ SECTION — قسم الأسئلة الشائعة
+   متوافق مع هيكل HTML المطلوب
+   ============================================================
+
+   TABLE OF CONTENTS:
+   01. Section Wrapper     (#faq, .faq)
+   02. List Container      (.faq__list)
+   03. Item                (.faq__item)
+   04. Button / Question   (.faq__btn, .faq__btn.open)
+   05. Icon                (.faq__btn-icon)
+   06. Answer / Body       (.faq__answer, .faq__answer.open)
+
+   Dependencies:
+   > CSS Variables from :root:
+     --off, --white, --line, --accent, --ink, --mid, --muted
+   > Font: 'Tajawal' (Arabic)
+   ============================================================ */
+
+
+/* ============================================================
+   01. SECTION WRAPPER
+   ============================================================ */
+
+#faq,
+.faq {
+  padding: 6rem 7vw;
+  background: var(--off);
+  text-align: center;
+}
+
+
+/* ============================================================
+   02. LIST CONTAINER
+   ============================================================ */
+
+.faq__list {
+  max-width: 680px;
+  margin: 3rem auto 0;
+  text-align: right;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+
+/* ============================================================
+   03. ITEM
+   ============================================================ */
+
+.faq__item {
+  background: var(--white);
+  border: 1.5px solid var(--line);
+  border-radius: 14px;
+  overflow: hidden;
+  transition: border-color 0.2s;
+}
+
+/* Highlight border when open */
+.faq__item:has(.faq__btn.open) {
+  border-color: var(--accent);
+}
+
+
+/* ============================================================
+   04. BUTTON / QUESTION
+   ============================================================ */
+
+.faq__btn {
+  width: 100%;
+  background: none;
+  border: none;
+  padding: 1.1rem 1.4rem;
+  font-family: 'Tajawal', sans-serif;
+  font-weight: 700;
+  font-size: 0.95rem;
+  color: var(--ink);
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  text-align: right;
+  transition: color 0.2s;
+}
+
+.faq__btn.open {
+  color: var(--accent);
+}
+
+
+/* ============================================================
+   05. ICON (chevron)
+   ============================================================ */
+
+.faq__btn-icon {
+  flex-shrink: 0;
+  color: var(--muted);
+  transition: transform 0.3s;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.faq__btn.open .faq__btn-icon {
+  transform: rotate(180deg);
+}
+
+/* Optional: style the SVG icon */
+.faq__btn-icon svg {
+  width: 20px;
+  height: 20px;
+}
+
+
+/* ============================================================
+   06. ANSWER / BODY
+   ============================================================ */
+
+.faq__answer {
+  max-height: 0;
+  overflow: hidden;
+  padding: 0 1.4rem;
+  font-size: 0.9rem;
+  color: var(--mid);
+  line-height: 1.8;
+  transition: max-height 0.35s ease, padding 0.35s ease;
+}
+
+.faq__answer.open {
+  max-height: 300px;
+  padding: 0 1.4rem 1.2rem;
+}
+
+
+/* ============================================================
+   07. RESPONSIVE — MOBILE (max-width: 768px)
+   ============================================================ */
+
+@media (max-width: 768px) {
+
+  #faq,
+  .faq {
+    padding: 4rem 1.5rem;
+  }
+
+  .faq__btn {
+    padding: 0.9rem 1rem;
+    font-size: 0.85rem;
+  }
+
+  .faq__answer {
+    font-size: 0.8rem;
+  }
+
+  .faq__answer.open {
+    padding: 0 1rem 1rem;
+  }
+}

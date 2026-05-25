@@ -30,6 +30,7 @@ const allNavLinks = document.querySelectorAll(
 function initScrollState() {
   const sentinel = document.createElement('div');
   sentinel.style.cssText = 'position:absolute;top:0;left:0;width:1px;height:1px;pointer-events:none;';
+  document.body.style.position = 'relative';
   document.body.prepend(sentinel);
 
   new IntersectionObserver(
@@ -53,23 +54,32 @@ function openNav() {
   mobileNav.setAttribute('aria-hidden', 'false');
   document.body.style.overflow = 'hidden';
   mobileNav.querySelector('.mobile-nav__close-btn')?.focus();
+    mobileNav.inert = false;
 }
-
 function closeNav() {
   navOpen = false;
+  
+  // Clear any focus inside mobile nav before hiding
+  if (mobileNav && document.activeElement && mobileNav.contains(document.activeElement)) {
+    document.activeElement.blur();
+  }
+  
   mobileNav.classList.remove('open');
   backdrop.classList.remove('visible');
   burgerBtn.classList.remove('active');
   backdrop.setAttribute('aria-hidden', 'true');
   mobileNav.setAttribute('aria-hidden', 'true');
   document.body.style.overflow = '';
+  mobileNav.inert = true;
+  
+  // Move focus back to the burger button
   burgerBtn?.focus();
 }
-
 function initMobileNav() {
   burgerBtn?.addEventListener('click', () => navOpen ? closeNav() : openNav());
   closeBtn?.addEventListener('click', closeNav);
   backdrop?.addEventListener('click', closeNav);
+
 
   document.addEventListener('keydown', e => {
     if (e.key === 'Escape' && navOpen) closeNav();
@@ -112,9 +122,14 @@ let scrollLockTimer = null;
 const SCROLL_LOCK_MS = 1300;
 
 function setActiveLink(sectionId) {
+  if (!sectionId) return;
+  
   allNavLinks.forEach(link => {
-    const target      = link.getAttribute('href')?.replace('#', '');
-    const isMatch     = target === sectionId;
+    const href = link.getAttribute('href');
+    if (!href || !href.startsWith('#')) return;
+    
+    const target = href.slice(1);
+    const isMatch = target === sectionId;
     const activeClass = link.classList.contains('mobile-nav__nav-link')
       ? ACTIVE_MLINK : ACTIVE_LINK;
     link.classList.toggle(activeClass, isMatch);
@@ -124,9 +139,12 @@ function setActiveLink(sectionId) {
 
 function lockScrollAndActivate(sectionId) {
   setActiveLink(sectionId);
+  if (scrollLockTimer) clearTimeout(scrollLockTimer);
   scrollLocked = true;
-  clearTimeout(scrollLockTimer);
-  scrollLockTimer = setTimeout(() => { scrollLocked = false; }, SCROLL_LOCK_MS);
+  scrollLockTimer = setTimeout(() => { 
+    scrollLocked = false;
+    scrollLockTimer = null;
+  }, SCROLL_LOCK_MS);
 }
 
 function initActiveLinks() {
@@ -135,8 +153,12 @@ function initActiveLinks() {
   const linkedSections = [];
 
   allNavLinks.forEach(link => {
-    const id = link.getAttribute('href')?.replace('#', '');
+    const href = link.getAttribute('href');
+    if (!href || !href.startsWith('#') || href.length === 1) return;
+    
+    const id = href.slice(1);
     if (!id || seen.has(id)) return;
+    
     const section = document.getElementById(id);
     if (section) { seen.add(id); linkedSections.push(section); }
   });

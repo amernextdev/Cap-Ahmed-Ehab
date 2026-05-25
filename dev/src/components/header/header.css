@@ -77,23 +77,6 @@
       position: relative;
     }
 
-    /* Subtle dot under accent word */
-    .site-header__logo-accent::after {
-      content: '';
-      position: absolute;
-      bottom: -3px;
-      right: 0;
-      left: 0;
-      height: 2px;
-      background: var(--accent2);
-      border-radius: 2px;
-      transform: scaleX(0);
-      transform-origin: left;
-      transition: transform var(--duration-mid) var(--ease-pop);
-    }
-    .site-header__logo-link:hover .site-header__logo-accent::after {
-      transform: scaleX(1);
-    }
 
     /* ─── Nav ──────────────────────────────────── */
     .site-header__nav-wrapper {
@@ -276,7 +259,7 @@
     .site-header__mobile-toggle-btn span + span { margin-top: 6px; }
 
     /* Active (X) state — rotate top & bottom into a clean cross */
-    .site-header__mobile-toggle-btn.active span:nth-child(1) {
+    /* .site-header__mobile-toggle-btn.active span:nth-child(1) {
       transform: translateY(7.5px) rotate(45deg);
     }
     .site-header__mobile-toggle-btn.active span:nth-child(2) {
@@ -284,7 +267,7 @@
     }
     .site-header__mobile-toggle-btn.active span:nth-child(3) {
       transform: translateY(-7.5px) rotate(-45deg);
-    }
+    } */
 
     /* ─────────────────────────────────────────────
        MOBILE NAV — Slide-in Drawer

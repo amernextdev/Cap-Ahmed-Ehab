@@ -1,0 +1,299 @@
+/* ============================================================
+   HERO SECTION — Complete Extracted Styles
+   ============================================================
+
+   المتغيرات المستخدمة (تأكد من وجودها في :root بالملف الأصلي):
+   --accent, --avatar-size, --font-body, --fw-bold, --fw-extrabold,
+   --gap-4xl, --gap-base, --gap-sm, --ink, --leading-tight, --line,
+   --max-hero-img, --mid, --off, --page-x, --radius-circle,
+   --radius-full, --text, --text-hero, --text-sm, --text-sub,
+   --tracking-wider, --white
+
+   المحتويات:
+   1. .hero — الحاوية الرئيسية
+   2. .hero::before — نقاط الخلفية
+   3. .hero::after — تدرج الخلفية
+   4. .hero__content — المحتوى النصي
+   5. .hero__tag + ::before — التاج المتحرك
+   6. @keyframes pulse — أنيميشن النقطة
+   7. .hero__title + em — العنوان الرئيسي
+   8. .hero__subtitle + strong — الوصف
+   9. .hero__actions — أزرار CTA
+   10. .proof-row — صف Social Proof
+   11. .hero__image-wrap + img + ::after — صورة المدرب
+   12. @media (max-width: 820px) — النسخة الموبايل
+   ============================================================ */
+
+
+/* ─── 1. الحاوية الرئيسية ─── */
+.hero {
+  min-height: 100vh;
+  padding: 8rem var(--page-x) 6rem;
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: var(--gap-4xl);
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+  background: var(--off);
+}
+
+/* ─── 2. نقاط الخلفية ─── */
+.hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(var(--line) 1.2px, transparent 1.2px);
+  background-size: 28px 28px;
+  opacity: 0.6;
+  pointer-events: none;
+}
+
+/* ─── 3. تدرج الخلفية ─── */
+.hero::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    ellipse 60% 70% at 30% 50%,
+    rgba(247, 246, 243, 0) 0%,
+    var(--off) 80%
+  );
+  pointer-events: none;
+}
+
+/* ─── 4. محتوى الهيرو (يسار/يمين) ─── */
+.hero__content {
+  position: relative;
+  z-index: 2;
+  text-align: right;
+  margin-top: 40px;
+}
+
+/* ─── 5. Tag — "Online Body Transformation Coaching" ─── */
+.hero__tag {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--gap-sm);
+  background: rgba(42, 107, 74, 0.08);
+  border: 1px solid rgba(42, 107, 74, 0.2);
+  color: var(--accent);
+  font-size: var(--text-sm);
+  font-weight: var(--fw-bold);
+  letter-spacing: var(--tracking-wider);
+  text-transform: uppercase;
+  padding: 0.3rem 0.9rem;
+  border-radius: var(--radius-full);
+  margin-bottom: 1.5rem;
+}
+
+/* نقطة متحركة قبل التاج */
+.hero__tag::before {
+  content: '';
+  width: 6px;
+  height: 6px;
+  border-radius: var(--radius-circle);
+  background: var(--accent);
+  animation: pulse 2s infinite;
+}
+
+/* ─── 6. أنيميشن النقطة ─── */
+@keyframes pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50%       { opacity: 0.4; transform: scale(1.4); }
+}
+
+/* ─── 7. العنوان الرئيسي ─── */
+.hero__title {
+  font-family: var(--font-body);
+  font-weight: var(--fw-extrabold);
+  font-size: var(--text-hero);
+  line-height: var(--leading-tight);
+  color: var(--ink);
+  margin-bottom: 1rem;
+}
+
+.hero__title em {
+  font-style: normal;
+  color: var(--accent);
+}
+
+/* ─── 8. الوصف ─── */
+.hero__subtitle {
+  font-size: var(--text-sub);
+  color: var(--mid);
+  line-height: 1.75;
+  max-width: 460px;
+  margin-bottom: 2rem;
+}
+
+.hero__subtitle strong {
+  color: var(--text);
+}
+
+/* ─── 9. أزرار الـ CTA ─── */
+.hero__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+  align-items: center;
+  margin-bottom: 2.5rem;
+  justify-content: flex-start;
+}
+
+/* ─── 10. Social Proof Row ─── */
+.proof-row {
+  display: flex;
+  align-items: center;
+  gap: var(--gap-base);
+}
+
+.proof-row__avatars {
+  display: flex;
+}
+
+.proof-row__avatars span {
+  width: var(--avatar-size);
+  height: var(--avatar-size);
+  border-radius: var(--radius-circle);
+  border: 2px solid var(--white);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.8rem;
+  margin-left: -8px;
+}
+
+.proof-row__avatars span:nth-child(1) { background: #d4e8de; }
+.proof-row__avatars span:nth-child(2) { background: #f5dfc0; }
+.proof-row__avatars span:nth-child(3) { background: #dce4f0; }
+.proof-row__avatars span:nth-child(4) { background: #f0d8e8; }
+
+.proof-row__text {
+  font-size: 0.8rem;
+  color: var(--mid);
+}
+
+.proof-row__text strong {
+  color: var(--text);
+}
+
+/* ─── 11. صورة المدرب ─── */
+.hero__image-wrap {
+  position: relative;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+}
+
+.hero__image-wrap img {
+  width: 100%;
+  max-width: var(--max-hero-img);
+  height: auto;
+  object-fit: contain;
+  object-position: center top;
+  z-index: 1;
+  filter: contrast(1.08) brightness(1.05) saturate(1.08);
+}
+
+/* تدرج أسفل الصورة */
+.hero__image-wrap::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 30%;
+  background: linear-gradient(
+    to bottom,
+    rgba(242, 240, 234, 0) 0%,
+    rgba(242, 240, 234, 0.7) 85%,
+    var(--off) 100%
+  );
+  z-index: 2;
+}
+
+/* ─── 12. Hero Mobile — @media (max-width: 820px) ─── */
+@media (max-width: 820px) {
+  .hero {
+    grid-template-columns: 1fr;
+    padding: 0 5vw 4rem;
+  }
+
+  .hero__tag {
+    display: none;
+  }
+
+  .hero__image-wrap {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+  }
+
+  .hero__image-wrap img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center 5%;
+    max-width: none;
+    filter: contrast(1.1) brightness(1.08) saturate(1.1);
+  }
+
+  .hero::after {
+    background: linear-gradient(
+      to bottom,
+      rgba(242, 240, 234, 0.15) 0%,
+      rgba(242, 240, 234, 0.75) 65%,
+      var(--off) 100%
+    );
+  }
+
+  .hero__content {
+    text-align: center;
+    z-index: 2;
+    padding-top: 180px;
+  }
+
+  .hero__actions {
+    justify-content: center;
+  }
+
+  .proof-row {
+    justify-content: center;
+  }
+
+  .hero__subtitle {
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+/* ================================================================
+   1. TRUST STRIP — الشريط الأسود
+   ================================================================ */
+
+.trust-strip {
+  background: var(--ink);
+  padding: 1.4rem var(--page-x);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--gap-base);
+}
+
+.trust-strip__item {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-size: var(--text-sm);
+  color: rgba(255, 255, 255, 0.55);
+  letter-spacing: var(--tracking-wider);
+  font-weight: var(--fw-bold);
+  text-transform: uppercase;
+}
+
+.trust-strip__item .icon {
+  color: var(--accent);
+  font-size: 0.9rem;
+}
+
+
