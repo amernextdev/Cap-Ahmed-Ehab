@@ -38,20 +38,22 @@ export function initResults() {
   function goTo(index) {
     current = ((index % total) + total) % total;
 
-    // تحريك الـ track
     const outer  = track.closest('.transforms__track-outer');
     const outerW = outer.getBoundingClientRect().width;
-    const cardW  = getCardWidth();
+    const style  = window.getComputedStyle(track);
+    const gap    = parseFloat(style.gap) || 12;
+    const cardW  = cards[0].getBoundingClientRect().width;
+    const step   = cardW + gap;
 
-    // توسيط الكارت الحالي
-    const offset = current * cardW - (outerW / 2 - cardW / 2 + parseFloat(window.getComputedStyle(track).paddingInlineStart || 0));
-    track.style.transform = `translateX(${-offset}px)`;
+    // توسيط الكارت الحالي في منتصف الـ outer
+    const offset = current * step - (outerW / 2 - cardW / 2);
 
-    // active-card
+    // RTL: الـ track بيتمشى بـ positive translateX
+    const isRTL = document.documentElement.dir === 'rtl';
+    track.style.transform = `translateX(${isRTL ? offset : -offset}px)`;
+
     cards.forEach((c, i) => c.classList.toggle('active-card', i === current));
-
-    // dots
-    dots.forEach((d, i) => d.classList.toggle('transforms__dot--active', i === current));
+    dots.forEach((d, i)  => d.classList.toggle('transforms__dot--active', i === current));
   }
 
   // ─── Desktop reset ────────────────────────────────────────────────────────
@@ -94,9 +96,9 @@ export function initResults() {
     if (!isDragging) return;
     const diff = touchStartX - e.changedTouches[0].clientX;
     if (Math.abs(diff) > 40) {
-      // RTL: سحب لليسار = التالي، لليمين = السابق
-      const dir = document.documentElement.dir === 'rtl' ? -1 : 1;
-      goTo(diff * dir > 0 ? current + 1 : current - 1);
+      // RTL: سحب لليسار (diff موجب) = السابق، لليمين = التالي
+      const isRTL = document.documentElement.dir === 'rtl';
+      goTo(diff > 0 ? (isRTL ? current - 1 : current + 1) : (isRTL ? current + 1 : current - 1));
     }
   }, { passive: true });
 
@@ -122,6 +124,7 @@ export function initResults() {
   if (isDesktop()) {
     resetForDesktop();
   } else {
-    goTo(0);
+    // ننتظر الـ layout يتحسب الأول
+    requestAnimationFrame(() => requestAnimationFrame(() => goTo(0)));
   }
 }

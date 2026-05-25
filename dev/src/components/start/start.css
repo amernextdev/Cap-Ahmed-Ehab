@@ -98,8 +98,19 @@
   border: var(--border-width-md) solid var(--line);
   border-radius: var(--radius-base);
   padding: 1.2rem 1.5rem;
-  text-align: right;
+  text-align: start;
   transition: border-color var(--duration-base), box-shadow var(--duration-base);
+}
+
+/* RTL: الأيقونة في الـ HTML قبل الـ info
+   نضغط الـ info لليمين بـ margin علشان الأيقونة تفضل على اليمين */
+[dir="rtl"] .payment__card-info {
+  margin-inline-end: auto;
+  text-align: right;
+}
+
+[dir="ltr"] .payment__card-info {
+  text-align: left;
 }
 
 .payment__card:hover {
@@ -153,6 +164,7 @@
   color: var(--accent);
   letter-spacing: var(--tracking-normal);
   direction: ltr;
+  text-align: left;
   display: inline-block;
 }
 
