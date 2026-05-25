@@ -1,3 +1,45 @@
 @import '/src/services/css/fonts.css';
 @import '/src/services/css/variables.css';
-@import './components/header/header.css';
+@import '/src/components/header/header.css';
+
+
+/* ─── Global Reset & Base ─────────────────────────────────────────────────── */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box !important;
+}
+
+html {
+  overflow-x: hidden !important;
+  scroll-behavior: smooth;
+}
+
+body {
+  overflow-x: hidden !important;
+  min-height: 100dvh;
+  -webkit-text-size-adjust: 100%;
+}
+
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block !important;
+  max-width: 100% !important;
+  height: auto;
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}

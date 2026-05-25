@@ -38,9 +38,14 @@
      🔤 Typography
      ───────────────────────────────────────── */
 
-  /* Font Families */
-  --font-body:    'Tajawal', sans-serif;
-  --font-display: 'Playfair Display', serif;
+  /* Font Families — base references (don't use directly in components) */
+  --font-tajawal:  'Tajawal', sans-serif;
+  --font-dm-sans:  'DM Sans', sans-serif;
+  --font-playfair: 'Playfair Display', serif;
+
+  /* Font Families — semantic tokens (use these in components) */
+  --font-body:    var(--font-tajawal);   /* switches per lang */
+  --font-display: var(--font-playfair);  /* shared — works for both */
 
   /* Font Sizes */
   --text-xs:   0.72rem;   /* Labels, badges */
@@ -227,5 +232,36 @@
   --connector-h: 2px;   /* horizontal */
   --connector-w: 2px;   /* vertical (mobile) */
   --connector-length: 40px;
+
+}
+
+
+/* ─────────────────────────────────────────
+   🌐 Language-Aware Typography Overrides
+   Applied when <html lang="en"> is set
+   ───────────────────────────────────────── */
+
+:root:lang(en),
+[lang="en"] {
+
+  /* Switch body font to DM Sans */
+  --font-body: var(--font-dm-sans);
+
+  /* DM Sans reads slightly smaller — nudge sizes up */
+  --text-xs:   0.75rem;
+  --text-sm:   0.85rem;
+  --text-base: 1rem;
+  --text-md:   1.07rem;
+
+  /* DM Sans needs tighter line-height than Tajawal */
+  --leading-normal:  1.55;
+  --leading-relaxed: 1.65;
+  --leading-loose:   1.75;
+
+  /* Latin tracking — slightly tighter than Arabic defaults */
+  --tracking-normal: 0.01em;
+  --tracking-wide:   0.04em;
+  --tracking-wider:  0.06em;
+  --tracking-widest: 0.18em;
 
 }

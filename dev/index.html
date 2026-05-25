@@ -87,7 +87,7 @@
         <header id="site-header">
             <div class="site-header__inner">
                 <div class="site-header__logo" dir="ltr">
-                    <a href="#" class="site-header__logo-link">
+                    <a href="#" class="site-header__logo-link" data-i18n-html="logo">
                         أحمد <span class="site-header__logo-accent">إيهاب</span>
                     </a>
                 </div>
@@ -110,10 +110,14 @@
             </div>
             <div class="site-header__mobile-toggle">
                 <button class="site-header__mobile-toggle-btn">
-                    <svg class="icon icon--bars" aria-hidden="true"><use href="/sprites/solid.svg#bars"></use></svg>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+
                 </button>
             </div>
         </header>
+        <div class="mobile-nav__backdrop" id="mobileNavBackdrop" aria-hidden="true"></div>
         <aside id="mobile-nav">
             <div class="mobile-nav__inner">
                 <div class="mobile-nav__close">
@@ -125,10 +129,10 @@
             <div class="mobile-nav__nav-wrapper">
                 <nav class="mobile-nav__nav">
                     <ul class="mobile-nav__nav-list">
-                        <li class="mobile-nav__nav-item"><a href="#how" class="mobile-nav__nav-link mobile-nav__nav-link--active" data-i18n-text="nav.link.how">الطريقة<svg class="icon icon--chevron" aria-hidden="true"><use href="/sprites/solid.svg#chevron-left"></use></svg></a></li>
-                        <li class="mobile-nav__nav-item"><a href="#results" class="mobile-nav__nav-link" data-i18n-text="nav.link.results">النتائج<svg class="icon icon--chevron" aria-hidden="true"><use href="/sprites/solid.svg#chevron-left"></use></svg></a></li>
-                        <li class="mobile-nav__nav-item"><a href="#pricing" class="mobile-nav__nav-link" data-i18n-text="nav.link.pricing">الباقات<svg class="icon icon--chevron" aria-hidden="true"><use href="/sprites/solid.svg#chevron-left"></use></svg></a></li>
-                        <li class="mobile-nav__nav-item"><a href="#faq" class="mobile-nav__nav-link" data-i18n-text="nav.link.faq">اسئلة شائعة<svg class="icon icon--chevron" aria-hidden="true"><use href="/sprites/solid.svg#chevron-left"></use></svg></a></li>
+                        <li class="mobile-nav__nav-item"><a href="#how" class="mobile-nav__nav-link mobile-nav__nav-link--active" data-i18n-text="nav.link.how">الطريقة</a></li>
+                        <li class="mobile-nav__nav-item"><a href="#results" class="mobile-nav__nav-link" data-i18n-text="nav.link.results">النتائج</a></li>
+                        <li class="mobile-nav__nav-item"><a href="#pricing" class="mobile-nav__nav-link" data-i18n-text="nav.link.pricing">الباقات</a></li>
+                        <li class="mobile-nav__nav-item"><a href="#faq" class="mobile-nav__nav-link" data-i18n-text="nav.link.faq">اسئلة شائعة</a></li>
                     </ul>
                 </nav>
             </div>
