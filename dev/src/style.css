@@ -12,8 +12,9 @@
 }
 
 html {
-  overflow-x: hidden !important;
   scroll-behavior: smooth;
+  /* Offset for fixed header — matches header height (72px) and scrolled height (64px) */
+  scroll-padding-top: 72px;
 }
 
 body {
