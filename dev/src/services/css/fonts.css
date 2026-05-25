@@ -54,3 +54,14 @@
     font-style: normal;
     font-display: swap;
 }
+
+
+/* DM Sans */
+
+@font-face {
+    font-family: 'DM Sans';
+    src: url('/src/assets/fonts/DM_Sans/DMSans-VariableFont_opsz,wght.ttf') format('truetype');
+    font-weight: 100 900;
+    font-style: normal;
+    font-display: swap;
+}
