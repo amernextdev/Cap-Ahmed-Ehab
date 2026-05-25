@@ -18,7 +18,7 @@
       gap: 0;
       padding: 0 var(--page-x);
       height: 72px;
-      background: transparent;
+      background: var(--nav-bg);
       transition:
         background var(--duration-slow) var(--ease-default),
         box-shadow var(--duration-slow) var(--ease-default),
