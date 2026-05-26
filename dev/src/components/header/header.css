@@ -516,8 +516,7 @@ body { font-family: var(--font-body); background: var(--off); min-height: 200vh;
 }
 
 /* "ابقَ على تواصل" label via pseudo-element */
-.mobile-nav__social::before {
-  content: 'ابقَ على تواصل';
+.mobile-nav__social-title {
   font-size: var(--text-xs);
   font-weight: var(--fw-bold);
   color: var(--mid);
