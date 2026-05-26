@@ -1,0 +1,583 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+
+    <title>الصفحة مش موجودة — أحمد إيهاب</title>
+    <meta name="description" content="الصفحة اللي بتدور عليها مش موجودة. ارجع للصفحة الرئيسية.">
+    <meta name="robots" content="noindex, nofollow">
+    <meta name="theme-color" content="#2a6b4a">
+
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;800&family=Playfair+Display:ital,wght@0,700;1,700&display=swap" rel="stylesheet">
+
+    <!-- Design Tokens -->
+    <link rel="stylesheet" href="/variables.css">
+
+    <style>
+        /* ─── Reset ─────────────────────────────────────── */
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+        html {
+            font-size: 16px;
+            scroll-behavior: smooth;
+            -webkit-text-size-adjust: 100%;
+        }
+
+        body {
+            font-family: var(--font-tajawal, 'Tajawal', sans-serif);
+            background-color: var(--off, #f2f0ea);
+            color: var(--text, #1a1816);
+            min-height: 100dvh;
+            display: flex;
+            flex-direction: column;
+            overflow-x: hidden;
+        }
+
+        /* ─── Dot-grid background ─────────────────────── */
+        body::before {
+            content: '';
+            position: fixed;
+            inset: 0;
+            background-image: radial-gradient(
+                circle,
+                var(--muted, #b0a898) 1.2px,
+                transparent 1.2px
+            );
+            background-size: 28px 28px;
+            opacity: 0.25;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        /* ─── Header ─────────────────────────────────── */
+        header {
+            position: sticky;
+            top: 0;
+            z-index: var(--nav-z, 100);
+            background: var(--nav-bg, rgba(255,255,255,0.88));
+            backdrop-filter: blur(var(--nav-blur, 14px));
+            -webkit-backdrop-filter: blur(var(--nav-blur, 14px));
+            border-bottom: var(--border-width, 1px) solid var(--line, #e2ddd2);
+            padding: var(--nav-padding-y, 1.2rem) var(--nav-padding-x, 7vw);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: var(--header-height, 72px);
+            animation: fadeSlideDown var(--header-fadein-duration, 0.5s) var(--header-fadein-delay, 0.1s) both;
+        }
+
+        .logo-link {
+            font-family: var(--font-tajawal, 'Tajawal', sans-serif);
+            font-size: var(--text-lg, 1.15rem);
+            font-weight: var(--fw-bold, 700);
+            color: var(--ink, #111210);
+            text-decoration: none;
+            letter-spacing: var(--tracking-tight, 0.02em);
+            transition: opacity var(--duration-base, 0.2s) var(--ease-default, ease);
+        }
+
+        .logo-link:hover { opacity: 0.75; }
+
+        .logo-accent { color: var(--accent, #2a6b4a); }
+
+        .header-back-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            font-family: var(--font-tajawal, 'Tajawal', sans-serif);
+            font-size: var(--text-sm, 0.82rem);
+            font-weight: var(--fw-medium, 500);
+            color: var(--mid, #5a5550);
+            text-decoration: none;
+            border: var(--border-width, 1px) solid var(--line, #e2ddd2);
+            border-radius: var(--radius-full, 100px);
+            padding: 0.4rem 1rem;
+            background: var(--white, #fff);
+            transition: all var(--duration-base, 0.2s) var(--ease-default, ease);
+            box-shadow: var(--shadow-xs, 0 2px 10px rgba(0,0,0,0.08));
+        }
+
+        .header-back-btn:hover {
+            color: var(--accent, #2a6b4a);
+            border-color: var(--accent, #2a6b4a);
+            box-shadow: var(--shadow-accent, 0 4px 20px rgba(42,107,74,0.25));
+        }
+
+        /* ─── Main layout ────────────────────────────── */
+        main {
+            flex: 1;
+            position: relative;
+            z-index: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: var(--section-y, 5.5rem) var(--page-x, 7vw);
+            text-align: center;
+        }
+
+        /* ─── 404 Big number ─────────────────────────── */
+        .error-number {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(7rem, 20vw, 14rem);
+            font-weight: 700;
+            font-style: italic;
+            line-height: 1;
+            color: transparent;
+            background: linear-gradient(
+                135deg,
+                var(--accent, #2a6b4a) 0%,
+                rgba(42, 107, 74, 0.35) 60%,
+                var(--paper, #ebe7de) 100%
+            );
+            -webkit-background-clip: text;
+            background-clip: text;
+            letter-spacing: -0.04em;
+            position: relative;
+            display: inline-block;
+            animation: fadeUp 0.7s 0.1s both;
+        }
+
+        /* Decorative ring behind 404 */
+        .error-number::before {
+            content: '';
+            position: absolute;
+            width: 220px;
+            height: 220px;
+            border-radius: var(--radius-circle, 50%);
+            border: 2px solid var(--accent-tint-15, rgba(42,107,74,0.15));
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            pointer-events: none;
+            animation: pulse 3s ease-in-out infinite;
+        }
+
+        .error-number::after {
+            content: '';
+            position: absolute;
+            width: 310px;
+            height: 310px;
+            border-radius: var(--radius-circle, 50%);
+            border: 1px solid var(--accent-tint-08, rgba(42,107,74,0.08));
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            pointer-events: none;
+            animation: pulse 3s ease-in-out 0.5s infinite;
+        }
+
+        /* ─── Section label ──────────────────────────── */
+        .section__label {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: var(--text-xs, 0.72rem);
+            font-weight: var(--fw-bold, 700);
+            letter-spacing: var(--tracking-widest, 0.28em);
+            text-transform: uppercase;
+            color: var(--accent, #2a6b4a);
+            background: var(--accent-tint-08, rgba(42,107,74,0.08));
+            border: var(--border-width, 1px) solid var(--accent-tint-15, rgba(42,107,74,0.15));
+            border-radius: var(--radius-full, 100px);
+            padding: 0.35rem 1rem;
+            margin-bottom: 1.2rem;
+            animation: fadeUp 0.7s 0.25s both;
+        }
+
+        .section__label::before {
+            content: '';
+            width: 5px;
+            height: 5px;
+            border-radius: 50%;
+            background: var(--accent, #2a6b4a);
+            flex-shrink: 0;
+            animation: blink 2s ease-in-out infinite;
+        }
+
+        /* ─── Heading ────────────────────────────────── */
+        .error-title {
+            font-family: var(--font-tajawal, 'Tajawal', sans-serif);
+            font-size: clamp(1.6rem, 4vw, 2.4rem);
+            font-weight: var(--fw-extrabold, 800);
+            color: var(--ink, #111210);
+            line-height: var(--leading-tight, 1.2);
+            letter-spacing: var(--tracking-tight, 0.02em);
+            margin-bottom: 1rem;
+            animation: fadeUp 0.7s 0.35s both;
+        }
+
+        /* ─── Body text ──────────────────────────────── */
+        .error-body {
+            font-size: var(--text-md, 1.05rem);
+            color: var(--mid, #5a5550);
+            line-height: var(--leading-loose, 1.85);
+            max-width: var(--max-content, 580px);
+            margin: 0 auto 2.5rem;
+            animation: fadeUp 0.7s 0.45s both;
+        }
+
+        /* ─── Actions ────────────────────────────────── */
+        .error-actions {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: center;
+            gap: var(--gap-lg, 1.2rem);
+            animation: fadeUp 0.7s 0.55s both;
+        }
+
+        /* Primary CTA — same as site's main CTA */
+        .btn-primary {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            font-family: var(--font-tajawal, 'Tajawal', sans-serif);
+            font-size: var(--text-base, 1rem);
+            font-weight: var(--fw-bold, 700);
+            color: var(--white, #fff);
+            background: var(--accent, #2a6b4a);
+            border: none;
+            border-radius: var(--radius-full, 100px);
+            padding: 0.9rem 2rem;
+            text-decoration: none;
+            cursor: pointer;
+            box-shadow: var(--shadow-accent, 0 4px 20px rgba(42,107,74,0.25));
+            transition: all var(--duration-base, 0.2s) var(--ease-default, ease);
+            white-space: nowrap;
+        }
+
+        .btn-primary:hover {
+            background: var(--accent-hover, #1f5238);
+            box-shadow: var(--shadow-accent-lg, 0 8px 28px rgba(42,107,74,0.40));
+            transform: translateY(-2px);
+        }
+
+        .btn-primary:active { transform: translateY(0); }
+
+        /* Secondary CTA — WhatsApp */
+        .btn-whatsapp {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            font-family: var(--font-tajawal, 'Tajawal', sans-serif);
+            font-size: var(--text-base, 1rem);
+            font-weight: var(--fw-bold, 700);
+            color: var(--white, #fff);
+            background: var(--whatsapp, #25d366);
+            border: none;
+            border-radius: var(--radius-full, 100px);
+            padding: 0.9rem 2rem;
+            text-decoration: none;
+            cursor: pointer;
+            box-shadow: var(--shadow-whatsapp, 0 4px 20px rgba(37,211,102,0.30));
+            transition: all var(--duration-base, 0.2s) var(--ease-default, ease);
+            white-space: nowrap;
+        }
+
+        .btn-whatsapp:hover {
+            background: var(--whatsapp-hover, #1ebe5d);
+            box-shadow: var(--shadow-whatsapp-lg, 0 8px 28px rgba(37,211,102,0.55));
+            transform: translateY(-2px);
+        }
+
+        /* ─── Hint note ──────────────────────────────── */
+        .error-hint {
+            margin-top: 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.4rem;
+            font-size: var(--text-sm, 0.82rem);
+            color: var(--muted, #b0a898);
+            animation: fadeUp 0.7s 0.65s both;
+        }
+
+        .error-hint svg {
+            width: 14px;
+            height: 14px;
+            opacity: 0.7;
+            flex-shrink: 0;
+        }
+
+        /* ─── Countdown redirect ──────────────────────── */
+        .redirect-note {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            font-size: var(--text-xs, 0.72rem);
+            color: var(--muted, #b0a898);
+            margin-top: 1.5rem;
+            animation: fadeUp 0.7s 0.7s both;
+        }
+
+        #countdown {
+            font-weight: var(--fw-bold, 700);
+            color: var(--accent, #2a6b4a);
+        }
+
+        /* ─── Decorative floating shapes ─────────────── */
+        .deco {
+            position: fixed;
+            border-radius: var(--radius-circle, 50%);
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .deco--1 {
+            width: 340px;
+            height: 340px;
+            background: radial-gradient(circle, var(--accent-tint-07, rgba(42,107,74,0.07)), transparent 70%);
+            top: -80px;
+            right: -80px;
+            animation: floatSlow 8s ease-in-out infinite;
+        }
+
+        .deco--2 {
+            width: 240px;
+            height: 240px;
+            background: radial-gradient(circle, var(--accent2-tint-08, rgba(200,136,60,0.08)), transparent 70%);
+            bottom: 60px;
+            left: -60px;
+            animation: floatSlow 10s ease-in-out 1s infinite reverse;
+        }
+
+        .deco--3 {
+            width: 120px;
+            height: 120px;
+            background: radial-gradient(circle, var(--accent-tint-10, rgba(42,107,74,0.10)), transparent 70%);
+            top: 40%;
+            left: 10%;
+            animation: floatSlow 6s ease-in-out 2s infinite;
+        }
+
+        /* ─── Footer ─────────────────────────────────── */
+        footer {
+            position: relative;
+            z-index: 1;
+            text-align: center;
+            padding: 1.5rem var(--page-x, 7vw);
+            border-top: var(--border-width, 1px) solid var(--line, #e2ddd2);
+            font-size: var(--text-xs, 0.72rem);
+            color: var(--muted, #b0a898);
+            line-height: var(--leading-relaxed, 1.7);
+        }
+
+        footer a {
+            color: var(--accent, #2a6b4a);
+            text-decoration: none;
+            transition: opacity var(--duration-fast, 0.15s) var(--ease-default, ease);
+        }
+
+        footer a:hover { opacity: 0.75; }
+
+        /* ─── WhatsApp float ─────────────────────────── */
+        .whatsapp-float {
+            position: fixed;
+            bottom: var(--wa-float-bottom, 1.6rem);
+            left: var(--wa-float-right, 1.6rem);
+            width: var(--wa-float-size, 56px);
+            height: var(--wa-float-size, 56px);
+            background: var(--whatsapp, #25d366);
+            border-radius: var(--radius-circle, 50%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white, #fff);
+            text-decoration: none;
+            box-shadow: var(--shadow-whatsapp, 0 4px 20px rgba(37,211,102,0.30));
+            z-index: 200;
+            transition: all var(--duration-base, 0.2s) var(--ease-pop, cubic-bezier(0.175,0.885,0.32,1.275));
+            animation: waPop 0.6s var(--wa-pop-delay, 1.5s) var(--ease-pop) both;
+        }
+
+        .whatsapp-float:hover {
+            transform: scale(1.1);
+            box-shadow: var(--shadow-whatsapp-lg, 0 8px 28px rgba(37,211,102,0.55));
+        }
+
+        .whatsapp-float svg {
+            width: 26px;
+            height: 26px;
+        }
+
+        /* ─── Keyframes ──────────────────────────────── */
+        @keyframes fadeUp {
+            from { opacity: 0; transform: translateY(var(--reveal-offset, 22px)); }
+            to   { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes fadeSlideDown {
+            from { opacity: 0; transform: translateY(-12px); }
+            to   { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: translate(-50%, -50%) scale(1); opacity: 1; }
+            50%       { transform: translate(-50%, -50%) scale(1.08); opacity: 0.5; }
+        }
+
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50%       { opacity: 0.3; }
+        }
+
+        @keyframes floatSlow {
+            0%, 100% { transform: translateY(0) scale(1); }
+            50%       { transform: translateY(-20px) scale(1.04); }
+        }
+
+        @keyframes waPop {
+            from { opacity: 0; transform: scale(0.5); }
+            to   { opacity: 1; transform: scale(1); }
+        }
+
+        /* ─── Responsive ─────────────────────────────── */
+        @media (max-width: 640px) {
+            header {
+                padding-inline: 1.25rem;
+            }
+
+            main {
+                padding: 3rem 1.5rem 4rem;
+            }
+
+            .error-number::before { width: 150px; height: 150px; }
+            .error-number::after  { width: 220px; height: 220px; }
+
+            .error-actions {
+                flex-direction: column;
+                width: 100%;
+                max-width: 320px;
+            }
+
+            .btn-primary,
+            .btn-whatsapp {
+                width: 100%;
+            }
+
+            .deco--1 { width: 200px; height: 200px; top: -50px; right: -50px; }
+            .deco--2 { display: none; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Decorative background shapes -->
+    <div class="deco deco--1" aria-hidden="true"></div>
+    <div class="deco deco--2" aria-hidden="true"></div>
+    <div class="deco deco--3" aria-hidden="true"></div>
+
+    <!-- ─── Header ─────────────────────────────────── -->
+    <header>
+        <a href="/" class="logo-link" dir="ltr">
+            أحمد <span class="logo-accent">إيهاب</span>
+        </a>
+        <a href="/" class="header-back-btn" aria-label="العودة للصفحة الرئيسية">
+            <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M5 12h14M12 5l7 7-7 7"/>
+            </svg>
+            الرئيسية
+        </a>
+    </header>
+
+    <!-- ─── Main content ────────────────────────────── -->
+    <main>
+
+        <!-- Big 404 number -->
+        <div class="error-number" aria-hidden="true">404</div>
+
+        <!-- Label -->
+        <div class="section__label">صفحة غير موجودة</div>
+
+        <!-- Heading -->
+        <h1 class="error-title">اتوهت؟ مشكلتش!</h1>
+
+        <!-- Body -->
+        <p class="error-body">
+            الصفحة اللي بتدور عليها اتنقلت أو اتمسحت أو الرابط مش صح.
+            ارجع للصفحة الرئيسية أو راسلنا على واتساب وهنساعدك.
+        </p>
+
+        <!-- CTA buttons -->
+        <div class="error-actions">
+            <a href="/" class="btn-primary">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
+                    <polyline points="9 22 9 12 15 12 15 22"/>
+                </svg>
+                ارجع للرئيسية
+            </a>
+
+            <a href="https://wa.me/201204596397?text=أهلاً أحمد، محتاج مساعدة"
+               class="btn-whatsapp"
+               target="_blank"
+               rel="noopener noreferrer"
+               aria-label="راسل أحمد على واتساب">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" width="16" height="16" fill="currentColor" aria-hidden="true">
+                    <path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z"/>
+                </svg>
+                راسلنا على واتساب
+            </a>
+        </div>
+
+        <!-- Helpful hint -->
+        <p class="error-hint">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/>
+            </svg>
+            هيتم تحويلك تلقائيًا للرئيسية بعد
+            <span id="countdown">10</span>
+            ثواني
+        </p>
+
+    </main>
+
+    <!-- ─── Footer ──────────────────────────────────── -->
+    <footer>
+        <p>© 2025 أحمد إيهاب — Online Body Transformation Coaching · جميع الحقوق محفوظة</p>
+        <p style="margin-top:5px">
+            تصميم وتطوير:
+            <a href="https://amerdev.pages.dev" target="_blank" rel="noopener noreferrer">AmerDev</a>
+        </p>
+    </footer>
+
+    <!-- ─── WhatsApp float ──────────────────────────── -->
+    <a href="https://wa.me/201204596397?text=أهلاً أحمد، عايز أعرف أكتر عن برنامج التحول"
+       class="whatsapp-float"
+       target="_blank"
+       rel="noopener noreferrer"
+       aria-label="راسل أحمد على واتساب">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" fill="currentColor" aria-hidden="true">
+            <path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z"/>
+        </svg>
+    </a>
+
+    <!-- ─── Scripts ──────────────────────────────────── -->
+    <script>
+        // Countdown redirect
+        let seconds = 10;
+        const el = document.getElementById('countdown');
+
+        const timer = setInterval(() => {
+            seconds--;
+            if (el) el.textContent = seconds;
+            if (seconds <= 0) {
+                clearInterval(timer);
+                window.location.href = '/';
+            }
+        }, 1000);
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
+
+  <url>
+    <loc>https://online-coaching-45o.pages.dev/</loc>
+    <lastmod>2025-01-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>1.0</priority>
+
+    <!-- Arabic (default) -->
+    <xhtml:link rel="alternate" hreflang="ar" href="https://online-coaching-45o.pages.dev/"/>
+    <!-- English (via lang toggle — same URL, JS switches content) -->
+    <xhtml:link rel="alternate" hreflang="en" href="https://online-coaching-45o.pages.dev/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://online-coaching-45o.pages.dev/"/>
+  </url>
+
+</urlset>

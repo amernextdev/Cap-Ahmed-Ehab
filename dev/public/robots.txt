@@ -1,0 +1,10 @@
+User-agent: *
+Allow: /
+
+# Block access to source/build internals
+Disallow: /src/
+Disallow: /.vite/
+Disallow: /node_modules/
+
+# Sitemap
+Sitemap: https://online-coaching-45o.pages.dev/sitemap.xml
