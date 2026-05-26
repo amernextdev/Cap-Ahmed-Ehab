@@ -55,21 +55,30 @@ const I18n = (() => {
     if (cache[lang]) return cache[lang];
 
     try {
-      const res = await fetch(`${import.meta.env.BASE_URL}locales/en.json`);
+      // 1. تعريف المتغير داخل الدالة مباشرة لضمان رؤيته 100%
+      const locales = import.meta.glob('/src/locales/*.json');
+      
+      const filePath = `/src/locales/${lang}.json`;
 
-      if (!res.ok) {
-        console.error(`[i18n] Failed to load locale "${lang}" — HTTP ${res.status}`);
+      // 2. التحقق من وجود ملف اللغة في المجلد
+      if (!locales[filePath]) {
+        console.error(`[i18n] Failed to find locale file for "${lang}"`);
         return null;
       }
 
-      const bundle = await res.json();
-      cache[lang]  = bundle;
+      // 3. استدعاء ملف الـ JSON ديناميكيًا كـ Module
+      const module = await locales[filePath]();
+      const bundle = module.default;
+
+      // 4. حفظ الملف في الكاش وإرجاعه
+      cache[lang] = bundle;
       return bundle;
 
     } catch (err) {
-      console.error(`[i18n] Network error loading locale "${lang}":`, err);
+      console.error(`[i18n] Error loading locale "${lang}":`, err);
       return null;
     }
+
   }
 
   // ── DOM Applier ────────────────────────────────────────────────────────────
