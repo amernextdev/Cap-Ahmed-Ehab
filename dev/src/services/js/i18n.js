@@ -55,7 +55,7 @@ const I18n = (() => {
     if (cache[lang]) return cache[lang];
 
     try {
-      const res = await fetch(`/locales/${lang}.json`);
+      const res = await fetch(`${import.meta.env.BASE_URL}locales/en.json`);
 
       if (!res.ok) {
         console.error(`[i18n] Failed to load locale "${lang}" — HTTP ${res.status}`);
