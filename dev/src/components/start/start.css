@@ -1,8 +1,5 @@
 /* ================================================================
-   7. START SECTION — خطوات البداية + طرق الدفع
-   ================================================================
-   ─── 7a. Steps
-   ─── 7b. Payment Cards
+   START SECTION — خطوات البداية + طرق الدفع
    ================================================================ */
 
 .start {
@@ -11,7 +8,7 @@
   text-align: center;
 }
 
-/* ─── 7a. Steps ──────────────────────────────────────────────── */
+/* ─── 7a. Steps ─── */
 
 .start__steps {
   display: flex;
@@ -50,7 +47,7 @@
 }
 
 .start__step-body h3 {
-  font-size: 0.95rem;
+  font-size: var(--text-sm);
   font-weight: var(--fw-bold);
   color: var(--ink);
   margin-bottom: 0.3rem;
@@ -62,7 +59,6 @@
   line-height: var(--leading-normal);
 }
 
-/* الخط الرابط بين الخطوات */
 .start__step-connector {
   flex: 0 0 var(--connector-length);
   height: var(--connector-h);
@@ -70,7 +66,7 @@
   margin-bottom: 2rem;
 }
 
-/* ─── 7b. Payment Cards ───────────────────────────────────────── */
+/* ─── 7b. Payment Cards ─── */
 
 .payment__title {
   font-family: var(--font-body);
@@ -102,8 +98,6 @@
   transition: border-color var(--duration-base), box-shadow var(--duration-base);
 }
 
-/* RTL: الأيقونة في الـ HTML قبل الـ info
-   نضغط الـ info لليمين بـ margin علشان الأيقونة تفضل على اليمين */
 [dir="rtl"] .payment__card-info {
   margin-inline-end: auto;
   text-align: right;
@@ -118,7 +112,6 @@
   box-shadow: var(--shadow-accent);
 }
 
-/* أيقونات طرق الدفع */
 .payment__card-icon {
   width: var(--icon-size-lg);
   height: var(--icon-size-lg);
@@ -126,40 +119,39 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 1.2rem;
+  font-size: var(--text-lg);
   flex-shrink: 0;
 }
 
 .payment__card-icon .icon {
-  width: 1.2rem;
-  height: 1.2rem;
+  width: var(--text-lg);
+  height: var(--text-lg);
 }
 
-.payment__card-icon--instapay { background: rgba(42, 107, 74, 0.1);    color: var(--accent);  }
-.payment__card-icon--orange   { background: rgba(200, 136, 60, 0.12);  color: var(--accent2); }
-.payment__card-icon--bank     { background: rgba(26, 24, 22, 0.07);    color: var(--ink);     }
-.payment__card-icon--western  { background: rgba(255, 180, 0, 0.15);   color: #b8860b;        }
+.payment__card-icon--instapay { background: var(--accent-tint-10);    color: var(--accent);  }
+.payment__card-icon--orange   { background: var(--accent2-tint-12);   color: var(--accent2); }
+.payment__card-icon--bank     { background: var(--ink-tint-07);       color: var(--ink);     }
+.payment__card-icon--western  { background: var(--western-tint-15);   color: var(--western-color); }
 
 .payment__card-info h4 {
-  font-size: 0.9rem;
+  font-size: var(--text-sm);
   font-weight: var(--fw-bold);
   color: var(--ink);
   margin-bottom: 0.2rem;
 }
 
 .payment__card-info p {
-  font-size: 0.78rem;
+  font-size: var(--text-xs);
   color: var(--muted);
   margin-bottom: 0.3rem;
 }
 
-/* Western Union له padding خاص */
 .payment__card-info--western p {
   margin-bottom: 0.15rem;
 }
 
 .payment__card-number {
-  font-size: 0.92rem;
+  font-size: var(--text-sm);
   font-weight: var(--fw-bold);
   color: var(--accent);
   letter-spacing: var(--tracking-normal);
@@ -168,14 +160,13 @@
   display: inline-block;
 }
 
-/* ملاحظة إرسال الإيصال */
 .payment__note {
   display: inline-flex;
   align-items: center;
   gap: var(--gap-sm);
   margin-top: 2rem;
-  background: rgba(42, 107, 74, 0.07);
-  border: 1px solid rgba(42, 107, 74, 0.15);
+  background: var(--accent-tint-07);
+  border: var(--border-width) solid var(--accent-tint-15);
   color: var(--accent);
   font-size: var(--text-sm);
   font-weight: var(--fw-medium);
@@ -184,11 +175,11 @@
 }
 
 .payment__note .icon {
-  width: 1rem;
-  height: 1rem;
+  width: var(--text-base);
+  height: var(--text-base);
 }
 
-/* Start + Payment — Responsive */
+/* Responsive */
 @media (max-width: 768px) {
   .payment__cards {
     grid-template-columns: repeat(2, 1fr);

@@ -233,6 +233,178 @@
   --connector-w: 2px;   /* vertical (mobile) */
   --connector-length: 40px;
 
+
+  /* ─────────────────────────────────────────
+     🎨 Alpha / Tint Tokens
+     ───────────────────────────────────────── */
+
+  /* Accent tints */
+  --accent-tint-05:  rgba(42, 107, 74, 0.05);
+  --accent-tint-07:  rgba(42, 107, 74, 0.07);
+  --accent-tint-08:  rgba(42, 107, 74, 0.08);
+  --accent-tint-10:  rgba(42, 107, 74, 0.10);
+  --accent-tint-12:  rgba(42, 107, 74, 0.12);
+  --accent-tint-15:  rgba(42, 107, 74, 0.15);
+
+  /* Accent2 (amber) tints */
+  --accent2-tint-08: rgba(200, 136, 60, 0.08);
+  --accent2-tint-10: rgba(200, 136, 60, 0.10);
+  --accent2-tint-12: rgba(200, 136, 60, 0.12);
+  --accent2-tint-18: rgba(200, 136, 60, 0.18);
+
+  /* WhatsApp tint */
+  --whatsapp-tint-10: rgba(37, 211, 102, 0.10);
+
+  /* White tints */
+  --white-tint-55: rgba(255, 255, 255, 0.55);
+
+  /* Ink (dark) tint — overlay / backdrop */
+  --ink-tint-07:  rgba(17, 18, 16, 0.07);
+  --ink-tint-40:  rgba(17, 18, 16, 0.40);
+
+  /* Black overlay — badge / scrim */
+  --black-tint-55: rgba(0, 0, 0, 0.55);
+
+  /* Western Union gold tint */
+  --western-tint-15: rgba(255, 180, 0, 0.15);
+  --western-color:   #b8860b;
+
+  /* Accent dark hover — pricing featured button */
+  --accent-dark: #1d4d34;
+
+
+  /* ─────────────────────────────────────────
+     📐 Header / Nav Dimensions
+     ───────────────────────────────────────── */
+
+  --header-height:         72px;
+  --header-height-scrolled: 64px;
+  --header-top-line-h:     2px;
+  --mobile-nav-width:      min(360px, 92vw);
+  --mobile-nav-backdrop:   rgba(17, 18, 16, 0.40);  /* = --ink-tint-40 */
+
+
+  /* ─────────────────────────────────────────
+     📐 Component Sizes (icons / controls)
+     ───────────────────────────────────────── */
+
+  --icon-xs:  13px;
+  --icon-sm:  14px;
+  --icon-md:  16px;
+  --icon-nav: 19px;
+  --icon-20:  20px;
+  --icon-28:  28px;
+  --icon-dot: 4px;
+  --icon-pulse-dot: 7px;
+
+  --ctrl-sm:  36px;   /* small control button */
+  --ctrl-md:  40px;   /* close button */
+  --ctrl-lg:  44px;   /* mobile toggle */
+  --ctrl-xl:  46px;   /* social link */
+
+  --hamburger-bar-w: 20px;
+  --hamburger-bar-h: 1.5px;
+  --hamburger-gap:   6px;
+  --hamburger-radius: 2px;
+
+
+  /* ─────────────────────────────────────────
+     📐 Proof / Avatar Row
+     ───────────────────────────────────────── */
+
+  --proof-avatar-offset: -8px;   /* negative margin for overlap */
+
+  /* Avatar background colours */
+  --avatar-bg-1: #d4e8de;
+  --avatar-bg-2: #f5dfc0;
+  --avatar-bg-3: #dce4f0;
+  --avatar-bg-4: #f0d8e8;
+
+
+  /* ─────────────────────────────────────────
+     📐 Results / Transforms
+     ───────────────────────────────────────── */
+
+  --tr-card-height-mobile:  260px;
+  --tr-card-height-desktop: 380px;
+  --tr-card-height-md:      340px;
+  --tr-arrow-size:          44px;
+  --tr-dot-size:            8px;
+  --tr-badge-radius:        100px;
+  --tr-divider-w:           36px;
+  --feedback-card-w:        220px;
+
+
+  /* ─────────────────────────────────────────
+     📐 Pricing
+     ───────────────────────────────────────── */
+
+  --pricing-max-w:          1200px;
+  --pricing-badge-top:      -14px;
+  --pricing-price-size:     2.5rem;
+  --pricing-price-size-sm:  2rem;
+  --pricing-price-unit-size: 0.9rem;
+  --pricing-price-usd-size:  0.75rem;
+
+
+  /* ─────────────────────────────────────────
+     📐 FAQ
+     ───────────────────────────────────────── */
+
+  --faq-max-w:  680px;
+  --faq-radius: 14px;
+
+
+  /* ─────────────────────────────────────────
+     📐 Misc Layout Values
+     ───────────────────────────────────────── */
+
+  --hero-content-mt:    40px;
+  --hero-mobile-pt:     180px;
+  --hero-img-max-sm:    460px;   /* hero subtitle max-width */
+  --dot-bg-size:        28px;
+  --dot-size:           1.2px;
+
+  --results-arrow-offset: -22px;
+  --results-fb-card-max:  240px;
+
+  --problem-icon-font:  1.3rem;
+  --how-step-top:       28px;   /* connector line top offset */
+  --how-step-connector-x: 10%;
+
+  --section-padding-sm:  4rem 5vw;
+  --section-padding-xs:  3rem 1.5rem;
+  --section-padding-mob: 4rem 1.5rem;
+
+  /* WhatsApp float animation delays */
+  --wa-pop-delay:  1.5s;
+  --wa-ring-delay: 2s;
+
+  /* Mobile nav stagger delays */
+  --nav-stagger-1: 0.05s;
+  --nav-stagger-2: 0.10s;
+  --nav-stagger-3: 0.15s;
+  --nav-stagger-4: 0.20s;
+
+  /* Header fade-in */
+  --header-fadein-duration: 0.5s;
+  --header-fadein-delay:    0.1s;
+
+  /* Mobile nav backdrop blur */
+  --nav-backdrop-blur: 4px;
+
+  /* Lang badge font size */
+  --text-badge: 0.68rem;
+
+  /* Mobile logo font size */
+  --text-nav-logo-sm: 1.25rem;
+
+  /* Pricing plan name font size */
+  --text-plan: 1rem;
+
+  /* Outline offset for focus-visible */
+  --focus-outline-offset: 3px;
+
 }
 
 

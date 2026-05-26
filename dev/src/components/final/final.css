@@ -1,19 +1,17 @@
-
-
 /* ================================================================
-   8. FINAL / CTA SECTION — الخطوة الجاية (WhatsApp CTA)
+   FINAL / CTA SECTION — الخطوة الجاية (WhatsApp CTA)
    ================================================================ */
 
 .cta {
   padding: var(--section-y-lg) var(--page-x);
   background: var(--off);
   text-align: center;
-  border-top: 1px solid var(--line);
+  border-top: var(--border-width) solid var(--line);
 }
 
 .cta .section__body {
   text-align: center;
-  max-width: 500px;
+  max-width: var(--max-content);
   margin-left: auto;
   margin-right: auto;
 }
@@ -26,7 +24,6 @@
   gap: var(--gap-base);
 }
 
-/* زر واتساب في CTA */
 .cta__whatsapp-btn {
   display: inline-flex;
   align-items: center;
@@ -35,7 +32,7 @@
   color: var(--white);
   font-family: var(--font-body);
   font-weight: var(--fw-bold);
-  font-size: 1.05rem;
+  font-size: var(--text-md);
   padding: 0.9rem 2.2rem;
   border-radius: var(--radius-full);
   text-decoration: none;
@@ -46,8 +43,8 @@
 }
 
 .cta__whatsapp-btn .icon {
-  width: 1.3rem;
-  height: 1.3rem;
+  width: var(--text-2xl);
+  height: var(--text-2xl);
 }
 
 .cta__whatsapp-btn:hover {
@@ -62,21 +59,19 @@
 }
 
 
-
-
 /* ================================================================
-   9. FOOTER
+   FOOTER
    ================================================================ */
 
 #site-footer {
   background: var(--off);
-  border-top: 1px solid var(--line);
+  border-top: var(--border-width) solid var(--line);
 }
 
 .site-footer__inner {
   padding: 1.5rem var(--page-x);
   text-align: center;
-  font-size: 0.78rem;
+  font-size: var(--text-xs);
   color: var(--muted);
   letter-spacing: var(--tracking-wide);
 }
@@ -91,94 +86,75 @@
 }
 
 
+/* ================================================================
+   WHATSAPP FLOAT BUTTON
+   ================================================================ */
 
-/* زر الواتساب العائم - متوافق مع SVG sprite */
 .whatsapp-float {
   position: fixed;
-  bottom: 1.6rem;
-  right: 1.6rem;
+  bottom: var(--wa-float-bottom);
+  right: var(--wa-float-right);
   z-index: 999;
-  width: 56px;
-  height: 56px;
-  border-radius: 50%;
-  background: #25d366;
-  color: #fff;
+  width: var(--wa-float-size);
+  height: var(--wa-float-size);
+  border-radius: var(--radius-circle);
+  background: var(--whatsapp);
+  color: var(--white);
   display: flex;
   align-items: center;
   justify-content: center;
   text-decoration: none;
-  transition: transform 0.2s, box-shadow 0.2s;
-  animation: wa-pop 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275) both;
-  animation-delay: 1.5s;
+  transition: transform var(--duration-base), box-shadow var(--duration-base);
+  animation: wa-pop var(--header-fadein-duration) var(--ease-pop) var(--wa-pop-delay) both;
   opacity: 0;
-  box-shadow: 0 4px 20px rgba(37, 211, 102, 0.45);
+  box-shadow: var(--shadow-whatsapp);
 }
 
-/* تنسيق SVG داخل الزر */
 .whatsapp-float .icon {
-  width: 28px;
-  height: 28px;
+  width: var(--icon-28);
+  height: var(--icon-28);
   fill: currentColor;
-  color: #fff;
+  color: var(--white);
   display: block;
 }
 
-/* حركة الظهور */
 @keyframes wa-pop {
-  from {
-    opacity: 0;
-    transform: scale(0.5);
-  }
-  to {
-    opacity: 1;
-    transform: scale(1);
-  }
+  from { opacity: 0; transform: scale(0.5); }
+  to   { opacity: 1; transform: scale(1); }
 }
 
-/* تأثير hover */
 .whatsapp-float:hover {
   transform: scale(1.1) translateY(-2px);
-  box-shadow: 0 8px 28px rgba(37, 211, 102, 0.55);
+  box-shadow: var(--shadow-whatsapp-lg);
 }
 
-/* تأثير النبض (ring) حول الزر */
 .whatsapp-float::before {
   content: '';
   position: absolute;
   inset: -4px;
-  border-radius: 50%;
-  border: 2px solid rgba(37, 211, 102, 0.45);
+  border-radius: var(--radius-circle);
+  border: var(--border-width-lg) solid var(--whatsapp-tint-10);
   animation: wa-ring 2.5s ease-out infinite;
-  animation-delay: 2s;
+  animation-delay: var(--wa-ring-delay);
   pointer-events: none;
 }
 
 @keyframes wa-ring {
-  0% {
-    opacity: 1;
-    transform: scale(1);
-  }
-  70% {
-    opacity: 0;
-    transform: scale(1.5);
-  }
-  100% {
-    opacity: 0;
-    transform: scale(1.5);
-  }
+  0%  { opacity: 1; transform: scale(1); }
+  70% { opacity: 0; transform: scale(1.5); }
+  100%{ opacity: 0; transform: scale(1.5); }
 }
 
-/* تحسين للشاشات الصغيرة */
 @media (max-width: 640px) {
   .whatsapp-float {
     bottom: 1.2rem;
     right: 1.2rem;
-    width: 48px;
-    height: 48px;
+    width: var(--ctrl-lg);
+    height: var(--ctrl-lg);
   }
-  
+
   .whatsapp-float .icon {
-    width: 24px;
-    height: 24px;
+    width: var(--icon-28);
+    height: var(--icon-28);
   }
 }

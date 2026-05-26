@@ -1,5 +1,5 @@
 /* ================================================================
-   2. PROBLEM SECTION
+   PROBLEM SECTION
    ================================================================ */
 
 .problem {
@@ -32,17 +32,17 @@
   width: var(--icon-size-md);
   height: var(--icon-size-md);
   border-radius: var(--radius-md);
-  background: rgba(200, 136, 60, 0.1);
+  background: var(--accent2-tint-10);
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 1.3rem;
+  font-size: var(--problem-icon-font);
   margin-bottom: var(--gap-base);
 }
 
 .problem__card-icon .icon {
-  width: 1.3rem;
-  height: 1.3rem;
+  width: var(--problem-icon-font);
+  height: var(--problem-icon-font);
   color: var(--accent2);
 }
 
@@ -54,13 +54,13 @@
 }
 
 .problem__card p {
-  font-size: 0.88rem;
+  font-size: var(--text-sm);
   color: var(--mid);
   line-height: var(--leading-relaxed);
 }
 
 /* ================================================================
-   3. VISUAL BANNER — البانر بالصورة الخلفية
+   VISUAL BANNER
    ================================================================ */
 
 .visual-banner {
@@ -76,7 +76,6 @@
   -webkit-clip-path: inset(0 0 0 0);
 }
 
-/* صورة الخلفية بتأثير Parallax */
 .visual-banner::before {
   content: '';
   position: fixed;
@@ -93,7 +92,6 @@
   transform: translateZ(0);
 }
 
-/* تدرجات الأطراف */
 .visual-banner::after {
   content: '';
   position: absolute;
@@ -120,10 +118,9 @@
   font-size: var(--text-banner);
   font-weight: var(--fw-extrabold);
   line-height: var(--leading-snug);
-  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+  text-shadow: 0 2px 10px var(--ink-tint-40);
 }
 
-/* Visual Banner — Responsive */
 @media (max-width: 768px) {
   .visual-banner {
     height: var(--banner-height-mobile);
@@ -135,6 +132,6 @@
   }
 
   .visual-banner__quote {
-    font-size: 1.4rem;
+    font-size: var(--text-xl);
   }
 }

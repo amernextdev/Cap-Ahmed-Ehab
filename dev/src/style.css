@@ -1,22 +1,8 @@
 /* ============================================================
-   base.css
-   الأكواد العامة والمشتركة — مستخلصة من style.css
-   ============================================================
- 
-   TABLE OF CONTENTS
-   ─────────────────
-   1. IMPORTS
-   2. RESET & BASE
-   3. FOCUS & TAP FIXES
-   4. ICONS (SVG)
-   5. LAYOUT — .main-container
-   6. TYPOGRAPHY — .section__label / .section__title / .section__body
-   7. REVEAL ANIMATION
-   8. BUTTONS — .btn-main / .btn-text
- 
+   base.css — الأكواد العامة والمشتركة
    ============================================================ */
- 
- 
+
+
 /* ============================================================
    1. IMPORTS
    ============================================================ */
@@ -33,12 +19,12 @@
 @import './components/start/start.css';
 @import './components/faq/faq.css';
 @import './components/final/final.css';
- 
- 
+
+
 /* ============================================================
    2. RESET & BASE
    ============================================================ */
- 
+
 *,
 *::before,
 *::after {
@@ -46,11 +32,11 @@
   padding: 0;
   box-sizing: border-box;
 }
- 
+
 html {
   scroll-behavior: smooth;
 }
- 
+
 body {
   background: var(--white);
   color: var(--text);
@@ -59,13 +45,17 @@ body {
   line-height: var(--leading-normal);
   overflow-x: hidden;
 }
- 
- 
+
+html, body {
+  overflow-x: hidden;
+  width: 100%;
+}
+
+
 /* ============================================================
    3. FOCUS & TAP FIXES
    ============================================================ */
- 
-/* تحسينات اللمس للأجهزة */
+
 a,
 [role="button"],
 button,
@@ -74,24 +64,24 @@ textarea,
 select {
   -webkit-tap-highlight-color: transparent;
 }
- 
+
 a:focus,
 button:focus,
 input:focus {
   outline: none;
 }
- 
+
 a:focus-visible,
 button:focus-visible {
-  outline: 2px solid var(--accent);
-  outline-offset: 3px;
+  outline: var(--border-width-lg) solid var(--accent);
+  outline-offset: var(--focus-outline-offset);
 }
- 
- 
+
+
 /* ============================================================
    4. ICONS (SVG sprites)
    ============================================================ */
- 
+
 .icon {
   display: inline-block;
   width: 1em;
@@ -99,14 +89,12 @@ button:focus-visible {
   vertical-align: middle;
   fill: currentColor;
 }
- 
 
- 
+
 /* ============================================================
    6. TYPOGRAPHY — عناصر مشتركة
    ============================================================ */
- 
-/* Section label — "المشكلة", "الطريقة" ... */
+
 .section__label {
   font-size: var(--text-xs);
   font-weight: var(--fw-bold);
@@ -116,8 +104,7 @@ button:focus-visible {
   margin-bottom: 0.8rem;
   display: block;
 }
- 
-/* Section title — العنوان الكبير */
+
 .section__title {
   font-family: var(--font-body);
   font-weight: var(--fw-extrabold);
@@ -126,44 +113,41 @@ button:focus-visible {
   color: var(--ink);
   margin-bottom: 0.9rem;
 }
- 
-/* Section body — الوصف */
+
 .section__body {
   font-size: var(--text-md);
   color: var(--mid);
   max-width: var(--max-content);
   line-height: var(--leading-loose);
 }
- 
- 
+
+
 /* ============================================================
    7. REVEAL ANIMATION
    ============================================================ */
- 
+
 .reveal {
   opacity: 0;
   transform: translateY(var(--reveal-offset));
   transition: opacity var(--duration-reveal) var(--ease-default),
               transform var(--duration-reveal) var(--ease-default);
 }
- 
+
 .reveal.vis {
   opacity: 1;
   transform: translateY(0);
 }
- 
-/* نسخة مكررة في نهاية الملف — موحّدة هنا */
+
 .reveal.visible {
   opacity: 1;
   transform: none;
 }
- 
- 
+
+
 /* ============================================================
    8. BUTTONS — مشتركة بين أكثر من section
    ============================================================ */
- 
-/* زر رئيسي — اشترك الآن */
+
 .btn-main {
   display: inline-flex;
   align-items: center;
@@ -181,13 +165,12 @@ button:focus-visible {
   box-shadow: var(--shadow-accent);
   transition: background var(--duration-base), transform var(--duration-fast);
 }
- 
+
 .btn-main:hover {
   background: var(--accent-hover);
   transform: translateY(-2px);
 }
- 
-/* زر نصي — شوف التفاصيل */
+
 .btn-text {
   display: inline-flex;
   align-items: center;
@@ -201,22 +184,14 @@ button:focus-visible {
   padding: 0.65rem 1.4rem;
   transition: background var(--duration-base), color var(--duration-base);
 }
- 
+
 @media (hover: hover) {
   .btn-text:hover {
     background: var(--text);
     color: var(--white);
   }
 }
- 
+
 .btn-text:active {
   opacity: 0.7;
 }
- 
-
-
-html, body {
-    overflow-x: hidden;
-    width: 100%;
-}
-

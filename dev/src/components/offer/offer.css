@@ -1,6 +1,5 @@
-
 /* ================================================================
-   5. OFFER SECTION — كل البرامج
+   OFFER SECTION — كل البرامج
    ================================================================ */
 
 .offer {
@@ -35,37 +34,35 @@
   height: var(--icon-size-sm);
   flex-shrink: 0;
   border-radius: var(--radius-sm);
-  background: rgba(42, 107, 74, 0.08);
+  background: var(--accent-tint-08);
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 1.2rem;
+  font-size: var(--text-lg);
   color: var(--accent);
 }
 
 .offer__item-icon .icon {
-  width: 1.2rem;
-  height: 1.2rem;
+  width: var(--text-lg);
+  height: var(--text-lg);
   color: var(--accent);
 }
 
 .offer__item h3 {
-  font-size: 0.97rem;
+  font-size: var(--text-sm);
   font-weight: var(--fw-extrabold);
   margin-bottom: 0.35rem;
   color: var(--ink);
 }
 
 .offer__item p {
-  font-size: 0.85rem;
+  font-size: var(--text-xs);
   color: var(--mid);
   line-height: var(--leading-relaxed);
 }
 
-/* Offer — Responsive */
 @media (max-width: 640px) {
   .offer__grid {
     grid-template-columns: 1fr;
   }
 }
-
