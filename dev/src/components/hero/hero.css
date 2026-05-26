@@ -206,6 +206,7 @@
   .hero {
     grid-template-columns: 1fr;
     padding: 0 5vw 4rem;
+    min-height: 100svh;
   }
 
   .hero__tag {
@@ -283,4 +284,27 @@
 .trust-strip__item .icon {
   color: var(--accent);
   font-size: var(--text-sm);
+}
+
+/* ─── تعويض حجم النص الإنجليزي على الموبايل ─── */
+/* النص الإنجليزي أطول من العربي فبيمدد الهيرو —
+   بنصغره شوية عشان يتناسب مع نفس المساحة */
+@media (max-width: 820px) {
+  [lang="en"] .hero__title,
+  [dir="ltr"] .hero__title {
+    font-size: clamp(1.6rem, 7vw, 2.4rem);
+    line-height: 1.25;
+  }
+
+  [lang="en"] .hero__subtitle,
+  [dir="ltr"] .hero__subtitle {
+    font-size: 0.9rem;
+    line-height: 1.6;
+    margin-bottom: 1.4rem;
+  }
+
+  [lang="en"] .hero__actions,
+  [dir="ltr"] .hero__actions {
+    margin-bottom: 1.8rem;
+  }
 }
