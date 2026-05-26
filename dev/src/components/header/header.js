@@ -44,34 +44,41 @@ function initScrollState() {
 // ─────────────────────────────────────────────────────────────────────────────
 
 let navOpen = false;
+let savedScrollY = 0;
 
 function openNav() {
   navOpen = true;
+  savedScrollY = window.scrollY;
+  document.body.style.top = `-${savedScrollY}px`;
+  document.body.classList.add('nav-open');
   mobileNav.classList.add('open');
   backdrop.classList.add('visible');
   burgerBtn.classList.add('active');
   backdrop.setAttribute('aria-hidden', 'false');
   mobileNav.setAttribute('aria-hidden', 'false');
-  document.body.style.overflow = 'hidden';
   mobileNav.querySelector('.mobile-nav__close-btn')?.focus();
-    mobileNav.inert = false;
+  mobileNav.inert = false;
 }
+
 function closeNav() {
   navOpen = false;
-  
+
   // Clear any focus inside mobile nav before hiding
   if (mobileNav && document.activeElement && mobileNav.contains(document.activeElement)) {
     document.activeElement.blur();
   }
-  
+
+  document.body.classList.remove('nav-open');
+  document.body.style.top = '';
+  window.scrollTo({ top: savedScrollY, behavior: 'instant' });
+
   mobileNav.classList.remove('open');
   backdrop.classList.remove('visible');
   burgerBtn.classList.remove('active');
   backdrop.setAttribute('aria-hidden', 'true');
   mobileNav.setAttribute('aria-hidden', 'true');
-  document.body.style.overflow = '';
   mobileNav.inert = true;
-  
+
   // Move focus back to the burger button
   burgerBtn?.focus();
 }

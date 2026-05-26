@@ -2,6 +2,13 @@
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 body { font-family: var(--font-body); background: var(--off); min-height: 200vh; }
 
+/* Lock body scroll when mobile nav is open */
+body.nav-open {
+  overflow: hidden;
+  position: fixed;
+  width: 100%;
+}
+
 /* ─── Design Tokens → variables.css ─────────── */
 
 /* ─────────────────────────────────────────────
