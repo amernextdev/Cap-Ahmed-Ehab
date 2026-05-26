@@ -59,7 +59,7 @@ body.nav-open {
 /* ─── Logo ─────────────────────────────────── */
 .site-header__logo {
   flex-shrink: 0;
-  margin-left: auto;
+  margin-inline-start: auto; /* بينقل اللوجو لليمين في العربي وللشمال في الإنجليزي */
 }
 
 .site-header__logo-link {
@@ -73,17 +73,26 @@ body.nav-open {
   color: var(--ink);
   letter-spacing: var(--tracking-tight);
   line-height: var(--leading-tight);
-  direction: inherit;
   transition: opacity var(--duration-base) var(--ease-default);
+  
+  /* بيخلي المتصفح يقرأ اللوجو عادي حسب لغة الصفحة */
+  direction: inherit; 
 }
 
-.site-header__logo-link:hover { opacity: 0.8; }
+/* حل مشكلة الشقلبة في العربي */
+/* إذا كانت الصفحة عربية (rtl)، هيعكس ترتيب عناصر الفليكس برمجياً عشان تظهر "أحمد إيهاب" */
+[dir="rtl"] .site-header__logo-link {
+  flex-direction: row-reverse;
+}
+
+.site-header__logo-link:hover { 
+  opacity: 0.8; 
+}
 
 .site-header__logo-accent {
   color: var(--accent);
   position: relative;
 }
-
 
 /* ─── Nav ──────────────────────────────────── */
 .site-header__nav-wrapper {

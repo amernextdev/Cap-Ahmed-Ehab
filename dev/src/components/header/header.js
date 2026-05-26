@@ -214,6 +214,9 @@ function initActiveLinks() {
 function syncLangBadges(lang) {
   langBadgeAr?.classList.toggle('active-lang', lang === 'ar');
   langBadgeEn?.classList.toggle('active-lang', lang === 'en');
+
+  const desktopLabel = desktopLangBtn?.querySelector('.site-header__lang-label');
+  if (desktopLabel) desktopLabel.textContent = lang === 'ar' ? 'EN' : 'AR';
 }
 
 async function switchLang() {
