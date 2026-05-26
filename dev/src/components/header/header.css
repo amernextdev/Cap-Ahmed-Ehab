@@ -66,7 +66,7 @@ body { font-family: var(--font-body); background: var(--off); min-height: 200vh;
   color: var(--ink);
   letter-spacing: var(--tracking-tight);
   line-height: var(--leading-tight);
-  direction: rtl;
+  direction: inherit;
   transition: opacity var(--duration-base) var(--ease-default);
 }
 
