@@ -125,7 +125,11 @@
     "cta.label":                                 "Next Step",
     "cta.body":                                  "Every day you wait, the body you want gets further away. One message on WhatsApp and we start working together.",
     "cta.whatsapp-btn":                          "Message Ahmed on WhatsApp",
-    "cta.whatsapp-note":                         "Reply within hours · No commitment required"
+    "cta.whatsapp-note":                         "Reply within hours · No commitment required",
+    "number1": "1",
+    "number2": "2",
+    "number3": "3",
+    "number4": "4"
   },
 
   "i18n-html": {

@@ -37,7 +37,7 @@
 .faq__list {
   max-width: 680px;
   margin: 3rem auto 0;
-  text-align: right;
+  text-align: start;
   display: flex;
   flex-direction: column;
   gap: 0.75rem;
@@ -80,7 +80,7 @@
   justify-content: space-between;
   align-items: center;
   gap: 1rem;
-  text-align: right;
+  text-align: start;
   transition: color 0.2s;
 }
 
@@ -105,6 +105,10 @@
 .faq__btn.open .faq__btn-icon {
   transform: rotate(180deg);
 }
+
+/* ─── RTL: الأيقونة على اليسار — LTR: على اليمين ─── */
+[dir="rtl"] .faq__btn { flex-direction: row-reverse; }
+[dir="ltr"] .faq__btn { flex-direction: row; }
 
 /* Optional: style the SVG icon */
 .faq__btn-icon svg {

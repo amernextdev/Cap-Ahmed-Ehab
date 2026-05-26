@@ -38,6 +38,16 @@
   background: var(--off);
 }
 
+/* LTR: النص شمال والصورة يمين — عكس ترتيب الـ grid */
+@media (min-width: 821px) {
+  [dir="ltr"] .hero {
+    grid-template-columns: 0.9fr 1.1fr;
+  }
+
+  [dir="ltr"] .hero__content { order: 1; }
+  [dir="ltr"] .hero__image-wrap { order: 2; }
+}
+
 /* ─── 2. نقاط الخلفية ─── */
 .hero::before {
   content: '';
@@ -66,7 +76,7 @@
 .hero__content {
   position: relative;
   z-index: 2;
-  text-align: right;
+  text-align: start;
   margin-top: 40px;
 }
 
@@ -125,6 +135,10 @@
   line-height: 1.75;
   max-width: 460px;
   margin-bottom: 2rem;
+}
+
+[dir="ltr"] .hero__subtitle {
+  margin-inline-start: 0;
 }
 
 .hero__subtitle strong {
@@ -295,5 +309,3 @@
   color: var(--accent);
   font-size: 0.9rem;
 }
-
-
