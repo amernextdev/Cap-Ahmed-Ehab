@@ -8,7 +8,7 @@
 .results {
   padding: 6rem 7vw;
   background: var(--off);
-  text-align: right;
+  text-align: start;
   overflow: hidden;
 }
 
