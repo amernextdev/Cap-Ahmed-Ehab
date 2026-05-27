@@ -164,8 +164,8 @@
   "i18n-href": {
     "cta.whatsapp-href":           "https://wa.me/201204596397?text=Hi Ahmed, I'd like to know more about the transformation program",
     "pricing.plan1.whatsapp-href": "https://wa.me/201204596397?text=Hi Ahmed, I'd like to subscribe to the 1-month plan",
-    "pricing.plan2.whatsapp-href": "https://wa.me/201204596397?text=Hi Ahmed, I'd like to subscribe to the 2-month plan",
-    "pricing.plan3.whatsapp-href": "https://wa.me/201204596397?text=Hi Ahmed, I'd like to subscribe to the 4-month plan"
+    "pricing.plan2.whatsapp-href": "https://wa.me/201204596397?text=Hi Ahmed, I'd like to subscribe to the 3-month plan",
+    "pricing.plan3.whatsapp-href": "https://wa.me/201204596397?text=Hi Ahmed, I'd like to subscribe to the 6-month plan"
   },
 
   "i18n-alt": {

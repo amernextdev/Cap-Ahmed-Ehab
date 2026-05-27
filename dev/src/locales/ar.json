@@ -164,8 +164,8 @@
   "i18n-href": {
     "cta.whatsapp-href":           "https://wa.me/201204596397?text=أهلاً أحمد، عايز أعرف أكتر عن برنامج التحول",
     "pricing.plan1.whatsapp-href": "https://wa.me/201204596397?text=أهلاً أحمد، عايز أشترك في باقة الشهر",
-    "pricing.plan2.whatsapp-href": "https://wa.me/201204596397?text=أهلاً أحمد، عايز أشترك في باقة الشهرين",
-    "pricing.plan3.whatsapp-href": "https://wa.me/201204596397?text=أهلاً أحمد، عايز أشترك في باقة 4 شهور"
+    "pricing.plan2.whatsapp-href": "https://wa.me/201204596397?text=أهلاً أحمد، عايز أشترك في باقة 3 شهور",
+    "pricing.plan3.whatsapp-href": "https://wa.me/201204596397?text=أهلاً أحمد، عايز أشترك في باقة 6 شهور"
   },
 
   "i18n-alt": {
