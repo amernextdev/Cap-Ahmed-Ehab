@@ -1,8 +1,8 @@
 import '/src/style.css';
-import I18n from './services/js/i18n.js';
-import { initHeader } from './components/header/header.js';
-import { initResults } from './components/results/results.js';
-import './components/faq/faq.js';
+import I18n from '/src/services/js/i18n.js';
+import { initHeader } from '/src/components/header/header.js';
+import { initResults } from '/src/components/results/results.js';
+import '/src/components/faq/faq.js';
 
 await I18n.init();
 initHeader();

@@ -94,6 +94,7 @@ const I18n = (() => {
       'i18n-html': htmls,
       'i18n-aria': arias,
       'i18n-alt':  alts,
+      'i18n-href': hrefs,
     } = bundle;
 
     // 1 ── document.title
@@ -138,6 +139,16 @@ const I18n = (() => {
         const value = alts[key];
         if (value !== undefined) el.setAttribute('alt', value);
         else console.warn(`[i18n] Missing alt key: "${key}"`);
+      });
+    }
+
+    // 6 ── [data-i18n-href] → href
+    if (hrefs) {
+      document.querySelectorAll('[data-i18n-href]').forEach(el => {
+        const key   = el.getAttribute('data-i18n-href');
+        const value = hrefs[key];
+        if (value !== undefined) el.setAttribute('href', value);
+        else console.warn(`[i18n] Missing href key: "${key}"`);
       });
     }
   }

@@ -161,6 +161,13 @@
     "whatsapp-float.aria-label":                  "راسل أحمد على واتساب"
   },
 
+  "i18n-href": {
+    "cta.whatsapp-href":           "https://wa.me/201204596397?text=أهلاً أحمد، عايز أعرف أكتر عن برنامج التحول",
+    "pricing.plan1.whatsapp-href": "https://wa.me/201204596397?text=أهلاً أحمد، عايز أشترك في باقة الشهر",
+    "pricing.plan2.whatsapp-href": "https://wa.me/201204596397?text=أهلاً أحمد، عايز أشترك في باقة الشهرين",
+    "pricing.plan3.whatsapp-href": "https://wa.me/201204596397?text=أهلاً أحمد، عايز أشترك في باقة 4 شهور"
+  },
+
   "i18n-alt": {
     "hero.trainer-image.alt":       "المدرب أحمد إيهاب",
     "results.transform1.before.alt": "قبل - تحول 1",
