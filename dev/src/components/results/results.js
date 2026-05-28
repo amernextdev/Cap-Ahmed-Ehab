@@ -36,7 +36,13 @@ function buildFeedbackCard({ folder, id }, idx) {
   const base = `src/assets/images/feedbacks/${folder}/feedback`;
   const lang  = document.documentElement.lang?.startsWith('ar') ? 'ar' : 'en';
   const name  = FEEDBACK_NAMES[lang][idx] ?? '';
-  return `
+
+  // جومانا-2 (idx=4) تبدأ صف جديد على الديسكتوب
+  const breakBefore = idx === 4
+    ? '<div class="feedback__row-break" aria-hidden="true"></div>'
+    : '';
+
+  return `${breakBefore}
     <div class="feedback__card">
       <div class="feedback__screenshot">
         <picture>
@@ -119,71 +125,114 @@ const FEEDBACK_VISIBLE_DEFAULT = 4;
 function initFeedbackDesktop() {
   if (window.innerWidth < DESKTOP_BREAKPOINT) return;
 
-  const row = document.querySelector('.feedback-row');
+  const row     = document.querySelector('.feedback-row');
+  const btnShow = document.querySelector('.feedback__more-btn--show');
+  const btnHide = document.querySelector('.feedback__more-btn--hide');
+
   if (!row) return;
 
-  // نشيل أي زرار قديم
-  document.querySelector('.feedback__more-wrap')?.remove();
-
   const cards = Array.from(row.querySelectorAll('.feedback__card'));
-  if (cards.length <= FEEDBACK_VISIBLE_DEFAULT) return;
+  if (cards.length <= FEEDBACK_VISIBLE_DEFAULT) {
+    // نخبي الزرين لو الكروت أقل من أو تساوي الحد
+    if (btnShow) btnShow.hidden = true;
+    if (btnHide) btnHide.hidden = true;
+    return;
+  }
 
-  // نخبي الكروت الزيادة
+  // الحالة الابتدائية: نخبي الكروت الزيادة، نُظهر "عرض المزيد"، نخبي "عرض أقل"
   cards.forEach((c, i) => {
     if (i >= FEEDBACK_VISIBLE_DEFAULT) c.classList.add('feedback__card--hidden');
   });
+  if (btnShow) btnShow.hidden = false;
+  if (btnHide) btnHide.hidden = true;
 
-  let expanded = false;
-  let scrollYBeforeExpand = 0; // بنحفظ موضع الـ scroll قبل الفتح
+  let scrollYBeforeExpand = 0;
 
-  const wrap = document.createElement('div');
-  wrap.className = 'feedback__more-wrap';
+  btnShow?.addEventListener('click', () => {
+    scrollYBeforeExpand = window.scrollY;
 
-  const btn = document.createElement('button');
-  btn.className = 'feedback__more-btn';
-  btn.textContent = `عرض المزيد (${cards.length - FEEDBACK_VISIBLE_DEFAULT}+)`;
-  wrap.appendChild(btn);
+    cards.forEach((c, i) => {
+      if (i < FEEDBACK_VISIBLE_DEFAULT) return;
+      c.classList.remove('feedback__card--hidden');
+      c.style.animationDelay = `${(i - FEEDBACK_VISIBLE_DEFAULT) * 60}ms`;
+      c.classList.add('feedback__card--visible');
+    });
 
-  row.insertAdjacentElement('afterend', wrap);
+    btnShow.hidden = true;
+    if (btnHide) btnHide.hidden = false;
+  });
 
-  btn.addEventListener('click', () => {
-    if (!expanded) {
-      // ── فتح: نحفظ الـ scroll الحالي ثم نوسّع ──
-      scrollYBeforeExpand = window.scrollY;
-      expanded = true;
+  btnHide?.addEventListener('click', () => {
+    cards.forEach((c, i) => {
+      if (i < FEEDBACK_VISIBLE_DEFAULT) return;
+      c.classList.add('feedback__card--hidden');
+      c.classList.remove('feedback__card--visible');
+      c.style.animationDelay = '';
+    });
 
-      cards.forEach((c, i) => {
-        if (i < FEEDBACK_VISIBLE_DEFAULT) return;
-        c.classList.remove('feedback__card--hidden');
-        c.style.animationDelay = `${(i - FEEDBACK_VISIBLE_DEFAULT) * 60}ms`;
-        c.classList.add('feedback__card--visible');
-      });
+    btnHide.hidden = true;
+    if (btnShow) btnShow.hidden = false;
 
-      btn.textContent = 'عرض أقل';
+    requestAnimationFrame(() => {
+      window.scrollTo({ top: scrollYBeforeExpand, behavior: 'smooth' });
+    });
+  });
+}
 
-    } else {
-      // ── غلق: نخبي الكروت أولاً، بعدين نرجع للموضع بسلاسة ──
-      expanded = false;
+// ─── Lightbox ─────────────────────────────────────────────────────────────────
 
-      cards.forEach((c, i) => {
-        if (i < FEEDBACK_VISIBLE_DEFAULT) return;
-        c.classList.add('feedback__card--hidden');
-        c.classList.remove('feedback__card--visible');
-        c.style.animationDelay = '';
-      });
+function initLightbox() {
+  const lightbox = document.createElement('div');
+  lightbox.className = 'fb-lightbox';
+  lightbox.setAttribute('role', 'dialog');
+  lightbox.setAttribute('aria-modal', 'true');
+  lightbox.innerHTML = `
+    <div class="fb-lightbox__inner">
+      <button class="fb-lightbox__close" aria-label="إغلاق">✕</button>
+      <img class="fb-lightbox__img" src="" alt="">
+    </div>`;
+  document.body.appendChild(lightbox);
 
-      btn.textContent = `عرض المزيد (${cards.length - FEEDBACK_VISIBLE_DEFAULT}+)`;
+  const imgEl    = lightbox.querySelector('.fb-lightbox__img');
+  const closeBtn = lightbox.querySelector('.fb-lightbox__close');
 
-      // ننتظر frame واحد عشان الـ DOM يتحدث والـ layout يتحسب
-      requestAnimationFrame(() => {
-        window.scrollTo({ top: scrollYBeforeExpand, behavior: 'smooth' });
-      });
-    }
+  function openLightbox(src, alt) {
+    imgEl.src = src;
+    imgEl.alt = alt || '';
+    lightbox.classList.add('is-open');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeLightbox() {
+    lightbox.classList.remove('is-open');
+    document.body.style.overflow = '';
+  }
+
+  // تفويض الأحداث على feedback-row — يشتغل على كل الكروت الحالية والمستقبلية
+  document.querySelector('.feedback-row')?.addEventListener('click', e => {
+    const wrap = e.target.closest('.feedback__screenshot');
+    if (!wrap) return;
+    const img = wrap.querySelector('img');
+    if (!img) return;
+    openLightbox(img.currentSrc || img.src, img.alt);
+  });
+
+  closeBtn.addEventListener('click', closeLightbox);
+
+  // إغلاق بالضغط على الخلفية
+  lightbox.addEventListener('click', e => {
+    if (e.target === lightbox) closeLightbox();
+  });
+
+  // إغلاق بـ Escape
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape' && lightbox.classList.contains('is-open')) closeLightbox();
   });
 }
 
 export function initResults() {
   injectFeedbacks();
+  initLightbox();
   initFeedbackDots();
   initFeedbackDesktop();
   const track    = document.getElementById('transformsTrack');

@@ -138,8 +138,8 @@
     "number3": "3",
     "number4": "4",
     "nav.social.title": "Stay Connected",
-      "showMore": "Show More (7+)",
-  "showLess": "Show Less"
+    "feedback.more": "Show more (7+)",
+    "feedback.hide": "Show less"
   },
 
   "i18n-html": {

@@ -239,6 +239,7 @@
   box-shadow: var(--shadow-2xl);
   transition: transform var(--duration-mid), box-shadow var(--duration-mid);
   background: var(--white);
+  cursor: zoom-in;
 }
 
 .feedback__screenshot:hover {
@@ -259,6 +260,8 @@
   color: var(--mid);
   text-align: center;
   letter-spacing: var(--tracking-normal);
+  /* الاسم ثابت في الأسفل — المنطقة العلوية بتكبر تلقائياً */
+  margin-top: auto;
 }
 
 /* 10b. FEEDBACK DOTS */
@@ -285,11 +288,19 @@
 
 /* 10c. FEEDBACK SHOW-MORE */
 .feedback__more-btn {
-  display: none; /* الـ JS بيحقنه على desktop بس */
+  display: none;
+}
+
+/* الزرين موجودان في HTML — نخبيهم على موبايل */
+.feedback__more-btn--show,
+.feedback__more-btn--hide {
+  display: none;
 }
 
 @media (min-width: 900px) {
-  .feedback__more-btn {
+  /* يظهر الزر النشط فقط — الـ hidden attribute يتحكم فيه JS */
+  .feedback__more-btn--show,
+  .feedback__more-btn--hide {
     display: inline-flex;
     align-items: center;
     gap: 0.5rem;
@@ -306,7 +317,14 @@
     transition: background var(--duration-base), color var(--duration-base);
   }
 
-  .feedback__more-btn:hover {
+  /* عند وجود hidden attribute يرجع مخفياً */
+  .feedback__more-btn--show[hidden],
+  .feedback__more-btn--hide[hidden] {
+    display: none;
+  }
+
+  .feedback__more-btn--show:hover,
+  .feedback__more-btn--hide:hover {
     background: var(--accent);
     color: var(--white);
   }
@@ -348,9 +366,16 @@
     gap: var(--gap-lg);
   }
 
+  /* فاصل صف — يجبر جومانا-2 تنزل لصف جديد */
+  .feedback__row-break {
+    flex-basis: 100%;
+    height: 0;
+  }
+
   .feedback__card {
     flex: 0 0 calc(20% - var(--gap-lg));
-    max-width: 200px;
+    max-width: var(--results-fb-card-max); /* 240px — درجتان للأعلى من 200px */
+    align-self: stretch; /* يتمدد مع أطول كارت في الصف */
   }
 
   /* الكروت من الـ 5 فصاعداً مخفية بالـ default */
@@ -361,6 +386,13 @@
   .feedback__card--visible {
     display: flex;
     animation: feedbackFadeIn 0.4s var(--ease-default) both;
+  }
+
+  /* الكروت اللي بتظهر بعد "عرض المزيد" — أصغر سنة */
+  .feedback__card--visible .feedback__screenshot {
+    transform: scale(0.92);
+    transform-origin: top center;
+    opacity: 0.88;
   }
 
   @keyframes feedbackFadeIn {
@@ -388,4 +420,85 @@
     flex: 0 0 58vw;
     max-width: 220px;
   }
+
+  /* الـ row-break مش مطلوب على الموبايل */
+  .feedback__row-break {
+    display: none;
+  }
+}
+
+/* 13. LIGHTBOX */
+.fb-lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+  background: var(--ink-tint-40);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity var(--duration-mid) var(--ease-default);
+}
+
+.fb-lightbox.is-open {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* الغلاف الخارجي — الإطار الأنيق */
+.fb-lightbox__inner {
+  position: relative;
+  max-width: min(360px, 84vw);
+  width: 100%;
+  background: var(--white);
+  border-radius: var(--radius-2xl);
+  padding: 10px;
+  box-shadow:
+    0 0 0 1px var(--line),
+    0 0 0 4px var(--white),
+    0 0 0 5px var(--accent-tint-15),
+    var(--shadow-accent-lg);
+  transform: scale(0.93) translateY(10px);
+  transition: transform var(--duration-mid) var(--ease-pop);
+}
+
+.fb-lightbox.is-open .fb-lightbox__inner {
+  transform: scale(1) translateY(0);
+}
+
+.fb-lightbox__img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: var(--radius-lg);
+}
+
+.fb-lightbox__close {
+  position: absolute;
+  top: -13px;
+  left: -13px;
+  width: 32px;
+  height: 32px;
+  border-radius: var(--radius-circle);
+  background: var(--white);
+  border: var(--border-width) solid var(--line);
+  color: var(--mid);
+  font-size: 0.85rem;
+  line-height: 1;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: var(--shadow-sm);
+  transition: background var(--duration-base), color var(--duration-base), transform var(--duration-base);
+}
+
+.fb-lightbox__close:hover {
+  background: var(--accent);
+  color: var(--white);
+  transform: scale(1.12);
 }

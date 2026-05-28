@@ -70,10 +70,10 @@
     "results.feedback3.name":                    "مريم",
     "results.feedback4.name":                    "جومانا",
     "results.feedback5.name":                    "جومانا",
-    "results.feedback6.name":                    "نادا",
+    "results.feedback6.name":                    "ندى",
     "results.feedback7.name":                    "عائشة",
     "results.feedback8.name":                    "فيربينا",
-    "results.feedback9.name":                    "آية",
+    "results.feedback9.name":                    "آيه",
     "results.feedback10.name":                   "فاطمة",
     "results.feedback11.name":                   "دينا",
     "pricing.label":                             "باقات التدريب الأونلاين",
@@ -138,8 +138,8 @@
     "number3": "٣",
     "number4": "٤",
     "nav.social.title": "ابقَ على تواصل",
-      "showMore": "عرض المزيد (7+)",
-  "showLess": "عرض أقل"
+    "feedback.more": "عرض المزيد (7+)",
+    "feedback.hide": "عرض أقل"
   },
 
   "i18n-html": {
