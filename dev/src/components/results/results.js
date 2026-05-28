@@ -45,7 +45,7 @@ function buildFeedbackCard({ folder, id }, idx) {
     : '';
 
   return `${breakBefore}
-    <div class="feedback__card">
+    <div class="feedback__card${idx === 0 ? ' is-active' : ''}">
       <div class="feedback__screenshot">
         <picture>
           <source srcset="${base}.avif" type="image/avif">
@@ -62,6 +62,32 @@ function injectFeedbacks() {
   if (!row) { console.error('[results] .feedback-row not found'); return; }
   row.innerHTML = FEEDBACKS.map((fb, i) => buildFeedbackCard(fb, i)).join('');
   document.dispatchEvent(new CustomEvent('i18n:refresh', { detail: { root: row } }));
+
+  // موبايل فقط: نصحح الـ scroll position عشان الكارت الأول يبدأ centered
+  if (window.innerWidth < DESKTOP_BREAKPOINT) {
+    requestAnimationFrame(() => requestAnimationFrame(() => {
+      const firstCard = row.querySelector('.feedback__card');
+      if (!firstCard) return;
+
+      const rowW  = row.getBoundingClientRect().width;
+      const cardW = firstCard.getBoundingClientRect().width;
+      const style = window.getComputedStyle(row);
+
+      // نقرأ الـ peek padding من CSS variable أو نحسبها
+      const paddingStart = parseFloat(style.paddingInlineStart) || 0;
+
+      // في RTL: scrollLeft يبدأ من اليمين — نحتاج نعوّضه
+      const isRTL = document.documentElement.dir === 'rtl';
+      if (isRTL) {
+        // scrollLeft في RTL يكون سالب في Chrome أو موجب في Firefox
+        // نستخدم scrollRight بطريقة محايدة
+        const maxScroll = row.scrollWidth - row.clientWidth;
+        row.scrollLeft = maxScroll; // ابدأ من أقصى اليمين
+      } else {
+        row.scrollLeft = 0;
+      }
+    }));
+  }
 }
 
 // ─── Feedback Dots (mobile only) ─────────────────────────────────────────────
@@ -89,10 +115,10 @@ function initFeedbackDots() {
 
   const dots = Array.from(dotsEl.querySelectorAll('.feedback__dot'));
 
-  /** نلاقي الكارت الأقرب لمركز الـ row (snap center) */
+  /** نلاقي الكارت الأقرب لمركز الـ row (snap start + scroll-padding) */
   function getActiveDotIndex() {
-    const rowRect = row.getBoundingClientRect();
-    const rowMid  = rowRect.left + rowRect.width / 2;
+    const rowRect  = row.getBoundingClientRect();
+    const rowMid   = rowRect.left + rowRect.width / 2;
     let closestIdx  = 0;
     let closestDist = Infinity;
     cards.forEach((card, i) => {
