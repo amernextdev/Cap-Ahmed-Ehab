@@ -15,21 +15,23 @@ const FEEDBACKS = [
   { folder: 'shahd',     id: 2  },
   { folder: 'maryam',   id: 3  },
   { folder: 'joumana',  id: 4  },
-  { folder: 'joumana-2', id: 5  },
-  { folder: 'nada',      id: 6  },
-  { folder: 'aisha',     id: 7  },
-  { folder: 'verbena',   id: 8  },
-  { folder: 'aya',       id: 9  },
-  { folder: 'fatma',     id: 10 },
-  { folder: 'dina',      id: 11 },
+  {folder: 'ali', id: 5},
+  { folder: 'joumana-2', id: 6  },
+  { folder: 'nada',      id: 7  },
+  { folder: 'aisha',     id: 8  },
+  {folder: 'hassan', id:9},
+  { folder: 'verbena',   id: 10  },
+  { folder: 'aya',       id: 11  },
+  { folder: 'fatma',     id: 12 },
+  { folder: 'dina',      id: 13 },
 ];
 
 // ─── Feedback Inject ──────────────────────────────────────────────────────────
 
 // أسماء احتياطية — الـ i18n هيعملها override لما يشتغل
 const FEEDBACK_NAMES = {
-  ar: ['مصطفى','شهد','مريم','جومانا','جومانا','نادا','عائشة','فيربينا','آية','فاطمة','دينا'],
-  en: ['Mostafa','Shahd','Maryam','Joumana','Joumana','Nada','Aisha','Verbena','Aya','Fatma','Dina'],
+  ar: ['مصطفى','شهد','مريم', 'جومانا', 'علي','جومانا','ندى', 'عائشة','حسن','فيربينا','آيه','فاطمة','دينا'],
+  en: ['Mostafa', 'Shahd', 'Maryam', 'Jomana', 'Ali', 'Jomana', 'Nada', 'Aisha', 'Hassan', 'Verbena', 'Aya', 'Fatma', 'Dina'],
 };
 
 function buildFeedbackCard({ folder, id }, idx) {
@@ -87,33 +89,51 @@ function initFeedbackDots() {
 
   const dots = Array.from(dotsEl.querySelectorAll('.feedback__dot'));
 
-  // RTL: scrollLeft بيبقى سالب
-  function normalizedScroll() {
-    return Math.abs(row.scrollLeft);
-  }
-
+  /** نلاقي الكارت الأقرب لمركز الـ row (snap center) */
   function getActiveDotIndex() {
-    const cardW = cards[0]?.getBoundingClientRect().width || 1;
-    const gap   = parseFloat(window.getComputedStyle(row).gap) || 0;
-    const step  = cardW + gap;
-    // بنحسب الكارت اللي اتعدى منتصفه — مش اللي وقف عنده
-    const idx   = Math.round(normalizedScroll() / step);
-    return Math.max(0, Math.min(idx, total - 1));
+    const rowRect = row.getBoundingClientRect();
+    const rowMid  = rowRect.left + rowRect.width / 2;
+    let closestIdx  = 0;
+    let closestDist = Infinity;
+    cards.forEach((card, i) => {
+      const rect    = card.getBoundingClientRect();
+      const cardMid = rect.left + rect.width / 2;
+      const dist    = Math.abs(cardMid - rowMid);
+      if (dist < closestDist) { closestDist = dist; closestIdx = i; }
+    });
+    return closestIdx;
   }
 
+  /** تحديث الكارت والنقطة النشطة */
+  function updateActive(idx) {
+    cards.forEach((c, i) => c.classList.toggle('is-active', i === idx));
+    dots.forEach((d, i)  => d.classList.toggle('feedback__dot--active', i === idx));
+  }
+
+  // الكارت الأول نشط من البداية
+  updateActive(0);
+
+  // IntersectionObserver — أدق لتحديد الكارت النشط
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.intersectionRatio >= 0.55) {
+        const idx = cards.indexOf(entry.target);
+        if (idx !== -1) updateActive(idx);
+      }
+    });
+  }, { root: row, threshold: 0.55 });
+
+  cards.forEach(c => observer.observe(c));
+
+  // fallback scroll event
   row.addEventListener('scroll', () => {
-    const active = getActiveDotIndex();
-    dots.forEach((d, i) => d.classList.toggle('feedback__dot--active', i === active));
+    updateActive(getActiveDotIndex());
   }, { passive: true });
 
-  // click على dot → scroll للكارت
+  // click على dot → scroll للكارت بـ scrollIntoView (أدق مع snap center)
   dots.forEach((dot, i) => {
     dot.addEventListener('click', () => {
-      const cardW = cards[0]?.getBoundingClientRect().width || 1;
-      const gap   = parseFloat(window.getComputedStyle(row).gap) || 0;
-      const isRTL = document.documentElement.dir === 'rtl';
-      const pos   = i * (cardW + gap);
-      row.scrollTo({ left: isRTL ? -pos : pos, behavior: 'smooth' });
+      cards[i]?.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
     });
   });
 }
