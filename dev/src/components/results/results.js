@@ -33,7 +33,7 @@ const FEEDBACK_NAMES = {
 };
 
 function buildFeedbackCard({ folder, id }, idx) {
-  const base = `src/assets/images/feedbacks/${folder}/feedback`;
+  const base = `/feedbacks/${folder}/feedback`;
   const lang  = document.documentElement.lang?.startsWith('ar') ? 'ar' : 'en';
   const name  = FEEDBACK_NAMES[lang][idx] ?? '';
 
