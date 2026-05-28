@@ -66,9 +66,16 @@
     "results.feedback.label":                    "آراء المتدربين",
     "results.feedback.title":                    "ناس زيك، غيّروا أجسامهم",
     "results.feedback1.name":                    "مصطفى",
-    "results.feedback2.name":                    "جومانه",
-    "results.feedback3.name":                    "شهد",
-    "results.feedback4.name":                    "مريم",
+    "results.feedback2.name":                    "شهد",
+    "results.feedback3.name":                    "مريم",
+    "results.feedback4.name":                    "جومانا",
+    "results.feedback5.name":                    "جومانا",
+    "results.feedback6.name":                    "نادا",
+    "results.feedback7.name":                    "عائشة",
+    "results.feedback8.name":                    "فيربينا",
+    "results.feedback9.name":                    "آية",
+    "results.feedback10.name":                   "فاطمة",
+    "results.feedback11.name":                   "دينا",
     "pricing.label":                             "باقات التدريب الأونلاين",
     "pricing.title":                             "استثمار في نفسك",
     "pricing.body":                              "سعر منصف مقابل متابعة حقيقية ونتايج واضحة.",
@@ -130,7 +137,9 @@
     "number2": "٢",
     "number3": "٣",
     "number4": "٤",
-    "nav.social.title": "ابقَ على تواصل"
+    "nav.social.title": "ابقَ على تواصل",
+      "showMore": "عرض المزيد (7+)",
+  "showLess": "عرض أقل"
   },
 
   "i18n-html": {
@@ -177,8 +186,15 @@
     "results.transform3.before.alt": "قبل - تحول 3",
     "results.transform3.after.alt":  "بعد - تحول 3",
     "results.feedback1.alt":         "تقييم مصطفى",
-    "results.feedback2.alt":         "تقييم جومانه",
-    "results.feedback3.alt":         "تقييم شهد",
-    "results.feedback4.alt":         "تقييم مريم"
+    "results.feedback2.alt":         "تقييم شهد",
+    "results.feedback3.alt":         "تقييم مريم",
+    "results.feedback4.alt":         "تقييم جومانا",
+    "results.feedback5.alt":         "تقييم جومانا",
+    "results.feedback6.alt":         "تقييم نادا",
+    "results.feedback7.alt":         "تقييم عائشة",
+    "results.feedback8.alt":         "تقييم فيربينا",
+    "results.feedback9.alt":         "تقييم آية",
+    "results.feedback10.alt":        "تقييم فاطمة",
+    "results.feedback11.alt":        "تقييم دينا"
   }
 }

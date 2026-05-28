@@ -66,9 +66,16 @@
     "results.feedback.label":                    "Client Reviews",
     "results.feedback.title":                    "People Just Like You — Who Changed Their Bodies",
     "results.feedback1.name":                    "Mostafa",
-    "results.feedback2.name":                    "Joumana",
-    "results.feedback3.name":                    "Shahd",
-    "results.feedback4.name":                    "Mariam",
+    "results.feedback2.name":                    "Shahd",
+    "results.feedback3.name":                    "Maryam",
+    "results.feedback4.name":                    "Joumana",
+    "results.feedback5.name":                    "Joumana",
+    "results.feedback6.name":                    "Nada",
+    "results.feedback7.name":                    "Aisha",
+    "results.feedback8.name":                    "Verbena",
+    "results.feedback9.name":                    "Aya",
+    "results.feedback10.name":                   "Fatma",
+    "results.feedback11.name":                   "Dina",
     "pricing.label":                             "Online Coaching Plans",
     "pricing.title":                             "Coaching Plans Built for Real Results",
     "pricing.body":                              "Fair pricing for real follow-up and clear results.",
@@ -130,7 +137,9 @@
     "number2": "2",
     "number3": "3",
     "number4": "4",
-    "nav.social.title": "Stay Connected"
+    "nav.social.title": "Stay Connected",
+      "showMore": "Show More (7+)",
+  "showLess": "Show Less"
   },
 
   "i18n-html": {
@@ -177,8 +186,15 @@
     "results.transform3.before.alt": "Before — Transformation 3",
     "results.transform3.after.alt":  "After — Transformation 3",
     "results.feedback1.alt":         "Mostafa's Review",
-    "results.feedback2.alt":         "Joumana's Review",
-    "results.feedback3.alt":         "Shahd's Review",
-    "results.feedback4.alt":         "Mariam's Review"
+    "results.feedback2.alt":         "Shahd's Review",
+    "results.feedback3.alt":         "Maryam's Review",
+    "results.feedback4.alt":         "Joumana's Review",
+    "results.feedback5.alt":         "Joumana's Review",
+    "results.feedback6.alt":         "Nada's Review",
+    "results.feedback7.alt":         "Aisha's Review",
+    "results.feedback8.alt":         "Verbena's Review",
+    "results.feedback9.alt":         "Aya's Review",
+    "results.feedback10.alt":        "Fatma's Review",
+    "results.feedback11.alt":        "Dina's Review"
   }
 }

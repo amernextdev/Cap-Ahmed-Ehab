@@ -9,7 +9,7 @@
   padding: 6rem 7vw;
   background: var(--off);
   text-align: start;
-  overflow: hidden;
+  overflow: clip; /* clip بدل hidden — بيمنع الـ scroll الخارجي بس بيسمح للـ children يعملوا overflow-x */
 }
 
 /* 02. SLIDER WRAPPER & TRACK */
@@ -261,6 +261,62 @@
   letter-spacing: var(--tracking-normal);
 }
 
+/* 10b. FEEDBACK DOTS */
+.feedback__dots {
+  display: flex;
+  justify-content: center;
+  gap: 0.4rem;
+  margin-top: 1.25rem;
+}
+
+.feedback__dot {
+  width: var(--tr-dot-size);
+  height: var(--tr-dot-size);
+  border-radius: var(--radius-circle);
+  background: var(--line);
+  cursor: pointer;
+  transition: background var(--duration-slow), transform var(--duration-slow);
+}
+
+.feedback__dot--active {
+  background: var(--accent);
+  transform: scale(1.3);
+}
+
+/* 10c. FEEDBACK SHOW-MORE */
+.feedback__more-btn {
+  display: none; /* الـ JS بيحقنه على desktop بس */
+}
+
+@media (min-width: 900px) {
+  .feedback__more-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin: 2rem auto 0;
+    padding: 0.7rem 2rem;
+    border-radius: var(--radius-full);
+    border: var(--border-width-md) solid var(--accent);
+    background: transparent;
+    color: var(--accent);
+    font-family: var(--font-body);
+    font-weight: var(--fw-bold);
+    font-size: var(--text-sm);
+    cursor: pointer;
+    transition: background var(--duration-base), color var(--duration-base);
+  }
+
+  .feedback__more-btn:hover {
+    background: var(--accent);
+    color: var(--white);
+  }
+
+  .feedback__more-wrap {
+    display: flex;
+    justify-content: center;
+  }
+}
+
 /* 11. RESPONSIVE — DESKTOP */
 @media (min-width: 900px) {
 
@@ -283,16 +339,33 @@
 
   .transforms__dots  { display: none; }
   .transforms__arrow { display: none; }
+  .feedback__dots    { display: none; }
 
   .feedback-row {
     overflow-x: visible;
     flex-wrap: wrap;
     justify-content: center;
+    gap: var(--gap-lg);
   }
 
   .feedback__card {
-    flex: 0 0 calc(25% - 0.9rem);
-    max-width: var(--results-fb-card-max);
+    flex: 0 0 calc(20% - var(--gap-lg));
+    max-width: 200px;
+  }
+
+  /* الكروت من الـ 5 فصاعداً مخفية بالـ default */
+  .feedback__card--hidden {
+    display: none;
+  }
+
+  .feedback__card--visible {
+    display: flex;
+    animation: feedbackFadeIn 0.4s var(--ease-default) both;
+  }
+
+  @keyframes feedbackFadeIn {
+    from { opacity: 0; transform: translateY(12px); }
+    to   { opacity: 1; transform: translateY(0); }
   }
 }
 
@@ -312,7 +385,7 @@
   .tr-card__images { height: var(--tr-card-height-mobile); }
 
   .feedback__card {
-    flex: 0 0 72vw;
-    max-width: 300px;
+    flex: 0 0 58vw;
+    max-width: 220px;
   }
 }
