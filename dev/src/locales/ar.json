@@ -149,7 +149,7 @@
     "logo": " أحمد <span class=\"site-header__logo-accent\">إيهاب</span>",
     "hero.title":        "لو جربت قبل كده<br>ومحصلتش نتيجة —<br><em>المشكلة مش فيك</em>",
     "hero.subtitle":     "البرامج الجاهزة مش بتشتغل لأنها مش مخصصة ليك.\nأنا بشتغل معاك <strong>شخصيًا</strong> — أفهم جسمك وظروفك الفعلية，\nوأعملك خطة تقدر تلتزم بيها وتشوف فرق <strong>من الأسبوع الأول.</strong>",
-    "hero.proof":        "<strong>+50 متدرب</strong> غيّروا أجسامهم<br>مع أحمد إيهاب",
+    "hero.proof":        "<strong>+100 متدرب</strong> غيّروا أجسامهم<br>مع أحمد إيهاب",
     "problem.title":     "ليه البرامج الجاهزة<br>مش بتشتغل معاك؟",
     "how.title":         "٤ خطوات بسيطة<br>للتحول الحقيقي",
     "offer.title":       "كل البرامج مصممة شخصيًا<br>بدون أي وسيط",
@@ -192,12 +192,15 @@
     "results.feedback2.alt":         "تقييم شهد",
     "results.feedback3.alt":         "تقييم مريم",
     "results.feedback4.alt":         "تقييم جومانا",
-    "results.feedback5.alt":         "تقييم جومانا",
-    "results.feedback6.alt":         "تقييم نادا",
-    "results.feedback7.alt":         "تقييم عائشة",
-    "results.feedback8.alt":         "تقييم فيربينا",
-    "results.feedback9.alt":         "تقييم آية",
-    "results.feedback10.alt":        "تقييم فاطمة",
-    "results.feedback11.alt":        "تقييم دينا"
+    "results.feedback5.alt":         "تقييم علي",
+    "results.feedback6.alt":         "تقييم جومانا 2",
+    "results.feedback7.alt":         "تقييم ندى",
+    "results.feedback8.alt":         "تقييم عائشة",
+    "results.feedback9.alt":         "تقييم حسن",
+    "results.feedback10.alt":        "تقييم فيربينا",
+    "results.feedback11.alt":        "تقييم آية",
+    "results.feedback12.alt":        "تقييم فاطمة",
+    "results.feedback13.alt":        "تقييم دينا"
+
   }
 }

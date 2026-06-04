@@ -50,7 +50,7 @@ function buildFeedbackCard({ folder, id }, idx) {
         <picture>
           <source srcset="${base}.avif" type="image/avif">
           <source srcset="${base}.webp" type="image/webp">
-          <img src="${base}.jpg" alt="" loading="lazy" data-i18n-alt="results.feedback${id}.alt">
+          <img src="${base}.jpg" alt="feedback ${id}" loading="lazy" data-i18n-alt="results.feedback${id}.alt">
         </picture>
       </div>
       <div class="feedback__name" data-i18n-text="results.feedback${id}.name">${name}</div>

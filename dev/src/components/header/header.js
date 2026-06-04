@@ -216,7 +216,7 @@ function syncLangBadges(lang) {
   langBadgeEn?.classList.toggle('active-lang', lang === 'en');
 
   const desktopLabel = desktopLangBtn?.querySelector('.site-header__lang-label');
-  if (desktopLabel) desktopLabel.textContent = lang === 'ar' ? 'EN' : 'AR';
+  if (desktopLabel) desktopLabel.textContent = lang === 'ar' ? 'English' : 'العربية';
 }
 
 async function switchLang() {

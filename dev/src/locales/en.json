@@ -150,7 +150,7 @@
     "logo": " Ahmed <span class=\"site-header__logo-accent\">Ehab</span>",
     "hero.title":        "If You've Tried Before<br>But Nothing Worked —<br><em>It's Not Your Fault</em>",
     "hero.subtitle":     "Generic programs don't work because they weren't made for you.\nI work with you <strong>personally</strong> — understanding your body and your real life,\nand building a plan you can actually stick to and start seeing changes <strong>from week one.</strong>",
-    "hero.proof":        "<strong>50+ clients</strong> who transformed their bodies<br>with Ahmed Ehab",
+    "hero.proof":        "<strong>100+ clients</strong> who transformed their bodies<br>with Ahmed Ehab",
     "problem.title":     "Why Generic Programs<br>Don't Work for You?",
     "how.title":         "4 Simple Steps<br>to a Real Transformation",
     "offer.title":       "Every Program Is Designed Personally<br>— No Middleman",
@@ -193,12 +193,15 @@
     "results.feedback2.alt":         "Shahd's Review",
     "results.feedback3.alt":         "Maryam's Review",
     "results.feedback4.alt":         "Joumana's Review",
-    "results.feedback5.alt":         "Joumana's Review",
-    "results.feedback6.alt":         "Nada's Review",
-    "results.feedback7.alt":         "Aisha's Review",
-    "results.feedback8.alt":         "Verbena's Review",
-    "results.feedback9.alt":         "Aya's Review",
-    "results.feedback10.alt":        "Fatma's Review",
-    "results.feedback11.alt":        "Dina's Review"
+    "results.feedback5.alt":         "Ali's Review",
+    "results.feedback6.alt":         "Joumana 2's Review",
+    "results.feedback7.alt":         "Nada's Review",
+    "results.feedback8.alt":         "Aisha's Review",
+    "results.feedback9.alt":         "Hassan's Review",
+    "results.feedback10.alt":        "Verbena's Review",
+    "results.feedback11.alt":        "Aya's Review",
+    "results.feedback12.alt":        "Fatma's Review",
+    "results.feedback13.alt":        "Dina's Review"
+
   }
 }
