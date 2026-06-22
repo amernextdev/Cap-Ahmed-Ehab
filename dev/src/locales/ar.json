@@ -142,7 +142,8 @@
     "number4": "٤",
     "nav.social.title": "ابقَ على تواصل",
     "feedback.more": "عرض المزيد (9+)",
-    "feedback.hide": "عرض أقل"
+    "feedback.hide": "عرض أقل",
+        "pricing.usd.note": " الدولار للعملاء خارج مصر"
   },
 
   "i18n-html": {
@@ -154,9 +155,10 @@
     "how.title":         "٤ خطوات بسيطة<br>للتحول الحقيقي",
     "offer.title":       "كل البرامج مصممة شخصيًا<br>بدون أي وسيط",
     "offer.item7.title": "ترشيحات مكملات <span style=\"font-size:0.78rem; color:var(--muted); font-weight:400;\">(اختياري)</span>",
-    "pricing.plan1.price": " 1,099 <span class=\"pricing__price-unit\" data-i18n-text=\"pricing.currency.egp\">جنيه</span> \n <span class=\"pricing__price-usd\">39 USD</span>",
-    "pricing.plan2.price": " 2,499 <span class=\"pricing__price-unit\" data-i18n-text=\"pricing.currency.egp\">جنيه</span> \n <span class=\"pricing__price-usd\">99 USD</span>",
-    "pricing.plan3.price": " 4,499 <span class=\"pricing__price-unit\" data-i18n-text=\"pricing.currency.egp\">جنيه</span> \n <span class=\"pricing__price-usd\">199 USD</span>",
+    "pricing.plan1.price": " 1,099 <span class=\"pricing__price-unit\">جنيه</span> / 39 <span class=\"pricing__price-unit\">دولار</span>",
+    "pricing.plan2.price": " 2,499 <span class=\"pricing__price-unit\">جنيه</span> / 99 <span class=\"pricing__price-unit\">دولار</span>",
+    "pricing.plan3.price": " 4,499 <span class=\"pricing__price-unit\">جنيه</span> / 199 <span class=\"pricing__price-unit\">دولار</span>",
+
     "cta.title":         "ابدأ تحولك —<br>الكوتش جاهز",
     "footer.copyright":  "© 2025 أحمد إيهاب — Online Body Transformation Coaching · جميع الحقوق محفوظة",
     "footer.credit":     "تصميم وتطوير:\n<a href=\"https://amerdev.pages.dev\" target=\"_blank\" rel=\"noopener noreferrer\" style=\"color:#2a6b4a\">AmerDev</a>",

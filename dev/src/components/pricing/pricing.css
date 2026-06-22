@@ -240,3 +240,26 @@
     padding: 1.5rem 1rem;
   }
 }
+/* 12. DUAL CURRENCY — السعر بالجنيه والدولار */
+.pricing__price-slash {
+  font-size: 0.8em;
+  color: var(--mid);
+  font-weight: var(--fw-medium);
+  margin: 0 0.15rem;
+}
+
+.pricing__price-usd-inline {
+  font-size: 0.7em;
+  color: var(--mid);
+  font-weight: var(--fw-semibold);
+  direction: ltr;
+  display: inline-block;
+}
+
+.pricing__price-location-note {
+  font-size: var(--text-xs);
+  color: var(--accent);
+  margin-top: 0.4rem;
+  font-weight: var(--fw-medium);
+  opacity: 0.85;
+}

@@ -143,7 +143,8 @@
     "number4": "4",
     "nav.social.title": "Stay Connected",
     "feedback.more": "Show more (9+)",
-    "feedback.hide": "Show less"
+    "feedback.hide": "Show less",
+    "pricing.usd.note": " USD for international clients"
   },
 
   "i18n-html": {
