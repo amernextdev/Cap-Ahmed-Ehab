@@ -132,6 +132,8 @@
 .payment__card-icon--orange   { background: var(--accent2-tint-12);   color: var(--accent2); }
 .payment__card-icon--bank     { background: var(--ink-tint-07);       color: var(--ink);     }
 .payment__card-icon--western  { background: var(--western-tint-15);   color: var(--western-color); }
+.payment__card-icon--paypal   { background: var(--accent-tint-10);    color: #1a2a5e; }
+.payment__card-icon--intlbank { background: var(--accent2-tint-12);   color: var(--accent2); }
 
 .payment__card-info h4 {
   font-size: var(--text-sm);
