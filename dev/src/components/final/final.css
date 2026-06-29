@@ -1,0 +1,160 @@
+/* ================================================================
+   FINAL / CTA SECTION — الخطوة الجاية (WhatsApp CTA)
+   ================================================================ */
+
+.cta {
+  padding: var(--section-y-lg) var(--page-x);
+  background: var(--off);
+  text-align: center;
+  border-top: var(--border-width) solid var(--line);
+}
+
+.cta .section__body {
+  text-align: center;
+  max-width: var(--max-content);
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.cta__actions {
+  margin-top: 2.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--gap-base);
+}
+
+.cta__whatsapp-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.7rem;
+  background: var(--whatsapp);
+  color: var(--white);
+  font-family: var(--font-body);
+  font-weight: var(--fw-bold);
+  font-size: var(--text-md);
+  padding: 0.9rem 2.2rem;
+  border-radius: var(--radius-full);
+  text-decoration: none;
+  box-shadow: var(--shadow-whatsapp);
+  transition: background var(--duration-base),
+              transform var(--duration-fast),
+              box-shadow var(--duration-base);
+}
+
+.cta__whatsapp-btn .icon {
+  width: var(--text-2xl);
+  height: var(--text-2xl);
+}
+
+.cta__whatsapp-btn:hover {
+  background: var(--whatsapp-hover);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-whatsapp-lg);
+}
+
+.cta__whatsapp-note {
+  font-size: var(--text-sm);
+  color: var(--muted);
+}
+
+
+/* ================================================================
+   FOOTER
+   ================================================================ */
+
+#site-footer {
+  background: var(--off);
+  border-top: var(--border-width) solid var(--line);
+}
+
+.site-footer__inner {
+  padding: 1.5rem var(--page-x);
+  text-align: center;
+  font-size: var(--text-xs);
+  color: var(--muted);
+  letter-spacing: var(--tracking-wide);
+}
+
+.site-footer__inner a {
+  color: var(--accent);
+  text-decoration: none;
+}
+
+.site-footer__inner a:hover {
+  text-decoration: underline;
+}
+
+
+/* ================================================================
+   WHATSAPP FLOAT BUTTON
+   ================================================================ */
+
+.whatsapp-float {
+  position: fixed;
+  bottom: var(--wa-float-bottom);
+  right: var(--wa-float-right);
+  z-index: 999;
+  width: var(--wa-float-size);
+  height: var(--wa-float-size);
+  border-radius: var(--radius-circle);
+  background: var(--whatsapp);
+  color: var(--white);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  transition: transform var(--duration-base), box-shadow var(--duration-base);
+  animation: wa-pop var(--header-fadein-duration) var(--ease-pop) var(--wa-pop-delay) both;
+  opacity: 0;
+  box-shadow: var(--shadow-whatsapp);
+}
+
+.whatsapp-float .icon {
+  width: var(--icon-28);
+  height: var(--icon-28);
+  fill: currentColor;
+  color: var(--white);
+  display: block;
+}
+
+@keyframes wa-pop {
+  from { opacity: 0; transform: scale(0.5); }
+  to   { opacity: 1; transform: scale(1); }
+}
+
+.whatsapp-float:hover {
+  transform: scale(1.1) translateY(-2px);
+  box-shadow: var(--shadow-whatsapp-lg);
+}
+
+.whatsapp-float::before {
+  content: '';
+  position: absolute;
+  inset: -4px;
+  border-radius: var(--radius-circle);
+  border: var(--border-width-lg) solid var(--whatsapp-tint-10);
+  animation: wa-ring 2.5s ease-out infinite;
+  animation-delay: var(--wa-ring-delay);
+  pointer-events: none;
+}
+
+@keyframes wa-ring {
+  0%  { opacity: 1; transform: scale(1); }
+  70% { opacity: 0; transform: scale(1.5); }
+  100%{ opacity: 0; transform: scale(1.5); }
+}
+
+@media (max-width: 640px) {
+  .whatsapp-float {
+    bottom: 1.2rem;
+    right: 1.2rem;
+    width: var(--ctrl-lg);
+    height: var(--ctrl-lg);
+  }
+
+  .whatsapp-float .icon {
+    width: var(--icon-28);
+    height: var(--icon-28);
+  }
+}

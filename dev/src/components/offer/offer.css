@@ -1,0 +1,68 @@
+/* ================================================================
+   OFFER SECTION — كل البرامج
+   ================================================================ */
+
+.offer {
+  background: var(--off);
+  padding: var(--section-y) var(--page-x);
+}
+
+.offer__grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--gap-lg);
+  margin-top: var(--gap-3xl);
+}
+
+.offer__item {
+  background: var(--white);
+  border: var(--border-width) solid var(--line);
+  border-radius: var(--radius-lg);
+  padding: 1.6rem;
+  display: flex;
+  gap: 1.1rem;
+  align-items: flex-start;
+  transition: box-shadow var(--duration-base);
+}
+
+.offer__item:hover {
+  box-shadow: var(--shadow-lg);
+}
+
+.offer__item-icon {
+  width: var(--icon-size-sm);
+  height: var(--icon-size-sm);
+  flex-shrink: 0;
+  border-radius: var(--radius-sm);
+  background: var(--accent-tint-08);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: var(--text-lg);
+  color: var(--accent);
+}
+
+.offer__item-icon .icon {
+  width: var(--text-lg);
+  height: var(--text-lg);
+  color: var(--accent);
+}
+
+.offer__item h3 {
+  font-size: var(--text-sm);
+  font-weight: var(--fw-extrabold);
+  margin-bottom: 0.35rem;
+  color: var(--ink);
+}
+
+.offer__item p {
+  font-size: var(--text-xs);
+  color: var(--mid);
+  line-height: var(--leading-relaxed);
+}
+
+@media (max-width: 640px) {
+  .offer__grid {
+    grid-template-columns: 1fr;
+  }
+}

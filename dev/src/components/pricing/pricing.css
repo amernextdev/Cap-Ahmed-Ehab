@@ -1,0 +1,265 @@
+/* ================================================================
+   PRICING SECTION - قسم الباقات والأسعار
+   ================================================================ */
+
+/* 1. SECTION WRAPPER */
+#pricing,
+.pricing {
+  padding: 6rem 7vw;
+  background: var(--white);
+  text-align: center;
+}
+
+.pricing .section__body {
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 2.5rem;
+  max-width: 600px;
+}
+
+.pricing .section__body.pricing-area {
+  font-size: var(--text-xs);
+  color: var(--mid);
+  font-weight: var(--fw-medium);
+  opacity: 0.65;
+  margin-top: -1.75rem;
+  margin-bottom: 2.5rem;
+  letter-spacing: var(--tracking-tight);
+}
+
+/* 2. CARDS CONTAINER */
+.pricing__cards {
+  display: none;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: var(--gap-xl);
+  max-width: var(--pricing-max-w);
+  margin: 0 auto;
+}
+
+.pricing__cards--active {
+  display: grid;
+}
+
+/* 3. CARD BASE STYLES */
+.pricing__card {
+  position: relative;
+  background: var(--white);
+  border: var(--border-width-md) solid var(--line);
+  border-radius: var(--radius-xl);
+  padding: 2rem 1.5rem;
+  text-align: center;
+  transition: transform var(--duration-slow) ease, box-shadow var(--duration-slow) ease;
+}
+
+.pricing__card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-card-hover);
+}
+
+/* 4. FEATURED CARD */
+.pricing__card--featured {
+  border-color: var(--accent);
+  background: linear-gradient(135deg, var(--white) 0%, #f8fff8 100%);
+  box-shadow: var(--shadow-featured);
+}
+
+/* 5. BADGE */
+.pricing__badge {
+  position: absolute;
+  top: var(--pricing-badge-top);
+  left: 50%;
+  transform: translateX(-50%);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  background: var(--accent);
+  color: var(--white);
+  font-weight: var(--fw-bold);
+  font-size: var(--text-xs);
+  padding: 0.3rem 1rem;
+  border-radius: var(--radius-full);
+  white-space: nowrap;
+}
+
+.pricing__badge .icon {
+  width: var(--text-xs);
+  height: var(--text-xs);
+  fill: currentColor;
+}
+
+/* 6. PLAN NAME */
+.pricing__plan {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  font-weight: var(--fw-bold);
+  font-size: var(--text-plan);
+  color: var(--ink);
+  margin-top: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.pricing__plan .icon {
+  width: var(--text-plan);
+  height: var(--text-plan);
+  color: var(--accent2);
+}
+
+/* 7. PRICE SECTION */
+.pricing__amount {
+  margin-bottom: 0.5rem;
+}
+
+.pricing__price {
+  font-size: var(--pricing-price-size);
+  font-weight: var(--fw-extrabold);
+  color: var(--accent);
+  line-height: var(--leading-tight);
+}
+
+.pricing__price-unit {
+  font-size: var(--pricing-price-unit-size);
+  font-weight: var(--fw-medium);
+  color: var(--mid);
+}
+
+.pricing__price-usd {
+  display: block;
+  font-size: var(--pricing-price-usd-size);
+  font-weight: var(--fw-medium);
+  color: var(--muted);
+  letter-spacing: var(--tracking-tight);
+  margin-top: 0.25rem;
+}
+
+/* 8. FEATURES LIST */
+.pricing__features {
+  list-style: none;
+  text-align: right;
+  margin: 1.5rem 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.pricing__features li {
+  font-size: var(--text-sm);
+  color: var(--mid);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.pricing__features li .icon {
+  color: var(--accent);
+  width: var(--text-sm);
+  height: var(--text-sm);
+  flex-shrink: 0;
+  fill: currentColor;
+}
+
+/* 9. CTA BUTTON */
+.pricing__cta-btn {
+  display: block;
+  background: var(--accent);
+  color: var(--white);
+  font-weight: var(--fw-bold);
+  font-size: var(--text-sm);
+  padding: 0.75rem 1.5rem;
+  border-radius: var(--radius-full);
+  text-decoration: none;
+  margin-top: 0.5rem;
+  transition: background var(--duration-base) ease, transform var(--duration-base) ease;
+  cursor: pointer;
+}
+
+.pricing__cta-btn:hover {
+  background: var(--accent-dark);
+  transform: translateY(-1px);
+}
+
+.pricing__card:not(.pricing__card--featured) .pricing__cta-btn {
+  background: transparent;
+  color: var(--accent);
+  border: var(--border-width-md) solid var(--accent);
+}
+
+.pricing__card:not(.pricing__card--featured) .pricing__cta-btn:hover {
+  background: var(--accent);
+  color: var(--white);
+}
+
+/* 10. NOTE */
+.pricing__note {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-top: 2rem;
+  font-size: var(--text-sm);
+  color: var(--mid);
+}
+
+.pricing__note .icon {
+  width: var(--text-sm);
+  height: var(--text-sm);
+  fill: currentColor;
+}
+
+/* 11. RESPONSIVE */
+@media (max-width: 900px) {
+  #pricing,
+  .pricing {
+    padding: 4rem 5vw;
+  }
+
+  .pricing__cards {
+    gap: var(--gap-lg);
+  }
+}
+
+@media (max-width: 700px) {
+  #pricing,
+  .pricing {
+    padding: 3rem 1.5rem;
+  }
+
+  .pricing__cards {
+    grid-template-columns: 1fr;
+    max-width: 400px;
+    margin: 0 auto;
+  }
+
+  .pricing__price {
+    font-size: var(--pricing-price-size-sm);
+  }
+
+  .pricing__card {
+    padding: 1.5rem 1rem;
+  }
+}
+/* 12. DUAL CURRENCY — السعر بالجنيه والدولار */
+.pricing__price-slash {
+  font-size: 0.8em;
+  color: var(--mid);
+  font-weight: var(--fw-medium);
+  margin: 0 0.15rem;
+}
+
+.pricing__price-usd-inline {
+  font-size: 0.7em;
+  color: var(--mid);
+  font-weight: var(--fw-semibold);
+  direction: ltr;
+  display: inline-block;
+}
+
+.pricing__price-location-note {
+  font-size: var(--text-xs);
+  color: var(--accent);
+  margin-top: 0.4rem;
+  font-weight: var(--fw-medium);
+  opacity: 0.85;
+}

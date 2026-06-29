@@ -1,0 +1,115 @@
+/* ============================================================
+   FAQ SECTION — قسم الأسئلة الشائعة
+   ============================================================ */
+
+
+/* 01. SECTION WRAPPER */
+#faq,
+.faq {
+  padding: 6rem 7vw;
+  background: var(--off);
+  text-align: center;
+}
+
+/* 02. LIST CONTAINER */
+.faq__list {
+  max-width: var(--faq-max-w);
+  margin: var(--gap-3xl) auto 0;
+  text-align: right;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+/* 03. ITEM */
+.faq__item {
+  background: var(--white);
+  border: var(--border-width-md) solid var(--line);
+  border-radius: var(--faq-radius);
+  overflow: hidden;
+  transition: border-color var(--duration-base);
+}
+
+.faq__item:has(.faq__btn.open) {
+  border-color: var(--accent);
+}
+
+/* 04. BUTTON / QUESTION */
+.faq__btn {
+  width: 100%;
+  background: none;
+  border: none;
+  padding: 1.1rem 1.4rem;
+  font-family: var(--font-tajawal);
+  font-weight: var(--fw-bold);
+  font-size: var(--text-sm);
+  color: var(--ink);
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  text-align: right;
+  transition: color var(--duration-base);
+}
+
+.faq__btn.open {
+  color: var(--accent);
+}
+
+/* 05. ICON */
+.faq__btn-icon {
+  flex-shrink: 0;
+  color: var(--muted);
+  transition: transform var(--duration-faq);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.faq__btn.open .faq__btn-icon {
+  transform: rotate(180deg);
+}
+
+.faq__btn-icon svg {
+  width: var(--icon-20);
+  height: var(--icon-20);
+}
+
+/* 06. ANSWER / BODY */
+.faq__answer {
+  max-height: 0;
+  overflow: hidden;
+  padding: 0 1.4rem;
+  font-size: var(--text-sm);
+  color: var(--mid);
+  line-height: 1.8;
+  transition: max-height var(--duration-faq) ease, padding var(--duration-faq) ease;
+}
+
+.faq__answer.open {
+  max-height: var(--faq-open-max-height);
+  padding: 0 1.4rem 1.2rem;
+}
+
+/* 07. RESPONSIVE */
+@media (max-width: 768px) {
+
+  #faq,
+  .faq {
+    padding: 4rem 1.5rem;
+  }
+
+  .faq__btn {
+    padding: 0.9rem 1rem;
+    font-size: var(--text-xs);
+  }
+
+  .faq__answer {
+    font-size: var(--text-xs);
+  }
+
+  .faq__answer.open {
+    padding: 0 1rem 1rem;
+  }
+}

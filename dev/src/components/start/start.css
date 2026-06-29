@@ -1,0 +1,213 @@
+/* ================================================================
+   START SECTION — خطوات البداية + طرق الدفع
+   ================================================================ */
+
+.start {
+  padding: var(--section-y-lg) var(--page-x);
+  background: var(--white);
+  text-align: center;
+}
+
+/* ─── 7a. Steps ─── */
+
+.start__steps {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0;
+  max-width: var(--max-steps);
+  margin: 0 auto 4rem;
+  flex-wrap: wrap;
+}
+
+.start__step {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--gap-base);
+  flex: 1;
+  min-width: 160px;
+  max-width: 220px;
+}
+
+.start__step-num {
+  width: var(--step-num-size-sm);
+  height: var(--step-num-size-sm);
+  border-radius: var(--radius-circle);
+  background: var(--accent);
+  color: var(--white);
+  font-family: var(--font-body);
+  font-weight: var(--fw-extrabold);
+  font-size: var(--text-xl);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: var(--shadow-step-num);
+  flex-shrink: 0;
+}
+
+.start__step-body h3 {
+  font-size: var(--text-sm);
+  font-weight: var(--fw-bold);
+  color: var(--ink);
+  margin-bottom: 0.3rem;
+}
+
+.start__step-body p {
+  font-size: var(--text-sm);
+  color: var(--mid);
+  line-height: var(--leading-normal);
+}
+
+.start__step-connector {
+  flex: 0 0 var(--connector-length);
+  height: var(--connector-h);
+  background: var(--line);
+  margin-bottom: 2rem;
+}
+
+/* ─── 7b. Payment Cards ─── */
+
+.payment__title {
+  font-family: var(--font-body);
+  font-weight: var(--fw-bold);
+  font-size: var(--text-base);
+  color: var(--mid);
+  letter-spacing: var(--tracking-wider);
+  text-transform: uppercase;
+  margin-bottom: 1.5rem;
+}
+
+.payment__cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--gap-lg);
+  max-width: var(--max-payment);
+  margin: 0 auto;
+}
+
+.payment__card {
+  display: flex;
+  align-items: center;
+  gap: var(--gap-base);
+  background: var(--card-bg);
+  border: var(--border-width-md) solid var(--line);
+  border-radius: var(--radius-base);
+  padding: 1.2rem 1.5rem;
+  text-align: start;
+  transition: border-color var(--duration-base), box-shadow var(--duration-base);
+}
+
+[dir="rtl"] .payment__card-info {
+  margin-inline-end: auto;
+  text-align: right;
+}
+
+[dir="ltr"] .payment__card-info {
+  text-align: left;
+}
+
+.payment__card:hover {
+  border-color: var(--accent);
+  box-shadow: var(--shadow-accent);
+}
+
+.payment__card-icon {
+  width: var(--icon-size-lg);
+  height: var(--icon-size-lg);
+  border-radius: var(--radius-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: var(--text-lg);
+  flex-shrink: 0;
+}
+
+.payment__card-icon .icon {
+  width: var(--text-lg);
+  height: var(--text-lg);
+}
+
+.payment__card-icon--instapay { background: var(--accent-tint-10);    color: var(--accent);  }
+.payment__card-icon--orange   { background: var(--accent2-tint-12);   color: var(--accent2); }
+.payment__card-icon--bank     { background: var(--ink-tint-07);       color: var(--ink);     }
+.payment__card-icon--western  { background: var(--western-tint-15);   color: var(--western-color); }
+
+.payment__card-info h4 {
+  font-size: var(--text-sm);
+  font-weight: var(--fw-bold);
+  color: var(--ink);
+  margin-bottom: 0.2rem;
+}
+
+.payment__card-info p {
+  font-size: var(--text-xs);
+  color: var(--muted);
+  margin-bottom: 0.3rem;
+}
+
+.payment__card-info--western p {
+  margin-bottom: 0.15rem;
+}
+
+.payment__card-number {
+  font-size: var(--text-sm);
+  font-weight: var(--fw-bold);
+  color: var(--accent);
+  letter-spacing: var(--tracking-normal);
+  direction: ltr;
+  text-align: left;
+  display: inline-block;
+}
+
+.payment__note {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--gap-sm);
+  margin-top: 2rem;
+  background: var(--accent-tint-07);
+  border: var(--border-width) solid var(--accent-tint-15);
+  color: var(--accent);
+  font-size: var(--text-sm);
+  font-weight: var(--fw-medium);
+  padding: 0.7rem 1.4rem;
+  border-radius: var(--radius-full);
+}
+
+.payment__note .icon {
+  width: var(--text-base);
+  height: var(--text-base);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .payment__cards {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 650px) {
+  .start__steps {
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .start__step-connector {
+    width: var(--connector-w);
+    height: 30px;
+    flex: 0 0 30px;
+    margin-bottom: 0;
+  }
+
+  .payment__card {
+    max-width: 100%;
+    width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .payment__cards {
+    grid-template-columns: 1fr;
+  }
+}

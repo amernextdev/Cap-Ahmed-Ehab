@@ -1,0 +1,439 @@
+/* ============================================================
+   variables.css
+   Design Tokens — extracted from project stylesheet
+   ============================================================ */
+
+:root {
+
+  /* ─────────────────────────────────────────
+     🎨 Color Palette
+     ───────────────────────────────────────── */
+
+  /* Neutrals */
+  --white:    #ffffff;   /* Pure white — main backgrounds */
+  --off:      #f2f0ea;   /* Warm off-white — section backgrounds */
+  --paper:    #ebe7de;   /* Light beige — subtle tint */
+  --line:     #e2ddd2;   /* Borders, dividers, subtle strokes */
+  --muted:    #b0a898;   /* Placeholder text, captions, fine print */
+  --mid:      #5a5550;   /* Secondary body text */
+  --text:     #1a1816;   /* Primary body text */
+  --ink:      #111210;   /* Headings, high-contrast text */
+
+  /* Surface */
+  --card-bg:  #faf9f6;   /* Card & panel backgrounds */
+
+  /* Brand */
+  --accent:   #2a6b4a;   /* Primary brand color (forest green) */
+  --accent2:  #c8883c;   /* Secondary brand color (amber) */
+
+  /* Accent hover states (derived) */
+  --accent-hover:  #1f5238;   /* Darker green — button/link hover */
+
+  /* Third-party */
+  --whatsapp:      #25d366;   /* WhatsApp brand green */
+  --whatsapp-hover: #1ebe5d;  /* WhatsApp hover */
+
+
+  /* ─────────────────────────────────────────
+     🔤 Typography
+     ───────────────────────────────────────── */
+
+  /* Font Families — base references (don't use directly in components) */
+  --font-tajawal:  'Tajawal', sans-serif;
+  --font-dm-sans:  'DM Sans', sans-serif;
+  --font-playfair: 'Playfair Display', serif;
+
+  /* Font Families — semantic tokens (use these in components) */
+  --font-body:    var(--font-tajawal);   /* switches per lang */
+  --font-display: var(--font-playfair);  /* shared — works for both */
+
+  /* Font Sizes */
+  --text-xs:   0.72rem;   /* Labels, badges */
+  --text-sm:   0.82rem;   /* Captions, footnotes */
+  --text-base: 1rem;      /* Default body */
+  --text-md:   1.05rem;   /* Body emphasis */
+  --text-lg:   1.15rem;   /* Nav logo */
+  --text-xl:   1.3rem;    /* Step numbers */
+  --text-2xl:  1.4rem;    /* Nav logo large */
+  --text-3xl:  2rem;      /* Price amounts */
+
+  /* Fluid / Responsive Font Sizes (clamp) */
+  --text-hero:    clamp(2rem,   4.2vw, 3.2rem);  /* Hero H1 */
+  --text-section: clamp(1.9rem, 4vw,   3rem);    /* Section titles */
+  --text-banner:  clamp(1.4rem, 4vw,   2.4rem);  /* Visual banner quote */
+  --text-sub:     clamp(0.95rem,1.6vw, 1.05rem); /* Hero subtitle */
+
+  /* Font Weights */
+  --fw-light:      300;
+  --fw-regular:    400;
+  --fw-medium:     500;
+  --fw-bold:       700;
+  --fw-extrabold:  800;
+
+  /* Line Heights */
+  --leading-tight:  1.2;   /* Headings */
+  --leading-snug:   1.4;   /* Banner quotes */
+  --leading-normal: 1.6;   /* Body default */
+  --leading-relaxed:1.7;   /* Cards, steps */
+  --leading-loose:  1.85;  /* Section body text */
+
+  /* Letter Spacing */
+  --tracking-tight:  0.02em;
+  --tracking-normal: 0.04em;
+  --tracking-wide:   0.08em;
+  --tracking-wider:  0.1em;
+  --tracking-widest: 0.28em;  /* Section labels */
+
+
+  /* ─────────────────────────────────────────
+     📐 Spacing & Layout
+     ───────────────────────────────────────── */
+
+  /* Page horizontal padding */
+  --page-x: 7vw;
+
+  /* Section vertical padding */
+  --section-y:     5.5rem;
+  --section-y-lg:  6rem;
+
+  /* Gap scale */
+  --gap-xs:  0.35rem;
+  --gap-sm:  0.5rem;
+  --gap-md:  0.75rem;
+  --gap-base: 1rem;
+  --gap-lg:  1.2rem;
+  --gap-xl:  1.5rem;
+  --gap-2xl: 2rem;
+  --gap-3xl: 3rem;
+  --gap-4xl: 4rem;
+
+  /* Max widths */
+  --max-content: 580px;  /* Body text blocks */
+  --max-faq:     680px;  /* FAQ list */
+  --max-pricing: 1100px; /* Pricing grid */
+  --max-steps:   780px;  /* Start steps */
+  --max-payment: 920px;  /* Payment cards grid */
+  --max-hero-img: 420px; /* Hero image */
+
+
+  /* ─────────────────────────────────────────
+     🔲 Borders & Radius
+     ───────────────────────────────────────── */
+
+  --border-width:     1px;
+  --border-width-md:  1.5px;
+  --border-width-lg:  2px;
+  --border-color:     var(--line);
+
+  --radius-sm:   11px;
+  --radius-md:   12px;
+  --radius-base: 14px;
+  --radius-lg:   16px;
+  --radius-xl:   20px;
+  --radius-2xl:  22px;
+  --radius-full: 100px;  /* Pills & circular badges */
+  --radius-circle: 50%;  /* Avatar/icon circles */
+
+
+  /* ─────────────────────────────────────────
+     🌑 Shadows
+     ───────────────────────────────────────── */
+
+  --shadow-xs:  0 2px 10px rgba(0, 0, 0, 0.08);
+  --shadow-sm:  0 2px 12px rgba(0, 0, 0, 0.08);
+  --shadow-md:  0 4px 20px rgba(0, 0, 0, 0.07);
+  --shadow-lg:  0 6px 24px rgba(0, 0, 0, 0.06);
+  --shadow-xl:  0 8px 30px rgba(0, 0, 0, 0.07);
+  --shadow-2xl: 0 8px 40px rgba(0, 0, 0, 0.07);
+  --shadow-card-hover: 0 12px 36px rgba(0, 0, 0, 0.08);
+
+  /* Brand-tinted shadows */
+  --shadow-accent:    0 4px 20px rgba(42, 107, 74, 0.25);
+  --shadow-accent-lg: 0 8px 28px rgba(42, 107, 74, 0.40);
+  --shadow-accent-xl: 0 8px 40px rgba(42, 107, 74, 0.13);
+  --shadow-step-num:  0 4px 16px rgba(42, 107, 74, 0.25);
+  --shadow-whatsapp:  0 4px 20px rgba(37, 211, 102, 0.30);
+  --shadow-whatsapp-lg: 0 8px 28px rgba(37, 211, 102, 0.55);
+
+  /* Pricing card featured shadow */
+  --shadow-featured: 0 8px 32px rgba(42, 107, 74, 0.12);
+
+  /* Feedback card hover shadow */
+  --shadow-fb-hover: 0 16px 48px rgba(42, 107, 74, 0.13);
+
+
+  /* ─────────────────────────────────────────
+     ⚙️ Navigation
+     ───────────────────────────────────────── */
+
+  --nav-padding-y:  1.2rem;
+  --nav-padding-x:  var(--page-x);
+  --nav-bg:         rgba(255, 255, 255, 0.88);
+  --nav-blur:       14px;
+  --nav-z:          100;
+
+
+  /* ─────────────────────────────────────────
+     🎞 Transitions & Animation
+     ───────────────────────────────────────── */
+
+  --duration-fast:   0.15s;
+  --duration-base:   0.2s;
+  --duration-mid:    0.25s;
+  --duration-slow:   0.3s;
+  --duration-reveal: 0.6s;
+  --duration-slide:  0.45s;
+  --duration-faq:    0.35s;
+
+  --ease-default: ease;
+  --ease-slide:   cubic-bezier(0.4, 0, 0.2, 1);
+  --ease-pop:     cubic-bezier(0.175, 0.885, 0.32, 1.275);
+
+  /* Reveal animation initial offset */
+  --reveal-offset: 22px;
+
+
+  /* ─────────────────────────────────────────
+     🧱 Component Tokens
+     ───────────────────────────────────────── */
+
+  /* Icon boxes */
+  --icon-size-sm:  42px;
+  --icon-size-md:  44px;
+  --icon-size-lg:  46px;
+
+  /* Step numbers / circles */
+  --step-num-size-sm: 52px;
+  --step-num-size-lg: 56px;
+
+  /* Proof avatars */
+  --avatar-size: 32px;
+
+  /* Floating WhatsApp button */
+  --wa-float-size: 56px;
+  --wa-float-bottom: 1.6rem;
+  --wa-float-right:  1.6rem;
+
+  /* Transform card images height */
+  --tr-img-height-mobile: 260px;
+  --tr-img-height-desktop: 340px;
+
+  /* Visual banner height */
+  --banner-height-mobile: 320px;
+  --banner-height-desktop: 450px;
+
+  /* Backdrop blur (nav) */
+  --backdrop-blur: blur(var(--nav-blur));
+
+  /* FAQ max-height when open */
+  --faq-open-max-height: 300px;
+
+  /* Step connector dimensions */
+  --connector-h: 2px;   /* horizontal */
+  --connector-w: 2px;   /* vertical (mobile) */
+  --connector-length: 40px;
+
+
+  /* ─────────────────────────────────────────
+     🎨 Alpha / Tint Tokens
+     ───────────────────────────────────────── */
+
+  /* Accent tints */
+  --accent-tint-05:  rgba(42, 107, 74, 0.05);
+  --accent-tint-07:  rgba(42, 107, 74, 0.07);
+  --accent-tint-08:  rgba(42, 107, 74, 0.08);
+  --accent-tint-10:  rgba(42, 107, 74, 0.10);
+  --accent-tint-12:  rgba(42, 107, 74, 0.12);
+  --accent-tint-15:  rgba(42, 107, 74, 0.15);
+
+  /* Accent2 (amber) tints */
+  --accent2-tint-08: rgba(200, 136, 60, 0.08);
+  --accent2-tint-10: rgba(200, 136, 60, 0.10);
+  --accent2-tint-12: rgba(200, 136, 60, 0.12);
+  --accent2-tint-18: rgba(200, 136, 60, 0.18);
+
+  /* WhatsApp tint */
+  --whatsapp-tint-10: rgba(37, 211, 102, 0.10);
+
+  /* White tints */
+  --white-tint-55: rgba(255, 255, 255, 0.55);
+
+  /* Ink (dark) tint — overlay / backdrop */
+  --ink-tint-07:  rgba(17, 18, 16, 0.07);
+  --ink-tint-40:  rgba(17, 18, 16, 0.40);
+
+  /* Black overlay — badge / scrim */
+  --black-tint-55: rgba(0, 0, 0, 0.55);
+
+  /* Western Union gold tint */
+  --western-tint-15: rgba(255, 180, 0, 0.15);
+  --western-color:   #b8860b;
+
+  /* Accent dark hover — pricing featured button */
+  --accent-dark: #1d4d34;
+
+
+  /* ─────────────────────────────────────────
+     📐 Header / Nav Dimensions
+     ───────────────────────────────────────── */
+
+  --header-height:         72px;
+  --header-height-scrolled: 64px;
+  --header-top-line-h:     2px;
+  --mobile-nav-width:      min(360px, 92vw);
+  --mobile-nav-backdrop:   rgba(17, 18, 16, 0.40);  /* = --ink-tint-40 */
+
+
+  /* ─────────────────────────────────────────
+     📐 Component Sizes (icons / controls)
+     ───────────────────────────────────────── */
+
+  --icon-xs:  13px;
+  --icon-sm:  14px;
+  --icon-md:  16px;
+  --icon-nav: 19px;
+  --icon-20:  20px;
+  --icon-28:  28px;
+  --icon-dot: 4px;
+  --icon-pulse-dot: 7px;
+
+  --ctrl-sm:  36px;   /* small control button */
+  --ctrl-md:  40px;   /* close button */
+  --ctrl-lg:  44px;   /* mobile toggle */
+  --ctrl-xl:  46px;   /* social link */
+
+  --hamburger-bar-w: 20px;
+  --hamburger-bar-h: 1.5px;
+  --hamburger-gap:   6px;
+  --hamburger-radius: 2px;
+
+
+  /* ─────────────────────────────────────────
+     📐 Proof / Avatar Row
+     ───────────────────────────────────────── */
+
+  --proof-avatar-offset: -8px;   /* negative margin for overlap */
+
+  /* Avatar background colours */
+  --avatar-bg-1: #d4e8de;
+  --avatar-bg-2: #f5dfc0;
+  --avatar-bg-3: #dce4f0;
+  --avatar-bg-4: #f0d8e8;
+
+
+  /* ─────────────────────────────────────────
+     📐 Results / Transforms
+     ───────────────────────────────────────── */
+
+  --tr-card-height-mobile:  260px;
+  --tr-card-height-desktop: 380px;
+  --tr-card-height-md:      340px;
+  --tr-arrow-size:          44px;
+  --tr-dot-size:            8px;
+  --tr-badge-radius:        100px;
+  --tr-divider-w:           36px;
+  --feedback-card-w:        220px;
+
+
+  /* ─────────────────────────────────────────
+     📐 Pricing
+     ───────────────────────────────────────── */
+
+  --pricing-max-w:          1200px;
+  --pricing-badge-top:      -14px;
+  --pricing-price-size:     2.5rem;
+  --pricing-price-size-sm:  2rem;
+  --pricing-price-unit-size: 0.9rem;
+  --pricing-price-usd-size:  0.75rem;
+
+
+  /* ─────────────────────────────────────────
+     📐 FAQ
+     ───────────────────────────────────────── */
+
+  --faq-max-w:  680px;
+  --faq-radius: 14px;
+
+
+  /* ─────────────────────────────────────────
+     📐 Misc Layout Values
+     ───────────────────────────────────────── */
+
+  --hero-content-mt:    40px;
+  --hero-mobile-pt:     180px;
+  --hero-img-max-sm:    460px;   /* hero subtitle max-width */
+  --dot-bg-size:        28px;
+  --dot-size:           1.2px;
+
+  --results-arrow-offset: -22px;
+  --results-fb-card-max:  240px;
+
+  --problem-icon-font:  1.3rem;
+  --how-step-top:       28px;   /* connector line top offset */
+  --how-step-connector-x: 10%;
+
+  --section-padding-sm:  4rem 5vw;
+  --section-padding-xs:  3rem 1.5rem;
+  --section-padding-mob: 4rem 1.5rem;
+
+  /* WhatsApp float animation delays */
+  --wa-pop-delay:  1.5s;
+  --wa-ring-delay: 2s;
+
+  /* Mobile nav stagger delays */
+  --nav-stagger-1: 0.05s;
+  --nav-stagger-2: 0.10s;
+  --nav-stagger-3: 0.15s;
+  --nav-stagger-4: 0.20s;
+
+  /* Header fade-in */
+  --header-fadein-duration: 0.5s;
+  --header-fadein-delay:    0.1s;
+
+  /* Mobile nav backdrop blur */
+  --nav-backdrop-blur: 4px;
+
+  /* Lang badge font size */
+  --text-badge: 0.68rem;
+
+  /* Mobile logo font size */
+  --text-nav-logo-sm: 1.25rem;
+
+  /* Pricing plan name font size */
+  --text-plan: 1rem;
+
+  /* Outline offset for focus-visible */
+  --focus-outline-offset: 3px;
+
+}
+
+
+/* ─────────────────────────────────────────
+   🌐 Language-Aware Typography Overrides
+   Applied when <html lang="en"> is set
+   ───────────────────────────────────────── */
+
+:root:lang(en),
+[lang="en"] {
+
+  /* Switch body font to DM Sans */
+  --font-body: var(--font-dm-sans);
+
+  /* DM Sans reads slightly smaller — nudge sizes up */
+  --text-xs:   0.75rem;
+  --text-sm:   0.85rem;
+  --text-base: 1rem;
+  --text-md:   1.07rem;
+
+  /* DM Sans needs tighter line-height than Tajawal */
+  --leading-normal:  1.55;
+  --leading-relaxed: 1.65;
+  --leading-loose:   1.75;
+
+  /* Latin tracking — slightly tighter than Arabic defaults */
+  --tracking-normal: 0.01em;
+  --tracking-wide:   0.04em;
+  --tracking-wider:  0.06em;
+  --tracking-widest: 0.18em;
+
+}

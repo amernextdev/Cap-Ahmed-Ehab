@@ -1,0 +1,197 @@
+/* ============================================================
+   base.css — الأكواد العامة والمشتركة
+   ============================================================ */
+
+
+/* ============================================================
+   1. IMPORTS
+   ============================================================ */
+
+@import '/src/services/css/fonts.css';
+@import '/src/services/css/variables.css';
+@import '/src/components/header/header.css';
+@import '/src/components/hero/hero.css';
+@import './components/problem/problem.css';
+@import './components/how/how.css';
+@import './components/offer/offer.css';
+@import './components/results/results.css';
+@import './components/pricing/pricing.css';
+@import './components/start/start.css';
+@import './components/faq/faq.css';
+@import './components/final/final.css';
+
+
+/* ============================================================
+   2. RESET & BASE
+   ============================================================ */
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--white);
+  color: var(--text);
+  font-family: var(--font-body);
+  font-size: var(--text-base);
+  line-height: var(--leading-normal);
+  overflow-x: hidden;
+}
+
+html, body {
+  overflow-x: hidden;
+  width: 100%;
+}
+
+
+/* ============================================================
+   3. FOCUS & TAP FIXES
+   ============================================================ */
+
+a,
+[role="button"],
+button,
+input,
+textarea,
+select {
+  -webkit-tap-highlight-color: transparent;
+}
+
+a:focus,
+button:focus,
+input:focus {
+  outline: none;
+}
+
+a:focus-visible,
+button:focus-visible {
+  outline: var(--border-width-lg) solid var(--accent);
+  outline-offset: var(--focus-outline-offset);
+}
+
+
+/* ============================================================
+   4. ICONS (SVG sprites)
+   ============================================================ */
+
+.icon {
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+  vertical-align: middle;
+  fill: currentColor;
+}
+
+
+/* ============================================================
+   6. TYPOGRAPHY — عناصر مشتركة
+   ============================================================ */
+
+.section__label {
+  font-size: var(--text-xs);
+  font-weight: var(--fw-bold);
+  letter-spacing: var(--tracking-widest);
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 0.8rem;
+  display: block;
+}
+
+.section__title {
+  font-family: var(--font-body);
+  font-weight: var(--fw-extrabold);
+  font-size: var(--text-section);
+  line-height: var(--leading-tight);
+  color: var(--ink);
+  margin-bottom: 0.9rem;
+}
+
+.section__body {
+  font-size: var(--text-md);
+  color: var(--mid);
+  max-width: var(--max-content);
+  line-height: var(--leading-loose);
+}
+
+
+/* ============================================================
+   7. REVEAL ANIMATION
+   ============================================================ */
+
+.reveal {
+  opacity: 0;
+  transform: translateY(var(--reveal-offset));
+  transition: opacity var(--duration-reveal) var(--ease-default),
+              transform var(--duration-reveal) var(--ease-default);
+}
+
+.reveal.vis {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: none;
+}
+
+
+/* ============================================================
+   8. BUTTONS — مشتركة بين أكثر من section
+   ============================================================ */
+
+.btn-main {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--gap-sm);
+  background: var(--accent);
+  color: var(--white);
+  font-family: var(--font-body);
+  font-weight: var(--fw-bold);
+  font-size: var(--text-md);
+  padding: 0.75rem 1.8rem;
+  border-radius: var(--radius-full);
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+  box-shadow: var(--shadow-accent);
+  transition: background var(--duration-base), transform var(--duration-fast);
+}
+
+.btn-main:hover {
+  background: var(--accent-hover);
+  transform: translateY(-2px);
+}
+
+.btn-text {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  color: var(--text);
+  font-size: var(--text-md);
+  font-weight: var(--fw-medium);
+  text-decoration: none;
+  border: var(--border-width-md) solid var(--text);
+  border-radius: var(--radius-full);
+  padding: 0.65rem 1.4rem;
+  transition: background var(--duration-base), color var(--duration-base);
+}
+
+@media (hover: hover) {
+  .btn-text:hover {
+    background: var(--text);
+    color: var(--white);
+  }
+}
+
+.btn-text:active {
+  opacity: 0.7;
+}
