@@ -1,7 +1,0 @@
-# ─── Trailing slash normalisation ───────────────────────────────
-# Removes trailing slashes to keep a single canonical URL
-/*/    /:splat    301
-
-# ─── SPA fallback ────────────────────────────────────────────────
-# All unmatched routes → index.html (required for client-side routing)
-/*    /index.html    200
